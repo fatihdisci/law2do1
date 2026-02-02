@@ -295,11 +295,10 @@ export default function LandingPage() {
                 </div>
 
                 {/* Label */}
-                <div className="flex items-center justify-center gap-2 pt-6 border-t border-slate-100">
-                  <XCircle size={20} className="text-red-500" />
-                  <span className="text-lg font-bold text-slate-600">Yazılımcı Mantığı</span>
+                <div className="flex items-center justify-center gap-3 pt-6 border-t border-slate-100">
+                  <XCircle size={24} className="text-red-500" />
+                  <span className="text-xl font-black text-slate-700">Dağınık • Karmaşık • Kaybolan İşler</span>
                 </div>
-                <p className="text-center text-sm text-slate-400 mt-2">Dağınık • Karmaşık • Kaybolan İşler</p>
               </div>
             </div>
 
@@ -347,11 +346,10 @@ export default function LandingPage() {
                 </div>
 
                 {/* Label */}
-                <div className="flex items-center justify-center gap-2 pt-6 border-t border-indigo-800">
-                  <CheckCircle2 size={20} className="text-emerald-400" />
-                  <span className="text-lg font-bold text-white">Hukukçu Mantığı</span>
+                <div className="flex items-center justify-center gap-3 pt-6 border-t border-indigo-800">
+                  <CheckCircle2 size={24} className="text-emerald-400" />
+                  <span className="text-xl font-black text-white">Net • Düzenli • Kontrol Altında</span>
                 </div>
-                <p className="text-center text-sm text-indigo-300 mt-2">Net • Düzenli • Kontrol Altında</p>
               </div>
             </div>
 
