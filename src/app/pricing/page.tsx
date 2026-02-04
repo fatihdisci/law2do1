@@ -1,53 +1,51 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { Check, Sparkles, ArrowRight } from "lucide-react";
+import { Pricing } from "@/components/ui/pricing";
 
-interface PricingTier {
-    name: string;
-    description: string;
-    monthlyPrice: number;
-    features: string[];
-    highlighted?: boolean;
-    cta: string;
-}
-
-const tiers: PricingTier[] = [
+const plans = [
     {
-        name: "Bireysel",
-        description: "Serbest çalışan avukatlar için",
-        monthlyPrice: 499,
+        name: "BİREYSEL",
+        price: "499",
+        yearlyPrice: "399",
+        period: "ay",
         features: [
-            "10 Dosya",
+            "10 aktif dosya",
             "Otomatik süre hesaplama",
             "Görev yönetimi",
             "E-posta bildirimleri",
             "Temel raporlama",
+            "7/24 erişim",
         ],
-        cta: "Ücretsiz Başla",
+        description: "Serbest çalışan avukatlar için ideal başlangıç",
+        buttonText: "Ücretsiz Dene",
+        href: "/dashboard",
+        isPopular: false,
     },
     {
-        name: "Ofis",
-        description: "Küçük ve orta ölçekli bürolar için",
-        monthlyPrice: 1499,
+        name: "OFİS",
+        price: "1499",
+        yearlyPrice: "1199",
+        period: "ay",
         features: [
-            "Sınırsız Dosya",
-            "Kasa Defteri",
+            "Sınırsız dosya",
             "Tüm Bireysel özellikler",
+            "Kasa defteri",
             "Finansal raporlar",
             "Ekip yönetimi (5 kullanıcı)",
             "Müvekkil portalı",
             "WhatsApp entegrasyonu",
             "Öncelikli destek",
         ],
-        highlighted: true,
-        cta: "Ücretsiz Dene",
+        description: "Büyüyen hukuk büroları için en çok tercih edilen",
+        buttonText: "Hemen Başla",
+        href: "/dashboard",
+        isPopular: true,
     },
     {
-        name: "Kurumsal",
-        description: "Büyük hukuk büroları için",
-        monthlyPrice: 0,
+        name: "KURUMSAL",
+        price: "0",
+        yearlyPrice: "0",
+        period: "",
         features: [
             "Tüm Ofis özellikleri",
             "Sınırsız kullanıcı",
@@ -56,179 +54,61 @@ const tiers: PricingTier[] = [
             "Özel eğitim programı",
             "Dedicated hesap yöneticisi",
             "SLA garantisi",
+            "Özel geliştirmeler",
         ],
-        cta: "İletişime Geç",
+        description: "Büyük hukuk büroları için özel çözümler",
+        buttonText: "İletişime Geç",
+        href: "/contact",
+        isPopular: false,
     },
 ];
 
 export default function PricingPage() {
-    const [isYearly, setIsYearly] = useState(false);
-
-    const getPrice = (monthlyPrice: number) => {
-        if (monthlyPrice === 0) return "Özel";
-        const price = isYearly ? Math.round(monthlyPrice * 0.8) : monthlyPrice;
-        return `₺${price}`;
-    };
-
     return (
-        <div className="min-h-screen pt-24 lg:pt-32 pb-16 lg:pb-24">
+        <div className="min-h-screen bg-slate-50 pt-24">
             {/* Aurora Background */}
-            <div className="aurora-blob aurora-blob-primary w-[500px] h-[500px] -top-20 left-1/4 opacity-20 fixed" />
+            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-[-20%] left-[20%] w-[500px] h-[500px] bg-indigo-200/30 rounded-full blur-[120px]"></div>
+                <div className="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-emerald-100/30 rounded-full blur-[100px]"></div>
+            </div>
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header */}
-                <div className="text-center max-w-2xl mx-auto mb-12">
-                    <span className="inline-block px-4 py-1.5 bg-indigo-100 text-indigo-700 text-sm font-semibold rounded-full mb-4">
-                        Basit Fiyatlandırma
-                    </span>
-                    <h1 className="text-3xl lg:text-5xl font-bold text-indigo-950 mb-4">
-                        Büronuza Uygun Paketi Seçin
-                    </h1>
-                    <p className="text-lg text-slate-600">
-                        Gizli maliyet yok. İstediğiniz zaman iptal edebilirsiniz.
-                    </p>
-                </div>
-
-                {/* Toggle */}
-                <div className="flex items-center justify-center gap-4 mb-12">
-                    <span
-                        className={`font-medium ${!isYearly ? "text-indigo-950" : "text-slate-400"
-                            }`}
-                    >
-                        Aylık
-                    </span>
-                    <button
-                        onClick={() => setIsYearly(!isYearly)}
-                        className={`relative w-14 h-8 rounded-full transition-colors duration-300 ${isYearly ? "bg-emerald-600" : "bg-slate-200"
-                            }`}
-                        aria-label="Toggle yearly pricing"
-                    >
-                        <span
-                            className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${isYearly ? "translate-x-7" : "translate-x-1"
-                                }`}
-                        />
-                    </button>
-                    <span
-                        className={`font-medium ${isYearly ? "text-indigo-950" : "text-slate-400"
-                            }`}
-                    >
-                        Yıllık
-                    </span>
-                    {isYearly && (
-                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-semibold rounded-full animate-[fade-in-up_0.3s_ease-out]">
-                            %20 İndirim
-                        </span>
-                    )}
-                </div>
-
-                {/* Pricing Cards */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {tiers.map((tier) => (
-                        <div
-                            key={tier.name}
-                            className={`relative p-8 rounded-2xl border transition-all duration-300 ${tier.highlighted
-                                ? "bg-indigo-950 border-indigo-800 text-white scale-105 shadow-2xl shadow-indigo-950/30"
-                                : "bg-white border-slate-200 hover:border-indigo-200 hover:shadow-lg"
-                                }`}
-                        >
-                            {/* Popular Badge */}
-                            {tier.highlighted && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                                    <div className="flex items-center gap-1 px-4 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-full shadow-lg">
-                                        <Sparkles className="w-3 h-3" />
-                                        <span>EN POPÜLER</span>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Header */}
-                            <div className="mb-6">
-                                <h3
-                                    className={`text-xl font-bold mb-1 ${tier.highlighted ? "text-white" : "text-indigo-950"
-                                        }`}
-                                >
-                                    {tier.name}
-                                </h3>
-                                <p
-                                    className={`text-sm ${tier.highlighted ? "text-indigo-200" : "text-slate-500"
-                                        }`}
-                                >
-                                    {tier.description}
-                                </p>
-                            </div>
-
-                            {/* Price */}
-                            <div className="mb-6">
-                                <div className="flex items-baseline gap-1">
-                                    <span
-                                        className={`text-4xl font-bold ${tier.highlighted ? "text-white" : "text-indigo-950"
-                                            }`}
-                                    >
-                                        {getPrice(tier.monthlyPrice)}
-                                    </span>
-                                    {tier.monthlyPrice > 0 && (
-                                        <span
-                                            className={`text-sm ${tier.highlighted ? "text-indigo-300" : "text-slate-500"
-                                                }`}
-                                        >
-                                            /ay
-                                        </span>
-                                    )}
-                                </div>
-                                {tier.monthlyPrice > 0 && isYearly && (
-                                    <p
-                                        className={`text-xs mt-1 ${tier.highlighted ? "text-indigo-300" : "text-slate-400"
-                                            }`}
-                                    >
-                                        Yıllık faturalandırma
-                                    </p>
-                                )}
-                            </div>
-
-                            {/* Features */}
-                            <ul className="space-y-3 mb-8">
-                                {tier.features.map((feature, index) => (
-                                    <li key={index} className="flex items-start gap-3">
-                                        <Check
-                                            className={`w-5 h-5 flex-shrink-0 mt-0.5 ${tier.highlighted ? "text-emerald-400" : "text-emerald-600"
-                                                }`}
-                                        />
-                                        <span
-                                            className={`text-sm ${tier.highlighted ? "text-indigo-100" : "text-slate-600"
-                                                }`}
-                                        >
-                                            {feature}
-                                        </span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            {/* CTA */}
-                            <Link
-                                href={tier.monthlyPrice === 0 ? "/contact" : "/dashboard"}
-                                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all duration-200 ${tier.highlighted
-                                    ? "bg-white text-indigo-950 hover:bg-indigo-50"
-                                    : "bg-indigo-950 text-white hover:bg-indigo-900 btn-shimmer"
-                                    }`}
-                            >
-                                {tier.cta}
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+            <div className="relative z-10">
+                <Pricing
+                    plans={plans}
+                    title="Büronuza Uygun Paketi Seçin"
+                    description="Gizli maliyet yok. İstediğiniz zaman iptal edebilirsiniz.
+14 gün boyunca tüm özelliklere ücretsiz erişim."
+                />
 
                 {/* FAQ Teaser */}
-                <div className="text-center mt-16">
+                <div className="text-center pb-20">
                     <p className="text-slate-500">
                         Sorularınız mı var?{" "}
-                        <Link
+                        <a
                             href="/contact"
                             className="text-indigo-600 font-semibold hover:underline"
                         >
                             Bize ulaşın
-                        </Link>
+                        </a>
                     </p>
+                </div>
+
+                {/* Trust Signals */}
+                <div className="max-w-4xl mx-auto px-6 pb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div className="text-3xl font-black text-indigo-600 mb-2">14 Gün</div>
+                            <div className="text-slate-500 text-sm">Ücretsiz deneme süresi</div>
+                        </div>
+                        <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div className="text-3xl font-black text-emerald-600 mb-2">%100</div>
+                            <div className="text-slate-500 text-sm">Memnuniyet garantisi</div>
+                        </div>
+                        <div className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div className="text-3xl font-black text-indigo-600 mb-2">7/24</div>
+                            <div className="text-slate-500 text-sm">Teknik destek</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
