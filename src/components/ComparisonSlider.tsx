@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { CheckCircle2, XCircle, Clock, GripVertical } from "lucide-react";
+import { CheckCircle2, XCircle, GripVertical, Clock, AlertCircle, FileText, Calendar } from "lucide-react";
 
 export function ComparisonSlider() {
     const [sliderPosition, setSliderPosition] = useState(50);
@@ -34,169 +34,216 @@ export function ComparisonSlider() {
         handleMove(e.touches[0].clientX);
     };
 
+    // Excel mock data based on user image
+    const excelData = [
+        { no: "2024/101 E.", client: "Ayşe Demir", opponent: "Zeynep Arslan", type: "Tapu İptal ve Tescil", task: "Harç Yatır" },
+        { no: "2024/102 E.", client: "Ayşe Demir", opponent: "Mustafa Öztürk", type: "Ortaklığın Giderilmesi", task: "Müvekkil ile Görüş" },
+        { no: "2024/103 E.", client: "Ahmet Yıldız", opponent: "Mustafa Öztürk", type: "Ortaklığın Giderilmesi", task: "Müvekkil ile Görüş" },
+        { no: "2024/104 E.", client: "Ahmet Yıldız", opponent: "Fatma Çelik", type: "Ceza Davası", task: "Duruşmaya Katıl" },
+        { no: "2024/105 E.", client: "Ayşe Demir", opponent: "Ahmet Yıldız", type: "Kira Tespit", task: "Bilirkişi Raporunu İncele" },
+        { no: "2024/106 E.", client: "Ayşe Demir", opponent: "Ali Yılmaz", type: "İş Davası (İşe İade)", task: "Dilekçe Yaz" },
+        { no: "2024/107 E.", client: "Zeynep Arslan", opponent: "Fatma Çelik", type: "İş Davası (İşe İade)", task: "Bilirkişi Raporunu İncele" },
+        { no: "2024/108 E.", client: "Mehmet Kaya", opponent: "Ayşe Demir", type: "Kira Tespit", task: "Müvekkil ile Görüş" },
+        { no: "2024/109 E.", client: "Ayşe Demir", opponent: "Mehmet Kaya", type: "Anlaşmalı Boşanma", task: "Müvekkil ile Görüş" },
+        { no: "2024/110 E.", client: "Elif Şahin", opponent: "Fatma Çelik", type: "Ceza Davası", task: "İstinaf Başvurusu" },
+    ];
+
+    // Law2Do smart tasks mock data
+    const smartTasks = [
+        {
+            title: "Harç Tamamlama",
+            file: "2024/101 E. - Demir v. Arslan",
+            due: "Bugün",
+            status: "critical",
+            type: "finance"
+        },
+        {
+            title: "Duruşma Hazırlığı",
+            file: "2024/104 E. - Yıldız v. Çelik",
+            due: "Yarın 09:30",
+            status: "warning",
+            type: "calendar"
+        },
+        {
+            title: "Bilirkişi Raporuna Beyan",
+            file: "2024/105 E. - Demir v. Yıldız",
+            due: "Son 3 Gün",
+            status: "normal",
+            type: "document"
+        },
+        {
+            title: "İşe İade Dilekçesi",
+            file: "2024/106 E. - Demir v. Yılmaz",
+            due: "5 Gün Kaldı",
+            status: "normal",
+            type: "document"
+        }
+    ];
+
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl"
+            className="relative w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-border"
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleMouseUp}
         >
-            {/* LEFT SIDE: Excel Chaos (Full Width Background) */}
-            <div className="absolute inset-0 bg-muted/30">
-                {/* Excel Grid Background */}
-                <div
-                    className="absolute inset-0 opacity-50"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
-                        backgroundSize: "60px 28px",
-                    }}
-                />
+            {/* LEFT SIDE: Excel View */}
+            <div className="absolute inset-0 bg-white text-[11px] md:text-xs font-sans text-slate-700">
+                {/* Excel Toolbar Mock */}
+                <div className="bg-[#107c41] text-white px-4 py-2 flex items-center gap-4 text-xs">
+                    <span className="font-bold">Excel</span>
+                    <span className="opacity-80">Giriş</span>
+                    <span className="opacity-80">Ekle</span>
+                    <span className="opacity-80">Düzen</span>
+                    <span className="opacity-80">Formüller</span>
+                    <span className="ml-auto opacity-80">Oturum Açın</span>
+                </div>
 
-                {/* Excel Header Row */}
-                <div className="absolute top-0 left-0 right-0 h-8 bg-muted border-b border-border flex opacity-70">
-                    <div className="w-10 h-full bg-muted/50 border-r border-border"></div>
-                    {["A", "B", "C", "D", "E", "F", "G", "H"].map((col) => (
-                        <div
-                            key={col}
-                            className="w-[60px] h-full flex items-center justify-center text-xs font-medium text-muted-foreground border-r border-border"
-                        >
-                            {col}
+                {/* Formula Bar */}
+                <div className="bg-slate-50 border-b border-slate-300 px-2 py-1 flex items-center gap-2 text-slate-500">
+                    <span className="font-serif italic font-bold">fx</span>
+                    <div className="bg-white border border-slate-300 w-full h-5"></div>
+                </div>
+
+                {/* Grid Container */}
+                <div className="w-full overflow-hidden relative">
+                    {/* Header Row */}
+                    <div className="flex border-b border-slate-300 bg-slate-50 font-bold text-slate-600">
+                        <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-100"></div>
+                        <div className="w-24 border-r border-slate-300 px-1 py-1">Dosya No</div>
+                        <div className="w-28 border-r border-slate-300 px-1 py-1">Müvekkil</div>
+                        <div className="w-28 border-r border-slate-300 px-1 py-1">Karşı Taraf</div>
+                        <div className="w-32 border-r border-slate-300 px-1 py-1">Dava Türü</div>
+                        <div className="flex-1 border-r border-slate-300 px-1 py-1">Sıradaki Görev</div>
+                    </div>
+
+                    {/* Data Rows */}
+                    {excelData.map((row, index) => (
+                        <div key={index} className="flex border-b border-slate-200 hover:bg-slate-50">
+                            <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">
+                                {index + 1}
+                            </div>
+                            <div className="w-24 border-r border-slate-200 px-1 py-1 truncate">{row.no}</div>
+                            <div className="w-28 border-r border-slate-200 px-1 py-1 truncate">{row.client}</div>
+                            <div className="w-28 border-r border-slate-200 px-1 py-1 truncate">{row.opponent}</div>
+                            <div className="w-32 border-r border-slate-200 px-1 py-1 truncate">{row.type}</div>
+                            <div className="flex-1 border-r border-slate-200 px-1 py-1 truncate">{row.task}</div>
+                        </div>
+                    ))}
+
+                    {/* Empty Rows to Fill */}
+                    {[...Array(10)].map((_, i) => (
+                        <div key={`empty-${i}`} className="flex border-b border-slate-200">
+                            <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">
+                                {excelData.length + i + 1}
+                            </div>
+                            <div className="w-24 border-r border-slate-200 h-6"></div>
+                            <div className="w-28 border-r border-slate-200 h-6"></div>
+                            <div className="w-28 border-r border-slate-200 h-6"></div>
+                            <div className="w-32 border-r border-slate-200 h-6"></div>
+                            <div className="flex-1 border-r border-slate-200 h-6"></div>
                         </div>
                     ))}
                 </div>
 
-                {/* Excel Row Numbers */}
-                <div className="absolute top-8 left-0 w-10 bottom-0 bg-muted border-r border-border opacity-70">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((row) => (
-                        <div
-                            key={row}
-                            className="h-7 flex items-center justify-center text-xs font-medium text-muted-foreground border-b border-border"
-                        >
-                            {row}
-                        </div>
-                    ))}
-                </div>
-
-                {/* Chaotic Data */}
-                <div className="absolute top-8 left-10 right-0 bottom-0 p-2">
-                    {/* Scattered Post-it Notes */}
-                    <div className="absolute top-4 left-8 bg-yellow-200/90 px-3 py-2 rounded shadow-md rotate-[-3deg] text-xs font-medium text-yellow-900 border-b-2 border-yellow-300 z-10 dark:opacity-80">
-                        Revize?
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10">
+                    <div className="bg-white/90 backdrop-blur-md border border-red-200 shadow-xl rounded-full px-6 py-3 flex items-center gap-3">
+                        <XCircle size={24} className="text-red-500" />
+                        <span className="text-lg font-bold text-slate-800">
+                            Manuel • Hataya Açık • Takibi Zor
+                        </span>
                     </div>
-                    <div className="absolute top-16 right-16 bg-pink-200/90 px-3 py-2 rounded shadow-md rotate-[2deg] text-xs font-medium text-pink-900 border-b-2 border-pink-300 z-10 dark:opacity-80">
-                        Hangi Dosya?
-                    </div>
-                    <div className="absolute top-36 left-20 bg-orange-200/90 px-3 py-2 rounded shadow-md rotate-[-1deg] text-xs font-medium text-orange-900 border-b-2 border-orange-300 z-10 dark:opacity-80">
-                        Vekalet nerede?
-                    </div>
-                    <div className="absolute bottom-32 right-24 bg-blue-200/90 px-3 py-2 rounded shadow-md rotate-[3deg] text-xs font-medium text-blue-900 border-b-2 border-blue-300 z-10 dark:opacity-80">
-                        Süre ne zaman?
-                    </div>
-                    <div className="absolute bottom-16 left-32 bg-green-200/90 px-3 py-2 rounded shadow-md rotate-[-2deg] text-xs font-medium text-green-900 border-b-2 border-green-300 z-10 dark:opacity-80">
-                        Kim takip edecek?
-                    </div>
-                    <div className="absolute top-28 right-8 bg-purple-200/90 px-3 py-2 rounded shadow-md rotate-[1deg] text-xs font-medium text-purple-900 border-b-2 border-purple-300 z-10 dark:opacity-80">
-                        Tebligat?
-                    </div>
-                    <div className="absolute bottom-40 left-4 bg-red-200/90 px-3 py-2 rounded shadow-md rotate-[4deg] text-xs font-medium text-red-900 border-b-2 border-red-300 z-10 dark:opacity-80">
-                        ACİL!
-                    </div>
-
-                    {/* Some Excel-like data cells */}
-                    <div className="absolute top-2 left-[120px] text-[10px] text-muted-foreground font-mono">2024/1234</div>
-                    <div className="absolute top-9 left-[180px] text-[10px] text-muted-foreground font-mono">Beklemede</div>
-                    <div className="absolute top-16 left-[60px] text-[10px] text-muted-foreground font-mono bg-yellow-100/50 px-1 dark:bg-yellow-900/30">SÜRE?</div>
-                    <div className="absolute top-24 left-[240px] text-[10px] text-red-600 font-mono font-bold dark:text-red-400">GECİKMİŞ</div>
-                </div>
-
-                {/* Bottom Label */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-card/90 backdrop-blur-sm border-t border-border flex items-center justify-center gap-3">
-                    <XCircle size={24} className="text-red-500" />
-                    <span className="text-lg md:text-xl font-black text-muted-foreground">
-                        Dağınık • Karmaşık • Kaybolan İşler
-                    </span>
                 </div>
             </div>
 
-            {/* RIGHT SIDE: Law2Do Clean Interface (Clipped) */}
+            {/* RIGHT SIDE: Law2Do Interface */}
             <div
-                className="absolute inset-0 bg-gradient-to-br from-indigo-950 to-indigo-900 z-20"
+                className="absolute inset-0 bg-slate-50 z-20"
                 style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
-                {/* Subtle glow */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-[120px] opacity-20"></div>
-
-                {/* Clean Interface Content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
-                    {/* Task Card */}
-                    <div className="w-full max-w-sm bg-white rounded-xl p-5 shadow-2xl mb-4">
-                        <div className="flex items-center gap-3 mb-3">
-                            <div className="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></div>
-                            <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">
-                                SIRADAKİ GÖREV
-                            </span>
-                        </div>
-                        <h4 className="text-lg font-bold text-slate-900 mb-1">
-                            Cevap Dilekçesi Hazırla
-                        </h4>
-                        <div className="flex items-center justify-between">
-                            <span className="text-sm text-slate-500">Dosya: 2024/1234</span>
-                            <span className="text-sm font-bold text-red-600 flex items-center gap-1">
-                                <Clock size={14} />
-                                Son 3 Gün
-                            </span>
-                        </div>
+                {/* Modern Header */}
+                <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-serif font-bold">L</div>
+                        <span className="font-bold text-slate-900">Görevlerim</span>
                     </div>
-
-                    {/* Mini Stats */}
-                    <div className="flex gap-3 w-full max-w-sm">
-                        <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                            <div className="text-2xl font-black text-white">3</div>
-                            <div className="text-xs text-indigo-200">Bugün</div>
-                        </div>
-                        <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                            <div className="text-2xl font-black text-white">8</div>
-                            <div className="text-xs text-indigo-200">Bu Hafta</div>
-                        </div>
-                        <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                            <div className="text-2xl font-black text-emerald-400">0</div>
-                            <div className="text-xs text-indigo-200">Gecikmiş</div>
-                        </div>
+                    <div className="flex items-center gap-3">
+                        <span className="text-sm font-medium text-slate-500">Bugün: 4 Kritik Görev</span>
                     </div>
                 </div>
 
-                {/* Bottom Label */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-indigo-950/90 backdrop-blur-sm border-t border-indigo-800 flex items-center justify-center gap-3">
-                    <CheckCircle2 size={24} className="text-emerald-400" />
-                    <span className="text-lg md:text-xl font-black text-white">
-                        Net • Düzenli • Kontrol Altında
-                    </span>
+                {/* Task List */}
+                <div className="p-6 space-y-4 bg-slate-50 h-full">
+                    {smartTasks.map((task, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-xl p-4 shadow-sm border border-slate-100 flex items-center justify-between hover:shadow-md transition-shadow group cursor-pointer"
+                        >
+                            <div className="flex items-center gap-4">
+                                <div className={`h-10 w-10 rounded-full flex items-center justify-center ${task.type === 'finance' ? 'bg-amber-100 text-amber-600' :
+                                        task.type === 'calendar' ? 'bg-indigo-100 text-indigo-600' :
+                                            'bg-blue-100 text-blue-600'
+                                    }`}>
+                                    {task.type === 'finance' && <AlertCircle size={20} />}
+                                    {task.type === 'calendar' && <Calendar size={20} />}
+                                    {task.type === 'document' && <FileText size={20} />}
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">{task.title}</h4>
+                                    <p className="text-sm text-slate-500">{task.file}</p>
+                                </div>
+                            </div>
+
+                            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold ${task.status === 'critical' ? 'bg-red-100 text-red-700 animate-pulse' :
+                                    task.status === 'warning' ? 'bg-orange-100 text-orange-700' :
+                                        'bg-emerald-100 text-emerald-700'
+                                }`}>
+                                <Clock size={12} />
+                                {task.due}
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* AI Suggestion Banner */}
+                    <div className="bg-indigo-900 rounded-xl p-4 text-white flex items-center justify-between shadow-lg mt-4">
+                        <div className="flex items-center gap-3">
+                            <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">✨</div>
+                            <div className="text-sm">
+                                <p className="font-bold">Yapay Zeka Önerisi</p>
+                                <p className="opacity-80">2024/106 E. dosyası için emsal karar bulundu.</p>
+                            </div>
+                        </div>
+                        <button className="bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-indigo-50 transition-colors">
+                            İncele
+                        </button>
+                    </div>
+                </div>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center">
+                    <div className="bg-white/90 backdrop-blur-md border border-emerald-200 shadow-xl rounded-full px-6 py-3 flex items-center gap-3">
+                        <CheckCircle2 size={24} className="text-emerald-500" />
+                        <span className="text-lg font-bold text-slate-800">
+                            Otonom • Planlı • Güvenli
+                        </span>
+                    </div>
                 </div>
             </div>
 
             {/* Slider Handle */}
             <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize z-20"
+                className="absolute top-0 bottom-0 w-1 bg-white shadow-xl cursor-ew-resize z-30"
                 style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleMouseDown}
             >
-                {/* Handle Knob */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-xl flex items-center justify-center border-2 border-indigo-600">
-                    <GripVertical size={20} className="text-indigo-600" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-indigo-600 hover:scale-110 transition-transform">
+                    <GripVertical size={24} className="text-indigo-600" />
                 </div>
-
-                {/* Edge glow */}
-                <div className="absolute inset-y-0 -left-2 -right-2 bg-white/20 blur-sm"></div>
-            </div>
-
-            {/* Instruction Text */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full text-white text-xs font-medium z-30">
-                ← Sürükleyerek karşılaştırın →
             </div>
         </div>
     );

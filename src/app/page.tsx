@@ -238,7 +238,7 @@ export default function LandingPage() {
       </section>
 
       {/* BEFORE/AFTER COMPARISON: "Farkı Hissedin" */}
-      <section className="py-24 px-6 bg-muted/50 relative z-10">
+      <section className="py-24 px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
