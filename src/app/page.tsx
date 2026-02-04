@@ -7,6 +7,7 @@ import {
   Shield, XCircle, Play, Clock, FileText, Bell,
   BarChart3, CalendarClock, AlertTriangle
 } from 'lucide-react';
+import { ComparisonSlider } from '@/components/ComparisonSlider';
 
 export default function LandingPage() {
 
@@ -237,123 +238,20 @@ export default function LandingPage() {
       </section>
 
       {/* BEFORE/AFTER COMPARISON: "Farkı Hissedin" */}
-      <section className="py-24 px-6 bg-slate-100/50 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-24 px-6 bg-muted/50 relative z-10">
+        <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
               Farkı Hissedin
             </h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Genel amaçlı yazılımlar vs. hukuk pratiği için tasarlanmış sistem
             </p>
           </div>
 
-          {/* Comparison Cards */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-
-            {/* LEFT: "Yazılımcı Mantığı" - The Problem */}
-            <div className="relative group">
-              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-lg overflow-hidden">
-                {/* Chaos Background - Excel Grid */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="w-full h-full" style={{
-                    backgroundImage: 'linear-gradient(to right, #cbd5e1 1px, transparent 1px), linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)',
-                    backgroundSize: '40px 30px'
-                  }}></div>
-                </div>
-
-                {/* Simulated Chaotic Interface */}
-                <div className="relative h-64 md:h-80">
-                  {/* Scattered Post-it Notes */}
-                  <div className="absolute top-4 left-4 bg-yellow-200 px-3 py-2 rounded shadow-md rotate-[-3deg] text-xs font-medium text-yellow-900 border-b-2 border-yellow-300">
-                    Revize?
-                  </div>
-                  <div className="absolute top-12 right-8 bg-pink-200 px-3 py-2 rounded shadow-md rotate-[2deg] text-xs font-medium text-pink-900 border-b-2 border-pink-300">
-                    Hangi Dosya?
-                  </div>
-                  <div className="absolute top-32 left-12 bg-orange-200 px-3 py-2 rounded shadow-md rotate-[-1deg] text-xs font-medium text-orange-900 border-b-2 border-orange-300">
-                    Vekalet nerede?
-                  </div>
-                  <div className="absolute bottom-20 right-4 bg-blue-200 px-3 py-2 rounded shadow-md rotate-[3deg] text-xs font-medium text-blue-900 border-b-2 border-blue-300">
-                    Süre ne zaman?
-                  </div>
-                  <div className="absolute bottom-8 left-20 bg-green-200 px-3 py-2 rounded shadow-md rotate-[-2deg] text-xs font-medium text-green-900 border-b-2 border-green-300">
-                    Kim takip edecek?
-                  </div>
-                  <div className="absolute top-24 right-20 bg-purple-200 px-3 py-2 rounded shadow-md rotate-[1deg] text-xs font-medium text-purple-900 border-b-2 border-purple-300">
-                    Tebligat geldi mi?
-                  </div>
-                  <div className="absolute bottom-32 left-2 bg-red-200 px-3 py-2 rounded shadow-md rotate-[4deg] text-xs font-medium text-red-900 border-b-2 border-red-300">
-                    ACİL!
-                  </div>
-
-                  {/* Scattered mini boxes to simulate chaos */}
-                  <div className="absolute top-8 left-32 w-20 h-6 bg-slate-100 rounded border border-slate-200"></div>
-                  <div className="absolute top-48 right-12 w-16 h-8 bg-slate-100 rounded border border-slate-200"></div>
-                  <div className="absolute bottom-16 left-40 w-24 h-5 bg-slate-100 rounded border border-slate-200"></div>
-                </div>
-
-                {/* Label */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-slate-100">
-                  <XCircle size={24} className="text-red-500" />
-                  <span className="text-xl font-black text-slate-700">Dağınık • Karmaşık • Kaybolan İşler</span>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT: "Hukukçu Mantığı" - The Solution */}
-            <div className="relative group">
-              <div className="bg-gradient-to-br from-indigo-950 to-indigo-900 rounded-3xl p-8 shadow-2xl shadow-indigo-900/30 overflow-hidden text-white">
-                {/* Subtle pattern background */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-400 rounded-full blur-3xl"></div>
-                </div>
-
-                {/* Clean Interface Preview */}
-                <div className="relative h-64 md:h-80 flex flex-col justify-center space-y-4">
-                  {/* Single Clear Action Card */}
-                  <div className="bg-white rounded-xl p-5 shadow-xl transform group-hover:scale-[1.02] transition-transform duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></div>
-                      <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">SIRADAKİ GÖREV</span>
-                    </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-1">Cevap Dilekçesi Hazırla</h4>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-500">Dosya: 2024/1234</span>
-                      <span className="text-sm font-bold text-red-600 flex items-center gap-1">
-                        <Clock size={14} />
-                        Son 3 Gün
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Mini Stats */}
-                  <div className="flex gap-3">
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-white">3</div>
-                      <div className="text-xs text-indigo-200">Bugün</div>
-                    </div>
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-white">8</div>
-                      <div className="text-xs text-indigo-200">Bu Hafta</div>
-                    </div>
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-emerald-400">0</div>
-                      <div className="text-xs text-indigo-200">Gecikmiş</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Label */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-indigo-800">
-                  <CheckCircle2 size={24} className="text-emerald-400" />
-                  <span className="text-xl font-black text-white">Net • Düzenli • Kontrol Altında</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          {/* Comparison Slider */}
+          <ComparisonSlider />
         </div>
       </section>
 
