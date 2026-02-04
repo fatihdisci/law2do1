@@ -45,24 +45,24 @@ export function ComparisonSlider() {
             onTouchEnd={handleMouseUp}
         >
             {/* LEFT SIDE: Excel Chaos (Full Width Background) */}
-            <div className="absolute inset-0 bg-white">
+            <div className="absolute inset-0 bg-muted/30">
                 {/* Excel Grid Background */}
                 <div
-                    className="absolute inset-0"
+                    className="absolute inset-0 opacity-50"
                     style={{
                         backgroundImage:
-                            "linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)",
+                            "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
                         backgroundSize: "60px 28px",
                     }}
                 />
 
                 {/* Excel Header Row */}
-                <div className="absolute top-0 left-0 right-0 h-8 bg-slate-100 border-b border-slate-300 flex">
-                    <div className="w-10 h-full bg-slate-200 border-r border-slate-300"></div>
+                <div className="absolute top-0 left-0 right-0 h-8 bg-muted border-b border-border flex opacity-70">
+                    <div className="w-10 h-full bg-muted/50 border-r border-border"></div>
                     {["A", "B", "C", "D", "E", "F", "G", "H"].map((col) => (
                         <div
                             key={col}
-                            className="w-[60px] h-full flex items-center justify-center text-xs font-medium text-slate-500 border-r border-slate-300"
+                            className="w-[60px] h-full flex items-center justify-center text-xs font-medium text-muted-foreground border-r border-border"
                         >
                             {col}
                         </div>
@@ -70,11 +70,11 @@ export function ComparisonSlider() {
                 </div>
 
                 {/* Excel Row Numbers */}
-                <div className="absolute top-8 left-0 w-10 bottom-0 bg-slate-100 border-r border-slate-300">
+                <div className="absolute top-8 left-0 w-10 bottom-0 bg-muted border-r border-border opacity-70">
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((row) => (
                         <div
                             key={row}
-                            className="h-7 flex items-center justify-center text-xs font-medium text-slate-500 border-b border-slate-300"
+                            className="h-7 flex items-center justify-center text-xs font-medium text-muted-foreground border-b border-border"
                         >
                             {row}
                         </div>
@@ -84,39 +84,39 @@ export function ComparisonSlider() {
                 {/* Chaotic Data */}
                 <div className="absolute top-8 left-10 right-0 bottom-0 p-2">
                     {/* Scattered Post-it Notes */}
-                    <div className="absolute top-4 left-8 bg-yellow-200 px-3 py-2 rounded shadow-md rotate-[-3deg] text-xs font-medium text-yellow-900 border-b-2 border-yellow-300 z-10">
+                    <div className="absolute top-4 left-8 bg-yellow-200/90 px-3 py-2 rounded shadow-md rotate-[-3deg] text-xs font-medium text-yellow-900 border-b-2 border-yellow-300 z-10 dark:opacity-80">
                         Revize?
                     </div>
-                    <div className="absolute top-16 right-16 bg-pink-200 px-3 py-2 rounded shadow-md rotate-[2deg] text-xs font-medium text-pink-900 border-b-2 border-pink-300 z-10">
+                    <div className="absolute top-16 right-16 bg-pink-200/90 px-3 py-2 rounded shadow-md rotate-[2deg] text-xs font-medium text-pink-900 border-b-2 border-pink-300 z-10 dark:opacity-80">
                         Hangi Dosya?
                     </div>
-                    <div className="absolute top-36 left-20 bg-orange-200 px-3 py-2 rounded shadow-md rotate-[-1deg] text-xs font-medium text-orange-900 border-b-2 border-orange-300 z-10">
+                    <div className="absolute top-36 left-20 bg-orange-200/90 px-3 py-2 rounded shadow-md rotate-[-1deg] text-xs font-medium text-orange-900 border-b-2 border-orange-300 z-10 dark:opacity-80">
                         Vekalet nerede?
                     </div>
-                    <div className="absolute bottom-32 right-24 bg-blue-200 px-3 py-2 rounded shadow-md rotate-[3deg] text-xs font-medium text-blue-900 border-b-2 border-blue-300 z-10">
+                    <div className="absolute bottom-32 right-24 bg-blue-200/90 px-3 py-2 rounded shadow-md rotate-[3deg] text-xs font-medium text-blue-900 border-b-2 border-blue-300 z-10 dark:opacity-80">
                         Süre ne zaman?
                     </div>
-                    <div className="absolute bottom-16 left-32 bg-green-200 px-3 py-2 rounded shadow-md rotate-[-2deg] text-xs font-medium text-green-900 border-b-2 border-green-300 z-10">
+                    <div className="absolute bottom-16 left-32 bg-green-200/90 px-3 py-2 rounded shadow-md rotate-[-2deg] text-xs font-medium text-green-900 border-b-2 border-green-300 z-10 dark:opacity-80">
                         Kim takip edecek?
                     </div>
-                    <div className="absolute top-28 right-8 bg-purple-200 px-3 py-2 rounded shadow-md rotate-[1deg] text-xs font-medium text-purple-900 border-b-2 border-purple-300 z-10">
+                    <div className="absolute top-28 right-8 bg-purple-200/90 px-3 py-2 rounded shadow-md rotate-[1deg] text-xs font-medium text-purple-900 border-b-2 border-purple-300 z-10 dark:opacity-80">
                         Tebligat?
                     </div>
-                    <div className="absolute bottom-40 left-4 bg-red-200 px-3 py-2 rounded shadow-md rotate-[4deg] text-xs font-medium text-red-900 border-b-2 border-red-300 z-10">
+                    <div className="absolute bottom-40 left-4 bg-red-200/90 px-3 py-2 rounded shadow-md rotate-[4deg] text-xs font-medium text-red-900 border-b-2 border-red-300 z-10 dark:opacity-80">
                         ACİL!
                     </div>
 
                     {/* Some Excel-like data cells */}
-                    <div className="absolute top-2 left-[120px] text-[10px] text-slate-600 font-mono">2024/1234</div>
-                    <div className="absolute top-9 left-[180px] text-[10px] text-slate-600 font-mono">Beklemede</div>
-                    <div className="absolute top-16 left-[60px] text-[10px] text-slate-600 font-mono bg-yellow-100 px-1">SÜRE?</div>
-                    <div className="absolute top-24 left-[240px] text-[10px] text-red-600 font-mono font-bold">GECİKMİŞ</div>
+                    <div className="absolute top-2 left-[120px] text-[10px] text-muted-foreground font-mono">2024/1234</div>
+                    <div className="absolute top-9 left-[180px] text-[10px] text-muted-foreground font-mono">Beklemede</div>
+                    <div className="absolute top-16 left-[60px] text-[10px] text-muted-foreground font-mono bg-yellow-100/50 px-1 dark:bg-yellow-900/30">SÜRE?</div>
+                    <div className="absolute top-24 left-[240px] text-[10px] text-red-600 font-mono font-bold dark:text-red-400">GECİKMİŞ</div>
                 </div>
 
                 {/* Bottom Label */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-white/90 backdrop-blur-sm border-t border-slate-200 flex items-center justify-center gap-3">
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-card/90 backdrop-blur-sm border-t border-border flex items-center justify-center gap-3">
                     <XCircle size={24} className="text-red-500" />
-                    <span className="text-lg md:text-xl font-black text-slate-700">
+                    <span className="text-lg md:text-xl font-black text-muted-foreground">
                         Dağınık • Karmaşık • Kaybolan İşler
                     </span>
                 </div>
@@ -124,7 +124,7 @@ export function ComparisonSlider() {
 
             {/* RIGHT SIDE: Law2Do Clean Interface (Clipped) */}
             <div
-                className="absolute inset-0 bg-gradient-to-br from-indigo-950 to-indigo-900"
+                className="absolute inset-0 bg-gradient-to-br from-indigo-950 to-indigo-900 z-20"
                 style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
                 {/* Subtle glow */}
