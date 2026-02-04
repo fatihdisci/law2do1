@@ -176,25 +176,7 @@ export function ComparisonSlider() {
                     </div>
                 </div>
 
-                {/* Centered Overlay Label */}
-                <div
-                    className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
-                    style={{ opacity: leftLabelOpacity, transition: 'opacity 0.2s ease-out' }}
-                >
-                    <div className="bg-white/95 backdrop-blur-md border border-red-200 shadow-2xl rounded-2xl px-8 py-6 flex flex-col items-center gap-3 text-center max-w-xs transform scale-110">
-                        <div className="bg-red-100 p-3 rounded-full">
-                            <XCircle size={32} className="text-red-500" />
-                        </div>
-                        <div>
-                            <span className="block text-xl font-black text-slate-800 mb-1">
-                                Manuel Takip
-                            </span>
-                            <span className="text-sm font-medium text-slate-500">
-                                Hataya Açık • Karmaşık • Riskli
-                            </span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             {/* RIGHT SIDE: Law2Do Interface */}
@@ -248,9 +230,9 @@ export function ComparisonSlider() {
 
                                 <div className="flex items-center gap-4">
                                     <div className={`h-10 w-10 rounded-lg flex items-center justify-center shrink-0 ${task.type === 'finance' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
-                                            task.type === 'calendar' ? 'bg-indigo-50 text-indigo-600 border border-indigo-100' :
-                                                task.type === 'meeting' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
-                                                    'bg-blue-50 text-blue-600 border border-blue-100'
+                                        task.type === 'calendar' ? 'bg-indigo-50 text-indigo-600 border border-indigo-100' :
+                                            task.type === 'meeting' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                                                'bg-blue-50 text-blue-600 border border-blue-100'
                                         }`}>
                                         {task.type === 'finance' && <AlertCircle size={20} />}
                                         {task.type === 'calendar' && <Calendar size={20} />}
@@ -270,8 +252,8 @@ export function ComparisonSlider() {
 
                                 <div className="flex items-center gap-3 pl-4">
                                     <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold whitespace-nowrap shadow-sm border ${task.status === 'critical' ? 'bg-red-50 text-red-700 border-red-100' :
-                                            task.status === 'warning' ? 'bg-orange-50 text-orange-700 border-orange-100' :
-                                                'bg-emerald-50 text-emerald-700 border-emerald-100'
+                                        task.status === 'warning' ? 'bg-orange-50 text-orange-700 border-orange-100' :
+                                            'bg-emerald-50 text-emerald-700 border-emerald-100'
                                         }`}>
                                         <Clock size={12} className={task.status === 'critical' ? 'animate-pulse' : ''} />
                                         {task.due}
@@ -294,24 +276,49 @@ export function ComparisonSlider() {
                     </div>
                 </div>
 
-                {/* Centered Overlay Label */}
-                <div
-                    className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
-                    style={{ opacity: rightLabelOpacity, transition: 'opacity 0.2s ease-out' }}
-                >
-                    <div className="bg-white/95 backdrop-blur-md border border-emerald-200 shadow-2xl rounded-2xl px-8 py-6 flex flex-col items-center gap-3 text-center max-w-xs transform scale-110">
-                        <div className="bg-emerald-100 p-3 rounded-full">
-                            <CheckCircle2 size={32} className="text-emerald-500" />
-                        </div>
-                        <div>
-                            <span className="block text-xl font-black text-slate-800 mb-1">
-                                Otonom Sistem
-                            </span>
-                            <span className="text-sm font-medium text-slate-500">
-                                Planlı • Güvenli • Kontrollü
-                            </span>
-                        </div>
+
+            </div>
+
+            {/* Centered Labels - Positioned relative to slider handle */}
+            <div
+                className="absolute top-1/2 -translate-y-1/2 z-40 pointer-events-none transition-opacity duration-200"
+                style={{
+                    left: `calc(${sliderPosition}% - 40px)`,
+                    transform: 'translateX(-100%) translateY(-50%)',
+                    opacity: leftLabelOpacity
+                }}
+            >
+                <div className="bg-white/90 backdrop-blur-md border border-red-200 shadow-xl rounded-xl p-4 text-center min-w-[160px]">
+                    <div className="flex justify-center mb-2">
+                        <XCircle size={28} className="text-red-500" />
                     </div>
+                    <span className="block text-lg font-black text-slate-800 leading-tight">
+                        Manuel
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500">
+                        Hataya Açık
+                    </span>
+                </div>
+            </div>
+
+            <div
+                className="absolute top-1/2 -translate-y-1/2 z-40 pointer-events-none transition-opacity duration-200"
+                style={{
+                    left: `calc(${sliderPosition}% + 40px)`,
+                    transform: 'translateY(-50%)',
+                    opacity: rightLabelOpacity
+                }}
+            >
+                <div className="bg-white/90 backdrop-blur-md border border-emerald-200 shadow-xl rounded-xl p-4 text-center min-w-[160px]">
+                    <div className="flex justify-center mb-2">
+                        <CheckCircle2 size={28} className="text-emerald-500" />
+                    </div>
+                    <span className="block text-lg font-black text-slate-800 leading-tight">
+                        Otonom
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500">
+                        Planlı • Güvenli
+                    </span>
                 </div>
             </div>
 
