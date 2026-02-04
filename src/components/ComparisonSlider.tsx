@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { CheckCircle2, XCircle, GripVertical, Clock, AlertCircle, FileText, Calendar } from "lucide-react";
+import { CheckCircle2, XCircle, GripVertical, Clock, AlertCircle, FileText, Calendar, MoreVertical, Filter, ChevronDown, Search } from "lucide-react";
 
 export function ComparisonSlider() {
     const [sliderPosition, setSliderPosition] = useState(50);
@@ -34,7 +34,7 @@ export function ComparisonSlider() {
         handleMove(e.touches[0].clientX);
     };
 
-    // Excel mock data based on user image
+    // Excel mock data
     const excelData = [
         { no: "2024/101 E.", client: "Ayşe Demir", opponent: "Zeynep Arslan", type: "Tapu İptal ve Tescil", task: "Harç Yatır" },
         { no: "2024/102 E.", client: "Ayşe Demir", opponent: "Mustafa Öztürk", type: "Ortaklığın Giderilmesi", task: "Müvekkil ile Görüş" },
@@ -48,35 +48,47 @@ export function ComparisonSlider() {
         { no: "2024/110 E.", client: "Elif Şahin", opponent: "Fatma Çelik", type: "Ceza Davası", task: "İstinaf Başvurusu" },
     ];
 
-    // Law2Do smart tasks mock data
+    // Law2Do smart tasks mock data - Expanded
     const smartTasks = [
         {
             title: "Harç Tamamlama",
             file: "2024/101 E. - Demir v. Arslan",
             due: "Bugün",
             status: "critical",
-            type: "finance"
+            type: "finance",
+            tag: "Finans"
         },
         {
             title: "Duruşma Hazırlığı",
             file: "2024/104 E. - Yıldız v. Çelik",
             due: "Yarın 09:30",
             status: "warning",
-            type: "calendar"
+            type: "calendar",
+            tag: "Duruşma"
         },
         {
             title: "Bilirkişi Raporuna Beyan",
             file: "2024/105 E. - Demir v. Yıldız",
             due: "Son 3 Gün",
             status: "normal",
-            type: "document"
+            type: "document",
+            tag: "Dilekçe"
         },
         {
             title: "İşe İade Dilekçesi",
             file: "2024/106 E. - Demir v. Yılmaz",
             due: "5 Gün Kaldı",
             status: "normal",
-            type: "document"
+            type: "document",
+            tag: "Dilekçe"
+        },
+        {
+            title: "Müvekkil Görüşmesi",
+            file: "2024/108 E. - Kaya v. Demir",
+            due: "Haftaya",
+            status: "normal",
+            type: "meeting",
+            tag: "Toplantı"
         }
     ];
 
@@ -98,7 +110,6 @@ export function ComparisonSlider() {
                     <span className="opacity-80">Giriş</span>
                     <span className="opacity-80">Ekle</span>
                     <span className="opacity-80">Düzen</span>
-                    <span className="opacity-80">Formüller</span>
                     <span className="ml-auto opacity-80">Oturum Açın</span>
                 </div>
 
@@ -165,67 +176,96 @@ export function ComparisonSlider() {
                 className="absolute inset-0 bg-slate-50 z-20"
                 style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
-                {/* Modern Header */}
-                <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-serif font-bold">L</div>
-                        <span className="font-bold text-slate-900">Görevlerim</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-slate-500">Bugün: 4 Kritik Görev</span>
-                    </div>
-                </div>
-
-                {/* Task List */}
-                <div className="p-6 space-y-4 bg-slate-50 h-full">
-                    {smartTasks.map((task, index) => (
-                        <div
-                            key={index}
-                            className="bg-white rounded-xl p-4 shadow-sm border border-slate-100 flex items-center justify-between hover:shadow-md transition-shadow group cursor-pointer"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className={`h-10 w-10 rounded-full flex items-center justify-center ${task.type === 'finance' ? 'bg-amber-100 text-amber-600' :
-                                        task.type === 'calendar' ? 'bg-indigo-100 text-indigo-600' :
-                                            'bg-blue-100 text-blue-600'
-                                    }`}>
-                                    {task.type === 'finance' && <AlertCircle size={20} />}
-                                    {task.type === 'calendar' && <Calendar size={20} />}
-                                    {task.type === 'document' && <FileText size={20} />}
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">{task.title}</h4>
-                                    <p className="text-sm text-slate-500">{task.file}</p>
-                                </div>
-                            </div>
-
-                            <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold ${task.status === 'critical' ? 'bg-red-100 text-red-700 animate-pulse' :
-                                    task.status === 'warning' ? 'bg-orange-100 text-orange-700' :
-                                        'bg-emerald-100 text-emerald-700'
-                                }`}>
-                                <Clock size={12} />
-                                {task.due}
-                            </div>
-                        </div>
-                    ))}
-
-                    {/* AI Suggestion Banner */}
-                    <div className="bg-indigo-900 rounded-xl p-4 text-white flex items-center justify-between shadow-lg mt-4">
+                {/* Modern Header - Enhanced */}
+                <div className="bg-white border-b border-slate-200 px-6 py-4">
+                    <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-3">
-                            <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">✨</div>
-                            <div className="text-sm">
-                                <p className="font-bold">Yapay Zeka Önerisi</p>
-                                <p className="opacity-80">2024/106 E. dosyası için emsal karar bulundu.</p>
+                            <div className="h-8 w-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-serif font-bold shadow-sm">L</div>
+                            <span className="font-bold text-lg text-slate-900">Görevlerim</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="relative">
+                                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 h-4 w-4" />
+                                <input type="text" placeholder="Ara..." className="pl-9 pr-3 py-1.5 bg-slate-100 rounded-md text-sm border-none focus:ring-1 focus:ring-indigo-500 w-48 hidden md:block" />
+                            </div>
+                            <div className="bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-md text-sm font-bold flex items-center gap-2">
+                                <AlertCircle size={14} />
+                                <span>4 Kritik</span>
                             </div>
                         </div>
-                        <button className="bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-indigo-50 transition-colors">
-                            İncele
+                    </div>
+
+                    {/* Filter Bar */}
+                    <div className="flex items-center gap-2 text-sm overflow-x-auto pb-1 scrollbar-hide">
+                        <span className="px-3 py-1 rounded-full bg-slate-900 text-white font-medium cursor-pointer whitespace-nowrap">Tümü</span>
+                        <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 font-medium hover:bg-slate-200 cursor-pointer whitespace-nowrap">Duruşmalar</span>
+                        <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 font-medium hover:bg-slate-200 cursor-pointer whitespace-nowrap">Süreli İşler</span>
+                        <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 font-medium hover:bg-slate-200 cursor-pointer whitespace-nowrap">Bekleyenler</span>
+                        <button className="ml-auto p-1.5 text-slate-400 hover:text-slate-600">
+                            <Filter size={16} />
                         </button>
                     </div>
                 </div>
 
+                {/* Task List - Enhanced Density */}
+                <div className="p-4 md:p-6 space-y-3 bg-slate-50 h-full overflow-y-auto pb-20">
+                    {smartTasks.map((task, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-xl p-4 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] border border-slate-100 flex items-center justify-between hover:shadow-md hover:border-indigo-100 transition-all group cursor-pointer relative overflow-hidden"
+                        >
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-indigo-500 transition-colors"></div>
+
+                            <div className="flex items-center gap-4">
+                                <div className={`h-10 w-10 rounded-lg flex items-center justify-center shrink-0 ${task.type === 'finance' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                                        task.type === 'calendar' ? 'bg-indigo-50 text-indigo-600 border border-indigo-100' :
+                                            task.type === 'meeting' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
+                                                'bg-blue-50 text-blue-600 border border-blue-100'
+                                    }`}>
+                                    {task.type === 'finance' && <AlertCircle size={20} />}
+                                    {task.type === 'calendar' && <Calendar size={20} />}
+                                    {task.type === 'document' && <FileText size={20} />}
+                                    {task.type === 'meeting' && <Clock size={20} />}
+                                </div>
+                                <div className="min-w-0">
+                                    <div className="flex items-center gap-2 mb-0.5">
+                                        <h4 className="font-bold text-slate-900 text-sm md:text-base group-hover:text-indigo-600 transition-colors truncate">{task.title}</h4>
+                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-500 border border-slate-200 hidden md:inline-block">
+                                            {task.tag}
+                                        </span>
+                                    </div>
+                                    <p className="text-xs text-slate-500 truncate">{task.file}</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 pl-4">
+                                <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold whitespace-nowrap shadow-sm border ${task.status === 'critical' ? 'bg-red-50 text-red-700 border-red-100' :
+                                        task.status === 'warning' ? 'bg-orange-50 text-orange-700 border-orange-100' :
+                                            'bg-emerald-50 text-emerald-700 border-emerald-100'
+                                    }`}>
+                                    <Clock size={12} className={task.status === 'critical' ? 'animate-pulse' : ''} />
+                                    {task.due}
+                                </div>
+                                <div className="text-slate-300 group-hover:text-indigo-600 transition-colors">
+                                    <MoreVertical size={16} />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Add a placeholder task to show it continues */}
+                    <div className="opacity-40 bg-white rounded-xl p-4 border border-slate-100 flex items-center gap-4">
+                        <div className="h-10 w-10 rounded-lg bg-slate-100"></div>
+                        <div className="flex-1 space-y-2">
+                            <div className="h-4 w-32 bg-slate-100 rounded"></div>
+                            <div className="h-3 w-48 bg-slate-100 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Bottom Overlay Label */}
-                <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-                    <div className="bg-white/90 backdrop-blur-md border border-emerald-200 shadow-xl rounded-full px-6 py-3 flex items-center gap-3">
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center z-10">
+                    <div className="bg-white/90 backdrop-blur-md border border-emerald-200 shadow-xl rounded-full px-6 py-3 flex items-center gap-3 transform hover:scale-105 transition-transform duration-300">
                         <CheckCircle2 size={24} className="text-emerald-500" />
                         <span className="text-lg font-bold text-slate-800">
                             Otonom • Planlı • Güvenli
@@ -236,12 +276,12 @@ export function ComparisonSlider() {
 
             {/* Slider Handle */}
             <div
-                className="absolute top-0 bottom-0 w-1 bg-white shadow-xl cursor-ew-resize z-30"
+                className="absolute top-0 bottom-0 w-1 bg-white shadow-xl cursor-ew-resize z-30 group"
                 style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleMouseDown}
             >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-indigo-600 hover:scale-110 transition-transform">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-indigo-600 group-hover:scale-110 transition-transform">
                     <GripVertical size={24} className="text-indigo-600" />
                 </div>
             </div>
