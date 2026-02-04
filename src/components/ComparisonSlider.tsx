@@ -283,19 +283,19 @@ export function ComparisonSlider() {
             <div
                 className="absolute top-1/2 -translate-y-1/2 z-40 pointer-events-none transition-opacity duration-200"
                 style={{
-                    left: `calc(${sliderPosition}% - 40px)`,
+                    left: `calc(${sliderPosition}% - 24px)`,
                     transform: 'translateX(-100%) translateY(-50%)',
                     opacity: leftLabelOpacity
                 }}
             >
-                <div className="bg-white/90 backdrop-blur-md border border-red-200 shadow-xl rounded-xl p-4 text-center min-w-[160px]">
-                    <div className="flex justify-center mb-2">
-                        <XCircle size={28} className="text-red-500" />
+                <div className="bg-white border border-red-100 shadow-xl rounded-2xl w-40 h-40 flex flex-col items-center justify-center text-center p-4">
+                    <div className="mb-3">
+                        <XCircle size={36} className="text-red-500" />
                     </div>
-                    <span className="block text-lg font-black text-slate-800 leading-tight">
+                    <span className="block text-xl font-black text-slate-800 mb-1">
                         Manuel
                     </span>
-                    <span className="text-xs font-semibold text-slate-500">
+                    <span className="text-sm font-semibold text-slate-500">
                         Hataya Açık
                     </span>
                 </div>
@@ -304,19 +304,19 @@ export function ComparisonSlider() {
             <div
                 className="absolute top-1/2 -translate-y-1/2 z-40 pointer-events-none transition-opacity duration-200"
                 style={{
-                    left: `calc(${sliderPosition}% + 40px)`,
+                    left: `calc(${sliderPosition}% + 24px)`,
                     transform: 'translateY(-50%)',
                     opacity: rightLabelOpacity
                 }}
             >
-                <div className="bg-white/90 backdrop-blur-md border border-emerald-200 shadow-xl rounded-xl p-4 text-center min-w-[160px]">
-                    <div className="flex justify-center mb-2">
-                        <CheckCircle2 size={28} className="text-emerald-500" />
+                <div className="bg-white border border-emerald-100 shadow-xl rounded-2xl w-40 h-40 flex flex-col items-center justify-center text-center p-4">
+                    <div className="mb-3">
+                        <CheckCircle2 size={36} className="text-emerald-500" />
                     </div>
-                    <span className="block text-lg font-black text-slate-800 leading-tight">
+                    <span className="block text-xl font-black text-slate-800 mb-1">
                         Otonom
                     </span>
-                    <span className="text-xs font-semibold text-slate-500">
+                    <span className="text-sm font-semibold text-slate-500">
                         Planlı • Güvenli
                     </span>
                 </div>
