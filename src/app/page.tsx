@@ -255,48 +255,70 @@ export default function LandingPage() {
 
             {/* LEFT: "Yazılımcı Mantığı" - The Problem */}
             <div className="relative group">
-              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-lg overflow-hidden">
-                {/* Chaos Background - Excel Grid */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="w-full h-full" style={{
-                    backgroundImage: 'linear-gradient(to right, #cbd5e1 1px, transparent 1px), linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)',
-                    backgroundSize: '40px 30px'
-                  }}></div>
-                </div>
+              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-lg overflow-hidden h-full flex flex-col">
 
-                {/* Simulated Chaotic Interface */}
-                <div className="relative h-64 md:h-80">
-                  {/* Scattered Post-it Notes */}
-                  <div className="absolute top-4 left-4 bg-yellow-200 px-3 py-2 rounded shadow-md rotate-[-3deg] text-xs font-medium text-yellow-900 border-b-2 border-yellow-300">
-                    Revize?
-                  </div>
-                  <div className="absolute top-12 right-8 bg-pink-200 px-3 py-2 rounded shadow-md rotate-[2deg] text-xs font-medium text-pink-900 border-b-2 border-pink-300">
-                    Hangi Dosya?
-                  </div>
-                  <div className="absolute top-32 left-12 bg-orange-200 px-3 py-2 rounded shadow-md rotate-[-1deg] text-xs font-medium text-orange-900 border-b-2 border-orange-300">
-                    Vekalet nerede?
-                  </div>
-                  <div className="absolute bottom-20 right-4 bg-blue-200 px-3 py-2 rounded shadow-md rotate-[3deg] text-xs font-medium text-blue-900 border-b-2 border-blue-300">
-                    Süre ne zaman?
-                  </div>
-                  <div className="absolute bottom-8 left-20 bg-green-200 px-3 py-2 rounded shadow-md rotate-[-2deg] text-xs font-medium text-green-900 border-b-2 border-green-300">
-                    Kim takip edecek?
-                  </div>
-                  <div className="absolute top-24 right-20 bg-purple-200 px-3 py-2 rounded shadow-md rotate-[1deg] text-xs font-medium text-purple-900 border-b-2 border-purple-300">
-                    Tebligat geldi mi?
-                  </div>
-                  <div className="absolute bottom-32 left-2 bg-red-200 px-3 py-2 rounded shadow-md rotate-[4deg] text-xs font-medium text-red-900 border-b-2 border-red-300">
-                    ACİL!
+                {/* Excel Interface Mock */}
+                <div className="relative flex-1 bg-white flex flex-col text-[10px] sm:text-xs font-sans text-slate-700 select-none cursor-default border border-slate-300 rounded-lg overflow-hidden mb-6 shadow-inner">
+                  {/* Excel Toolbar Mock */}
+                  <div className="bg-[#107c41] text-white px-3 py-2 flex items-center gap-3">
+                    <div className="font-bold">Excel</div>
+                    <div className="opacity-80 hidden sm:block">Giriş</div>
+                    <div className="opacity-80 hidden sm:block">Ekle</div>
+                    <div className="ml-auto opacity-80">Oturum Açın</div>
                   </div>
 
-                  {/* Scattered mini boxes to simulate chaos */}
-                  <div className="absolute top-8 left-32 w-20 h-6 bg-slate-100 rounded border border-slate-200"></div>
-                  <div className="absolute top-48 right-12 w-16 h-8 bg-slate-100 rounded border border-slate-200"></div>
-                  <div className="absolute bottom-16 left-40 w-24 h-5 bg-slate-100 rounded border border-slate-200"></div>
+                  {/* Formula Bar */}
+                  <div className="bg-slate-50 border-b border-slate-300 px-2 py-1 flex items-center gap-2 text-slate-500">
+                    <span className="font-serif italic font-bold">fx</span>
+                    <div className="bg-white border border-slate-300 w-full h-4 rounded-sm"></div>
+                  </div>
+
+                  {/* Grid Container */}
+                  <div className="flex-1 overflow-hidden relative bg-white">
+                    {/* Header Row */}
+                    <div className="flex border-b border-slate-300 bg-slate-50 font-bold text-slate-600">
+                      <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-100"></div>
+                      <div className="w-20 border-r border-slate-300 px-1 py-0.5 pl-2">A</div>
+                      <div className="w-24 border-r border-slate-300 px-1 py-0.5 pl-2">B</div>
+                      <div className="w-24 border-r border-slate-300 px-1 py-0.5 pl-2">C</div>
+                      <div className="flex-1 border-r border-slate-300 px-1 py-0.5 pl-2">D</div>
+                    </div>
+
+                    {/* Data Rows */}
+                    {[
+                      { id: 1, a: "2024/101", b: "Ahmet Y.", c: "Duruşma", d: "14.10.2024" },
+                      { id: 2, a: "2024/102", b: "Mehmet K.", c: "Bilirkişi", d: "Rapor Bekleniyor" },
+                      { id: 3, a: "2024/103", b: "Ayşe D.", c: "Karar", d: "İstinaf Süresi" },
+                      { id: 4, a: "2024/104", b: "Fatma S.", c: "Tensip", d: "Gereği Yapılacak" },
+                      { id: 5, a: "2024/105", b: "Ali V.", c: "Tanık", d: "Dinlenecek" },
+                      { id: 6, a: "2024/106", b: "Veli Z.", c: "Keşif", d: "Araç Ayarlanacak" },
+                      { id: 7, a: "2024/107", b: "Hasan B.", c: "Dilekçe", d: "Cevap Verilecek" },
+                    ].map((row) => (
+                      <div key={row.id} className="flex border-b border-slate-200">
+                        <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">
+                          {row.id}
+                        </div>
+                        <div className="w-20 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.a}</div>
+                        <div className="w-24 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.b}</div>
+                        <div className="w-24 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.c}</div>
+                        <div className="flex-1 border-r border-slate-200 px-1 py-0.5 pl-2 truncate text-slate-500">{row.d}</div>
+                      </div>
+                    ))}
+                    {/* Empty Rows */}
+                    {[8, 9, 10, 11, 12].map(i => (
+                      <div key={i} className="flex border-b border-slate-200">
+                        <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">{i}</div>
+                        <div className="w-20 border-r border-slate-200 px-1 py-0.5"></div>
+                        <div className="w-24 border-r border-slate-200 px-1 py-0.5"></div>
+                        <div className="w-24 border-r border-slate-200 px-1 py-0.5"></div>
+                        <div className="flex-1 border-r border-slate-200 px-1 py-0.5"></div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Label */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-slate-100">
+                <div className="flex items-center justify-center gap-3 pt-2 mt-auto border-t border-slate-100">
                   <XCircle size={24} className="text-red-500" />
                   <span className="text-xl font-black text-slate-700">Dağınık • Karmaşık • Kaybolan İşler</span>
                 </div>
