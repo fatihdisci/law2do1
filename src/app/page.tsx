@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {
   CheckCircle2, ArrowRight, Layout, ChevronRight,
   Shield, XCircle, Play, Clock, FileText, Bell,
-  BarChart3, CalendarClock, AlertTriangle
+  BarChart3, CalendarClock, AlertTriangle, MoreVertical
 } from 'lucide-react';
 
 
@@ -327,51 +327,111 @@ export default function LandingPage() {
 
             {/* RIGHT: "Hukukçu Mantığı" - The Solution */}
             <div className="relative group">
-              <div className="bg-gradient-to-br from-indigo-950 to-indigo-900 rounded-3xl p-8 shadow-2xl shadow-indigo-900/30 overflow-hidden text-white">
-                {/* Subtle pattern background */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-400 rounded-full blur-3xl"></div>
+              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-2xl overflow-hidden h-full flex flex-col relative">
+                {/* Background Decor */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+
+                {/* Header */}
+                <div className="flex items-center justify-between mb-6 relative z-10">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-600/30">
+                      <Layout size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 text-lg">Law2Do Asistan</h3>
+                      <p className="text-xs text-slate-500 font-medium">Günlük İş Akışı</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    <span className="text-xs font-bold text-emerald-600">Sistem Aktif</span>
+                  </div>
                 </div>
 
-                {/* Clean Interface Preview */}
-                <div className="relative h-64 md:h-80 flex flex-col justify-center space-y-4">
-                  {/* Single Clear Action Card */}
-                  <div className="bg-white rounded-xl p-5 shadow-xl transform group-hover:scale-[1.02] transition-transform duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 rounded-full bg-amber-400 animate-pulse"></div>
-                      <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">SIRADAKİ GÖREV</span>
+                {/* Smart Task List - Transforming Excel Data to Actionable Items */}
+                <div className="space-y-3 relative z-10 flex-1">
+
+                  {/* Task 1: Urgent Hearing (Matches 2024/101) */}
+                  <div className="bg-white border border-indigo-100 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-indigo-300 transition-all group/item cursor-pointer">
+                    <div className="flex justify-between items-start mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded border border-indigo-100">2024/101</span>
+                        <span className="bg-red-50 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded border border-red-100 flex items-center gap-1 animate-pulse">
+                          <Clock size={10} /> BUGÜN 14:30
+                        </span>
+                      </div>
+                      <div className="text-slate-300 group-hover/item:text-indigo-600">
+                        <MoreVertical size={16} />
+                      </div>
                     </div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-1">Cevap Dilekçesi Hazırla</h4>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-slate-500">Dosya: 2024/1234</span>
-                      <span className="text-sm font-bold text-red-600 flex items-center gap-1">
-                        <Clock size={14} />
-                        Son 3 Gün
-                      </span>
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">
+                        <Shield size={18} className="text-indigo-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-sm">Duruşma: Ahmet Y.</h4>
+                        <p className="text-xs text-slate-500">14. Asliye Hukuk Mahkemesi</p>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Mini Stats */}
-                  <div className="flex gap-3">
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-white">3</div>
-                      <div className="text-xs text-indigo-200">Bugün</div>
+                  {/* Task 2: Waiting Report (Matches 2024/102) */}
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 opacity-75 hover:opacity-100 transition-opacity">
+                    <div className="flex justify-between items-start mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded">2024/102</span>
+                        <span className="bg-amber-50 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-100">
+                          BEKLİYOR
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-white">8</div>
-                      <div className="text-xs text-indigo-200">Bu Hafta</div>
-                    </div>
-                    <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-3 text-center">
-                      <div className="text-2xl font-black text-emerald-400">0</div>
-                      <div className="text-xs text-indigo-200">Gecikmiş</div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                        <FileText size={18} className="text-slate-500" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-700 text-sm">Bilirkişi Raporu Takibi</h4>
+                        <p className="text-xs text-slate-500">Son İşlem: 10 gün önce</p>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Task 3: Critical Deadline (Matches 2024/107) */}
+                  <div className="bg-white border-l-4 border-l-red-500 border-y border-r border-slate-100 rounded-r-xl p-4 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-1.5 opacity-10">
+                      <AlertTriangle size={64} />
+                    </div>
+                    <div className="flex justify-between items-start mb-2 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded">2024/107</span>
+                        <span className="text-red-600 text-[10px] font-bold flex items-center gap-1">
+                          <AlertTriangle size={12} /> KRİTİK SÜRE
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 relative z-10">
+                      <div className="h-10 w-10 rounded-full bg-red-50 flex items-center justify-center shrink-0">
+                        <CalendarClock size={18} className="text-red-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-sm">Cevap Dilekçesi</h4>
+                        <p className="text-xs text-red-500 font-bold">Son 2 Gün Kaldı!</p>
+                      </div>
+                      <button className="ml-auto bg-red-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-md hover:bg-red-700 transition-colors">
+                        Hemen Yaz
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
 
                 {/* Label */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-indigo-800">
-                  <CheckCircle2 size={24} className="text-emerald-400" />
-                  <span className="text-xl font-black text-white">Net • Düzenli • Kontrol Altında</span>
+                <div className="flex items-center justify-center gap-3 pt-6 mt-auto border-t border-slate-100 relative z-10">
+                  <CheckCircle2 size={24} className="text-emerald-500" />
+                  <span className="text-xl font-black text-slate-800">Net • Düzenli • Kontrol Altında</span>
                 </div>
               </div>
             </div>
