@@ -238,7 +238,7 @@ export default function LandingPage() {
       </section>
 
       {/* BEFORE/AFTER COMPARISON: "Farkı Hissedin" */}
-      <section className="py-24 px-6 bg-slate-100/50 relative z-10">
+      <section className="py-24 px-4 sm:px-6 bg-slate-100/50 relative z-10 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -255,7 +255,7 @@ export default function LandingPage() {
 
             {/* LEFT: "Yazılımcı Mantığı" - The Problem */}
             <div className="relative group">
-              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-lg overflow-hidden h-full flex flex-col">
+              <div className="bg-white rounded-3xl border border-slate-200 p-4 sm:p-8 shadow-lg overflow-hidden h-full flex flex-col">
 
                 {/* Excel Interface Mock */}
                 <div className="relative flex-1 bg-white flex flex-col text-[10px] sm:text-xs font-sans text-slate-700 select-none cursor-default border border-slate-300 rounded-lg overflow-hidden mb-6 shadow-inner">
@@ -274,14 +274,14 @@ export default function LandingPage() {
                   </div>
 
                   {/* Grid Container */}
-                  <div className="flex-1 overflow-hidden relative bg-white">
+                  <div className="flex-1 overflow-x-auto overflow-y-hidden relative bg-white">
                     {/* Header Row */}
-                    <div className="flex border-b border-slate-300 bg-slate-50 font-bold text-slate-600">
-                      <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-100"></div>
-                      <div className="w-20 border-r border-slate-300 px-1 py-0.5 pl-2">A</div>
-                      <div className="w-24 border-r border-slate-300 px-1 py-0.5 pl-2">B</div>
-                      <div className="w-24 border-r border-slate-300 px-1 py-0.5 pl-2">C</div>
-                      <div className="flex-1 border-r border-slate-300 px-1 py-0.5 pl-2">D</div>
+                    <div className="flex border-b border-slate-300 bg-slate-50 font-bold text-slate-600 min-w-[280px]">
+                      <div className="w-6 sm:w-8 border-r border-slate-300 flex items-center justify-center bg-slate-100"></div>
+                      <div className="w-14 sm:w-20 border-r border-slate-300 px-1 py-0.5 pl-1 sm:pl-2">A</div>
+                      <div className="w-16 sm:w-24 border-r border-slate-300 px-1 py-0.5 pl-1 sm:pl-2">B</div>
+                      <div className="w-16 sm:w-24 border-r border-slate-300 px-1 py-0.5 pl-1 sm:pl-2">C</div>
+                      <div className="flex-1 border-r border-slate-300 px-1 py-0.5 pl-1 sm:pl-2">D</div>
                     </div>
 
                     {/* Data Rows */}
@@ -294,23 +294,23 @@ export default function LandingPage() {
                       { id: 6, a: "2024/106", b: "Veli Z.", c: "Keşif", d: "Araç Ayarlanacak" },
                       { id: 7, a: "2024/107", b: "Hasan B.", c: "Dilekçe", d: "Cevap Verilecek" },
                     ].map((row) => (
-                      <div key={row.id} className="flex border-b border-slate-200">
-                        <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">
+                      <div key={row.id} className="flex border-b border-slate-200 min-w-[280px]">
+                        <div className="w-6 sm:w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">
                           {row.id}
                         </div>
-                        <div className="w-20 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.a}</div>
-                        <div className="w-24 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.b}</div>
-                        <div className="w-24 border-r border-slate-200 px-1 py-0.5 pl-2 truncate">{row.c}</div>
-                        <div className="flex-1 border-r border-slate-200 px-1 py-0.5 pl-2 truncate text-slate-500">{row.d}</div>
+                        <div className="w-14 sm:w-20 border-r border-slate-200 px-1 py-0.5 pl-1 sm:pl-2 truncate">{row.a}</div>
+                        <div className="w-16 sm:w-24 border-r border-slate-200 px-1 py-0.5 pl-1 sm:pl-2 truncate">{row.b}</div>
+                        <div className="w-16 sm:w-24 border-r border-slate-200 px-1 py-0.5 pl-1 sm:pl-2 truncate">{row.c}</div>
+                        <div className="flex-1 border-r border-slate-200 px-1 py-0.5 pl-1 sm:pl-2 truncate text-slate-500">{row.d}</div>
                       </div>
                     ))}
                     {/* Empty Rows */}
                     {[8, 9, 10, 11, 12].map(i => (
-                      <div key={i} className="flex border-b border-slate-200">
-                        <div className="w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">{i}</div>
-                        <div className="w-20 border-r border-slate-200 px-1 py-0.5"></div>
-                        <div className="w-24 border-r border-slate-200 px-1 py-0.5"></div>
-                        <div className="w-24 border-r border-slate-200 px-1 py-0.5"></div>
+                      <div key={i} className="flex border-b border-slate-200 min-w-[280px]">
+                        <div className="w-6 sm:w-8 border-r border-slate-300 flex items-center justify-center bg-slate-50 font-semibold text-slate-500">{i}</div>
+                        <div className="w-14 sm:w-20 border-r border-slate-200 px-1 py-0.5"></div>
+                        <div className="w-16 sm:w-24 border-r border-slate-200 px-1 py-0.5"></div>
+                        <div className="w-16 sm:w-24 border-r border-slate-200 px-1 py-0.5"></div>
                         <div className="flex-1 border-r border-slate-200 px-1 py-0.5"></div>
                       </div>
                     ))}
@@ -320,14 +320,14 @@ export default function LandingPage() {
                 {/* Label */}
                 <div className="flex items-center justify-center gap-3 pt-2 mt-auto border-t border-slate-100">
                   <XCircle size={24} className="text-red-500" />
-                  <span className="text-xl font-black text-slate-700">Dağınık • Karmaşık • Kaybolan İşler</span>
+                  <span className="text-base sm:text-xl font-black text-slate-700">Dağınık • Karmaşık • Kaybolan İşler</span>
                 </div>
               </div>
             </div>
 
             {/* RIGHT: "Hukukçu Mantığı" - The Solution */}
             <div className="relative group">
-              <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-2xl overflow-hidden h-full flex flex-col relative">
+              <div className="bg-white rounded-3xl border border-slate-200 p-4 sm:p-8 shadow-2xl overflow-hidden h-full flex flex-col relative">
                 {/* Background Decor */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
 
@@ -425,7 +425,7 @@ export default function LandingPage() {
                 {/* Label */}
                 <div className="flex items-center justify-center gap-3 pt-6 mt-auto border-t border-slate-100 relative z-10">
                   <CheckCircle2 size={24} className="text-emerald-500" />
-                  <span className="text-xl font-black text-slate-800">Net • Düzenli • Kontrol Altında</span>
+                  <span className="text-base sm:text-xl font-black text-slate-800">Net • Düzenli • Kontrol Altında</span>
                 </div>
               </div>
             </div>
