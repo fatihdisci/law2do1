@@ -74,26 +74,31 @@ export function Pricing({
                 </p>
             </div>
 
-            <div className="flex justify-center items-center gap-3 mb-12">
-                <span className={cn("font-medium", isMonthly ? "text-slate-900" : "text-slate-400")}>
-                    Aylık
-                </span>
-                <Label>
-                    <Switch
-                        ref={switchRef as React.RefObject<HTMLButtonElement>}
-                        checked={!isMonthly}
-                        onCheckedChange={handleToggle}
-                        className="relative"
-                    />
-                </Label>
-                <span className={cn("font-medium", !isMonthly ? "text-slate-900" : "text-slate-400")}>
-                    Yıllık
-                </span>
-                {!isMonthly && (
-                    <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-bold rounded-full animate-[fade-in-up_0.3s_ease-out]">
-                        %20 İndirim
+            <div className="flex justify-center mb-12">
+                <div className="flex items-center gap-3 relative">
+                    <span className={cn("font-medium", isMonthly ? "text-slate-900" : "text-slate-400")}>
+                        Aylık
                     </span>
-                )}
+                    <Label className="cursor-pointer">
+                        <Switch
+                            ref={switchRef as React.RefObject<HTMLButtonElement>}
+                            checked={!isMonthly}
+                            onCheckedChange={handleToggle}
+                            className="relative"
+                        />
+                    </Label>
+                    <span className={cn("font-medium", !isMonthly ? "text-slate-900" : "text-slate-400")}>
+                        Yıllık
+                    </span>
+
+                    <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 whitespace-nowrap">
+                        {!isMonthly && (
+                            <span className="px-3 py-1 bg-emerald-100 text-emerald-700 text-sm font-bold rounded-full animate-[fade-in-up_0.3s_ease-out]">
+                                %20 İndirim
+                            </span>
+                        )}
+                    </div>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
