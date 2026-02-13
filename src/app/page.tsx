@@ -394,35 +394,29 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <h4 className="font-bold text-slate-700 text-sm">Bilirkişi Raporu Takibi</h4>
-                        <p className="text-xs text-slate-500">Son İşlem: 10 gün önce</p>
+                        <p className="text-xs text-slate-500">Rapor tanzimi bekleniyor</p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Task 3: Critical Deadline (Matches 2024/107) */}
-                  <div className="bg-white border-l-4 border-l-red-500 border-y border-r border-slate-100 rounded-r-xl p-4 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-1.5 opacity-10">
-                      <AlertTriangle size={64} />
-                    </div>
+                  {/* Task 3: High Priority (Matches 2024/107) */}
+                  <div className="bg-white border-l-4 border-l-orange-500 border-y border-r border-slate-100 rounded-r-xl p-4 shadow-sm relative overflow-hidden">
                     <div className="flex justify-between items-start mb-2 relative z-10">
                       <div className="flex items-center gap-2">
                         <span className="bg-slate-100 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded">2024/107</span>
-                        <span className="text-red-600 text-[10px] font-bold flex items-center gap-1">
-                          <AlertTriangle size={12} /> KRİTİK SÜRE
+                        <span className="text-orange-600 text-[10px] font-bold flex items-center gap-1">
+                          YÜKSEK ÖNCELİK
                         </span>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 relative z-10">
-                      <div className="h-10 w-10 rounded-full bg-red-50 flex items-center justify-center shrink-0">
-                        <CalendarClock size={18} className="text-red-600" />
+                      <div className="h-10 w-10 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
+                        <FileText size={18} className="text-orange-600" />
                       </div>
                       <div>
                         <h4 className="font-bold text-slate-900 text-sm">Cevap Dilekçesi</h4>
-                        <p className="text-xs text-red-500 font-bold">Son 2 Gün Kaldı!</p>
+                        <p className="text-xs text-slate-500">Hazırlanması gerekiyor</p>
                       </div>
-                      <button className="ml-auto bg-red-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-lg shadow-md hover:bg-red-700 transition-colors">
-                        Hemen Yaz
-                      </button>
                     </div>
                   </div>
 
