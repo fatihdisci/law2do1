@@ -306,18 +306,6 @@ body {
   perspective: 1000px;
 }
 
-/* Scroll Animation Classes */
-.scroll-hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-out;
-}
-
-.scroll-hidden.animate-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
 /* Fade In Up Animation */
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out forwards;

@@ -18,8 +18,8 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { href: "#features", label: "Nasıl Çalışır?" },
-        { href: "#features", label: "Özellikler" },
+        { href: "/#how-it-works", label: "Nasıl Çalışır?" },
+        { href: "/#features", label: "Özellikler" },
         { href: "/pricing", label: "Paketler" },
     ];
 
@@ -58,9 +58,9 @@ export default function Navbar() {
                 {/* CTA Buttons + Theme Toggle */}
                 <div className="hidden md:flex items-center gap-4">
                     <ThemeToggle />
-                    <button className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+                    <Link href="/login" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
                         Giriş Yap
-                    </button>
+                    </Link>
                     <Link
                         href="/dashboard"
                         className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-lg active:scale-95"
@@ -97,9 +97,13 @@ export default function Navbar() {
                             </Link>
                         ))}
                         <hr className="border-border" />
-                        <button className="text-muted-foreground font-medium py-2 text-left">
+                        <Link
+                            href="/login"
+                            className="text-muted-foreground font-medium py-2 text-left"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
                             Giriş Yap
-                        </button>
+                        </Link>
                         <Link
                             href="/dashboard"
                             className="bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-semibold text-center hover:opacity-90 transition-all"
