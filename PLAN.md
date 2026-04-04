@@ -11,20 +11,20 @@
 > Tüm renkler, yazı tipleri, shadow'lar tek bir dosyadan yönetilecek.  
 > Renk değiştirmek için sadece bu dosyayı güncellemek yeterli olacak.
 
-- [ ] **1.1** `src/design-tokens.ts` dosyası oluştur  
+- [x] **1.1** `src/design-tokens.ts` dosyası oluştur ✅ (2026-04-04 07:14 UTC — tamamlandı, design token dosyası oluşturuldu)  
   - Primary, secondary, accent, neutral renk paletlerini HSL formatında tanımla  
   - Light ve dark mod değerlerini ayrı ayrı yaz  
   - Font ailelerini, font ağırlıklarını, font boyut skalasını ekle  
   - Shadow, border-radius, spacing skalasını ekle  
   - Tüm değerleri `as const` ile export et
 
-- [ ] **1.2** `src/app/globals.css` dosyasını design-tokens'a göre yeniden yaz  
+- [x] **1.2** `src/app/globals.css` dosyasını design-tokens'a göre yeniden yaz ✅ (2026-04-04 07:19 UTC — root/dark değişkenleri token yapısına göre eşleştirildi, fontlar merkezileştirildi)  
   - `:root` içindeki tüm `--variable` değerlerini token dosyasından gelen değerlerle eşleştir  
   - `.dark` class'ı altındaki tüm değerleri token dosyasından gelen dark değerlerle eşleştir  
   - CSS değişken isimlerini tutarlı ve anlamlı hale getir (`--color-primary`, `--color-bg`, vb.)  
   - Font import'larını (Google Fonts veya next/font) merkezi hale getir
 
-- [ ] **1.3** `tailwind.config.ts` dosyasını oluştur/güncelle  
+- [x] **1.3** `tailwind.config.ts` dosyasını oluştur/güncelle ✅ (2026-04-04 07:22 UTC — colors/font/shadow/radius/animation token tabanlı tailwind config eklendi)  
   - `theme.extend.colors` içinde CSS değişkenlerine referans ver (`hsl(var(--color-primary))`)  
   - `theme.extend.fontFamily` içinde token'daki font ailelerini tanımla  
   - `theme.extend.boxShadow` içinde özel shadow'ları tanımla  
