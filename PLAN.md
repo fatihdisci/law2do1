@@ -18,7 +18,7 @@
   - Shadow, border-radius, spacing skalasını ekle  
   - Tüm değerleri `as const` ile export et
 
-- [ ] **1.2** `src/app/globals.css` dosyasını design-tokens'a göre yeniden yaz  
+- [x] **1.2** `src/app/globals.css` dosyasını design-tokens'a göre yeniden yaz ✅ (2026-04-04 07:19 UTC — root/dark değişkenleri token yapısına göre eşleştirildi, fontlar merkezileştirildi)  
   - `:root` içindeki tüm `--variable` değerlerini token dosyasından gelen değerlerle eşleştir  
   - `.dark` class'ı altındaki tüm değerleri token dosyasından gelen dark değerlerle eşleştir  
   - CSS değişken isimlerini tutarlı ve anlamlı hale getir (`--color-primary`, `--color-bg`, vb.)  
