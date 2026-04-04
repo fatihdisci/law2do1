@@ -11,7 +11,7 @@
 > Tüm renkler, yazı tipleri, shadow'lar tek bir dosyadan yönetilecek.  
 > Renk değiştirmek için sadece bu dosyayı güncellemek yeterli olacak.
 
-- [ ] **1.1** `src/design-tokens.ts` dosyası oluştur  
+- [x] **1.1** `src/design-tokens.ts` dosyası oluştur ✅ (2026-04-04 07:14 UTC — tamamlandı, design token dosyası oluşturuldu)  
   - Primary, secondary, accent, neutral renk paletlerini HSL formatında tanımla  
   - Light ve dark mod değerlerini ayrı ayrı yaz  
   - Font ailelerini, font ağırlıklarını, font boyut skalasını ekle  
