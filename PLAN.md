@@ -114,7 +114,7 @@
 
 ## FAZ 6 — Methodology/Marquee Section İyileştirmesi
 
-- [ ] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir  
+- [x] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir ✅ (2026-04-05 00:00 UTC — çift yön marquee, numaralı+ikonlu öğeler, hover pause ve arkaplan pattern/gradient eklendi)  
   - Marquee şeridini iki yönde çalıştır (ikinci şerit ters yönde)  
   - Şerit öğelerini adım adım numaralandır ve ikon ekle  
   - Şerit öğelerinin hover'ında duraklatma efekti  
@@ -126,20 +126,20 @@
 
 > Bu bölüm korunacak, yapay zeka görseli kaldırılacak, gerçek mock-up geliştirilecek.
 
-- [ ] **7.1** `src/components/landing/ComparisonSection.tsx` sol tarafı güncelle  
+- [x] **7.1** `src/components/landing/ComparisonSection.tsx` sol tarafı güncelle ✅ (2026-04-05 00:00 UTC — Excel mock-up gerçekçi hale getirildi, problem badge güçlendirildi, AI tarzı sahte görsel yaklaşımı kaldırıldı)  
   - AI tarafından oluşturulan sahte görsel varsa kaldır  
   - Excel mock-up'ı daha detaylı ve gerçekçi yap (gerçek Excel UI'ına yakın)  
   - Dark mode'da Excel mock-up'ı uyumlu hale getir  
   - "Sorun" etiketini daha dikkat çekici yap (kırmızı badge, uyarı ikonu)
 
-- [ ] **7.2** `src/components/landing/ComparisonSection.tsx` sağ tarafı güncelle  
+- [x] **7.2** `src/components/landing/ComparisonSection.tsx` sağ tarafı güncelle ✅ (2026-04-05 00:00 UTC — urgent/waiting/high-priority kartları, pulsing nokta, countdown ve progress bar iyileştirildi)  
   - Law2Do dashboard preview kartlarını geliştir  
   - Urgent kart: Pulsing kırmızı nokta + countdown timer animasyonu ekle  
   - Waiting kart: Yumuşak gri ton + saat ikonu  
   - High Priority kart: Turuncu badge + progress bar  
   - "Çözüm" etiketini yeşil badge ile güçlendir
 
-- [ ] **7.3** ComparisonSection layout ve animasyonlarını geliştir  
+- [x] **7.3** ComparisonSection layout ve animasyonlarını geliştir ✅ (2026-04-05 00:00 UTC — VS ayırıcı, gradient başlık, aşağıdan-yukarı animasyon ve stats row eklendi)  
   - İki kart arasına "VS" seperatörü ekle  
   - Section başlığını gradient text ile güçlendir  
   - Kartların giriş animasyonunu sol-sağ yerine aşağıdan yukarıya değiştir  
@@ -151,14 +151,14 @@
 
 > Parıldama efekti korunacak, görsel olarak daha premium hale getirilecek.
 
-- [ ] **8.1** `src/components/TurkeyMap.tsx` görsel iyileştirmeleri  
+- [x] **8.1** `src/components/TurkeyMap.tsx` görsel iyileştirmeleri ✅ (2026-04-05 00:00 UTC — il dolguları/theme renkleri, güçlü hover/active glow, büyük pulsing dot ve harita çerçeve/overlay iyileştirmeleri tamamlandı)  
   - Province fill rengi: Dark mode'da daha derin slate tonu, light mode'da soft mavi-gri  
   - Hover state: Daha belirgin glow efekti (box-shadow değil, filter: drop-shadow)  
   - Pulsing dots: Boyutunu ve glow yoğunluğunu artır  
   - Active/clicked province: Daha güçlü highlight ve smooth scale animasyonu  
   - Harita çerçevesi: Subtle border + gradient overlay (kenarlardan soluklaşma)
 
-- [ ] **8.2** `src/components/landing/MapSection.tsx` wrapper'ı geliştir  
+- [x] **8.2** `src/components/landing/MapSection.tsx` wrapper'ı geliştir ✅ (2026-04-05 00:00 UTC — gradient başlık, animasyonlu kullanıcı sayacı ve 3'lü stats alanı eklendi; arkaplan mesh/gradient güçlendirildi)  
   - Section başlığını gradient text ile güçlendir  
   - Haritanın altına türkiye genelinde toplam kullanıcı sayısı sayacı ekle (animasyonlu)  
   - Section arka planına koyu gradient veya mesh gradient ekle  
