@@ -73,17 +73,6 @@ export function CtaSection() {
 
         <div className="relative grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
           <div className="text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.08 }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-primary"
-            >
-              <Sparkles className="h-4 w-4" />
-              Büro düzeni artık kendiliğinden aksın
-            </motion.div>
-
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,9 +80,9 @@ export function CtaSection() {
               transition={{ duration: 0.65, ease: "easeOut", delay: 0.14 }}
               className="font-display text-4xl font-black leading-[1.05] tracking-[-0.04em] text-foreground md:text-6xl"
             >
-              Her dosyada
+              Hukuk büronuzu
               <span className="block bg-gradient-to-r from-primary via-sky-500 to-emerald-500 bg-clip-text text-transparent">
-                daha az takip, daha çok netlik.
+                bir üst seviyeye taşıyın.
               </span>
             </motion.h2>
 

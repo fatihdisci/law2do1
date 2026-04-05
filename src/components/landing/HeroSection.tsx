@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   CheckCircle2, ArrowRight, Shield, Play, Clock, FileText, Bell, Layout,
-  Star, Users, Award
+  Award, Users
 } from 'lucide-react';
 
 /* ── Animation variants ── */
@@ -136,51 +136,8 @@ export function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Social proof row */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3"
-            >
-              {/* Avatar stack */}
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {['#3b82f6','#8b5cf6','#10b981','#f59e0b'].map((color, i) => (
-                    <div
-                      key={i}
-                      className="w-7 h-7 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-bold text-white"
-                      style={{ background: color }}
-                    >
-                      {['AY','MK','FD','ZB'][i]}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-foreground">500+</span>
-                <span className="text-sm text-muted-foreground">avukat kullanıyor</span>
-              </div>
 
-              <div className="h-4 w-px bg-border hidden sm:block" />
 
-              {/* Star rating */}
-              <div className="flex items-center gap-1.5">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} className="fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold text-foreground">4.9</span>
-                <span className="text-sm text-muted-foreground">/ 5.0</span>
-              </div>
-
-              <div className="h-4 w-px bg-border hidden sm:block" />
-
-              {/* Trust indicators */}
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
-                <CheckCircle2 size={13} className="text-emerald-500" />
-                Kredi kartı gerekmez
-              </div>
-            </motion.div>
           </div>
 
           {/* RIGHT: 3‑D Dashboard Mockup */}

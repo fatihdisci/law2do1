@@ -85,25 +85,13 @@ export function MethodologySection() {
           </div>
         </motion.div>
 
-        <div className="mt-12 space-y-4">
+        <div className="mt-12">
           <div className="group/marquee relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
             <div className="flex w-max animate-marquee gap-4 group-hover/marquee:[animation-play-state:paused]">
               {[...Array(2)].map((_, setIndex) => (
                 <div key={setIndex} className="flex shrink-0 gap-4 py-1">
                   {WORKFLOW_ITEMS.map((item) => (
                     <WorkflowPill key={`${setIndex}-${item.step}`} item={item} />
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="group/marquee-reverse relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-            <div className="flex w-max animate-marquee-reverse gap-4 group-hover/marquee-reverse:[animation-play-state:paused]">
-              {[...Array(2)].map((_, setIndex) => (
-                <div key={setIndex} className="flex shrink-0 gap-4 py-1">
-                  {[...WORKFLOW_ITEMS].reverse().map((item) => (
-                    <WorkflowPill key={`${setIndex}-reverse-${item.step}`} item={item} />
                   ))}
                 </div>
               ))}

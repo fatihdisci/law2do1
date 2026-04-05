@@ -168,136 +168,165 @@
 
 ## FAZ 9 — CTA Section Yeniden Tasarımı
 
-- [x] **9.1** `src/components/landing/CtaSection.tsx` bileşenini yeniden tasarla  
-  - Full-width gradient arka plan (diagonal veya radial)  
-  - Arka plana subtle noise/grain texture ekle  
-  - Büyük, bold başlık + alt başlık  
-  - İki buton: "Hemen Başla" (solid, büyük) + "Demo İzle" (outline)  
-  - Alt kısma "Kredi kartı gerekmez • 14 gün ücretsiz • İptal istediğinde" gibi güven mesajı  
+- [x] **9.1** `src/components/landing/CtaSection.tsx` bileşenini yeniden tasarla ✅
+  - Full-width gradient arka plan (diagonal veya radial)
+  - Arka plana subtle noise/grain texture ekle
+  - Büyük, bold başlık + alt başlık
+  - İki buton: "Hemen Başla" (solid, büyük) + "Demo İzle" (outline)
+  - Alt kısma "Kredi kartı gerekmez • 14 gün ücretsiz • İptal istediğinde" gibi güven mesajı
   - Confetti veya sparkle animasyonu hover'da
+
+---
+
+## FAZ 9.5 — UI Temizlik & İyileştirme Geçişi
+
+> FAZ 9 sonrası, FAZ 10 öncesi yapılan toplu düzeltmeler.
+
+- [x] **9.5.1** `ComparisonSection.tsx` — Ekrana ortalanmadı sorunu düzeltildi ✅ (2026-04-05 15:38 UTC)
+  - Grid `md:grid-cols-[1fr_auto_1fr]` → `md:grid-cols-2` yapıldı, sola yaslanma giderildi
+  - `max-w-5xl mx-auto` ile ortalandı
+  - VS ayırıcı `top-1/2` ve `z-10` ile konumlandı
+  - Stats row da `max-w-5xl mx-auto` ile ortalandı
+
+- [x] **9.5.2** `HeroSection.tsx` — Social proof satırı kaldırıldı ✅ (2026-04-05 15:38 UTC)
+  - Avatar stack (500+ avukat), yıldız puanı (4.9/5.0), "Kredi kartı gerekmez" kaldırıldı
+  - Kullanılmayan importlar (Star) temizlendi
+
+- [x] **9.5.3** `MethodologySection.tsx` — Marquee 2 satırdan 1'e düşürüldü ✅ (2026-04-05 15:39 UTC)
+  - İkinci (ters yönlü) marquee şeridi kaldırıldı, tek satır kaldı
+
+- [x] **9.5.4** `MapSection.tsx` — Avukat sayacı ve stats kaldırıldı ✅ (2026-04-05 15:39 UTC)
+  - Animasyonlu kullanıcı sayacı (+12.480) kaldırıldı
+  - 3'lü stats alanı (Toplam Avukat, Toplam Dava, Kapsanan İl) kaldırıldı
+  - Harita ve başlık korundu
+  - useState/useEffect importları temizlendi
+
+- [x] **9.5.5** `CtaSection.tsx` — Badge ve başlık metni güncellendi ✅ (2026-04-05 15:40 UTC)
+  - "Büro düzeni artık kendiliğinden aksın" badge kaldırıldı
+  - "Her dosyada daha az takip, daha çok netlik" başlığı → "Hukuk büronuzu bir üst seviyeye taşıyın" olarak değiştirildi
 
 ---
 
 ## FAZ 10 — Footer Yeniden Tasarımı
 
-- [ ] **10.1** `src/components/Footer.tsx` bileşenini yeniden tasarla  
-  - Logo + kısa açıklama + sosyal medya ikonları (sol kolon)  
-  - Link grupları: Ürün / Şirket / Hukuki (orta kolonlar)  
-  - Newsletter input alanı + abone ol butonu (sağ kolon)  
-  - Alt kısma ince bir çizgi + copyright + dil seçici  
-  - Dark mode'da footer arka planı koyu, light mode'da hafif gri/muted
+- [x] **10.1** `src/components/Footer.tsx` bileşenini yeniden tasarla ✅ (2026-04-05 15:41 UTC)
+  - Logo (Scale ikonu + gradient bg) + kısa açıklama + 3 sosyal medya ikonu (Twitter, LinkedIn, E-posta)
+  - Link grupları: Ürün / Şirket / Hukuki — her linkte hover'da ArrowRight micro-animasyonu
+  - Newsletter input alanı + abone ol butonu + başarı state animasyonu
+  - Alt kısma ince gradient çizgi + copyright (dinamik yıl) + kalp emoji + dil seçici butonu
+  - Dark mode tam uyumlu, token sistemi kullanıldı
+  - Subtle dot-grid arkaplan eklendi
+  - KVKK Aydınlatma ve Hakkımızda linkleri eklendi
+
+## FAZ 11 — Fiyatlandırma (Pricing) Bileşeni İyileştirmeleri [TAMAMLANDI]
+
+- [x] **11.1** `src/app/pricing/page.tsx` ve `src/components/ui/pricing.tsx` geliştir  
+  - [x] Toggle'ı (aylık/yıllık) daha görsel bir pill switcher'a dönüştür  
+  - [x] Pricing kartlarına glassmorphism efekti ekle  
+  - [x] En popüler planı "POPULAR" badge + highlight border ile belirt  
+  - [x] Feature listesinde checkmark ikonları yerine daha şık ikonlar kullan  
+  - [x] Scroll tetiklemeli kart giriş animasyonu  
+  - [x] Alt kısma FAQ bölümü veya karşılaştırma tablosu ekle
 
 ---
 
-## FAZ 11 — Pricing Page Yeniden Tasarımı
+## FAZ 12 — Login / Register Sayfaları Yeniden Tasarımı [TAMAMLANDI]
 
-- [ ] **11.1** `src/app/pricing/page.tsx` ve `src/components/ui/pricing.tsx` geliştir  
-  - Toggle'ı (aylık/yıllık) daha görsel bir pill switcher'a dönüştür  
-  - Pricing kartlarına glassmorphism efekti ekle  
-  - En popüler planı "POPULAR" badge + highlight border ile belirt  
-  - Feature listesinde checkmark ikonları yerine daha şık ikonlar kullan  
-  - Scroll tetiklemeli kart giriş animasyonu  
-  - Alt kısma FAQ bölümü veya karşılaştırma tablosu ekle
+- [x] **12.1** `src/app/login/page.tsx` sayfasını yeniden tasarla  
+  - [x] Split layout: Sol taraf büyük arkaplan görseli/gradient + sağ taraf form  
+  - [x] Form container'ı glassmorphism kart içinde  
+  - [x] Input focus state'i animasyonlu ve renkli  
+  - [x] "Şifremi Unuttum" linki şık konumda  
+  - [x] Google/Apple ile giriş butonu (UI mock, işlevsiz olabilir)  
+  - [x] Dark mode'da arka plan koyu gradient
 
----
-
-## FAZ 12 — Login / Register Sayfaları Yeniden Tasarımı
-
-- [ ] **12.1** `src/app/login/page.tsx` sayfasını yeniden tasarla  
-  - Split layout: Sol taraf büyük arkaplan görseli/gradient + sağ taraf form  
-  - Form container'ı glassmorphism kart içinde  
-  - Input focus state'i animasyonlu ve renkli  
-  - "Şifremi Unuttum" linki şık konumda  
-  - Google/Apple ile giriş butonu (UI mock, işlevsiz olabilir)  
-  - Dark mode'da arka plan koyu gradient
-
-- [ ] **12.2** `src/app/register/page.tsx` sayfasını yeniden tasarla  
-  - Login ile tutarlı split layout  
-  - Multi-step form UI (3 adım göstergesi üstte)  
-  - Şifre güç göstergesi (progress bar)  
-  - Hizmet şartları checkbox'ı şık hale getir
+- [x] **12.2** `src/app/register/page.tsx` sayfasını yeniden tasarla  
+  - [x] Login ile tutarlı split layout  
+  - [x] Multi-step form UI (3 adım göstergesi üstte)  
+  - [x] Şifre güç göstergesi (progress bar)  
+  - [x] Hizmet şartları checkbox'ı şık hale getir
 
 ---
 
-## FAZ 13 — İletişim Sayfası Yeniden Tasarımı
+## FAZ 13 — İletişim Sayfası Yeniden Tasarımı [TAMAMLANDI]
 
-- [ ] **13.1** `src/app/iletisim/page.tsx` sayfasını yeniden tasarla  
-  - Sol kolon: İletişim bilgileri (adres, tel, mail) + sosyal medya ikonları  
-  - Sağ kolon: Modern form tasarımı (floating labels veya clear label + input)  
-  - Form gönderim animasyonu (loading state + success state)  
-  - Harita embed veya şehir/adres görseli
-
----
-
-## FAZ 14 — SSS Sayfası Yeniden Tasarımı
-
-- [ ] **14.1** `src/app/sss/page.tsx` sayfasını yeniden tasarla  
-  - Accordion bileşeni: Smooth open/close animasyonu  
-  - Kategori filtreleme (Ödeme, Güvenlik, Kullanım, vb.)  
-  - Arama input'u ile SSS filtreleme  
-  - "Cevabı bulamadın mı? Bize yaz →" CTA
+- [x] **13.1** `src/app/iletisim/page.tsx` sayfasını yeniden tasarla  
+  - [x] Sol kolon: İletişim bilgileri (adres, tel, mail) + sosyal medya ikonları  
+  - [x] Sağ kolon: Modern form tasarımı (floating labels veya clear label + input)  
+  - [x] Form gönderim animasyonu (loading state + success state)  
+  - [x] Harita embed veya şehir/adres görseli
 
 ---
 
-## FAZ 15 — Button ve UI Bileşenleri Sistemi
+## FAZ 14 — SSS Sayfası Yeniden Tasarımı [TAMAMLANDI]
 
-- [ ] **15.1** `src/components/ui/button.tsx` CVA varyantlarını genişlet  
-  - `gradient` varyantı ekle (primary gradient)  
-  - `glow` varyantı ekle (glow box-shadow efekti)  
-  - `glass` varyantı ekle (glassmorphism)  
-  - `size` varyantlarına `xl` ekle (hero CTA için)  
-  - Tüm varyantların dark mode uyumunu doğrula
-
-- [ ] **15.2** Yeni bileşenler oluştur (sadece ihtiyaç duyulanlar)  
-  - `src/components/ui/badge.tsx` — Status badge (variant: success/warning/danger/muted)  
-  - `src/components/ui/card.tsx` — Temel kart bileşeni (variant: default/glass/bordered)  
-  - `src/components/ui/separator.tsx` — Bölüm ayırıcı  
-  - `src/components/ui/stat.tsx` — Sayı + label stat bileşeni (animasyonlu sayaç ile)
+- [x] **14.1** `src/app/sss/page.tsx` sayfasını yeniden tasarla  
+  - [x] Accordion bileşeni: Smooth open/close animasyonu  
+  - [x] Kategori filtreleme (Ödeme, Güvenlik, Kullanım, vb.)  
+  - [x] Arama input'u ile SSS filtreleme  
+  - [x] "Cevabı bulamadın mı? Bize yaz →" CTA
 
 ---
 
-## FAZ 16 — Animasyon ve Etkileşim Standardizasyonu
+## FAZ 15 — Button ve UI Bileşenleri Sistemi [TAMAMLANDI]
 
-- [ ] **16.1** Framer Motion varyantlarını merkezi bir dosyada topla  
-  - `src/lib/animations.ts` dosyası oluştur  
-  - `fadeInUp`, `fadeInLeft`, `fadeInRight`, `stagger`, `scaleIn` varyantlarını tanımla  
-  - Viewport threshold ve once değerlerini standart hale getir  
-  - Tüm landing section'larda bu merkezi varyantları kullan
+- [x] **15.1** `src/components/ui/button.tsx` CVA varyantlarını genişlet  
+  - [x] `gradient` varyantı ekle (primary gradient)  
+  - [x] `glow` varyantı ekle (glow box-shadow efekti)  
+  - [x] `glass` varyantı ekle (glassmorphism)  
+  - [x] `size` varyantlarına `xl` ekle (hero CTA için)  
+  - [x] Tüm varyantların dark mode uyumunu doğrula
 
-- [ ] **16.2** Sayfa geçiş animasyonu ekle  
-  - Next.js route geçişlerinde fade veya slide animasyonu  
-  - Loading state için skeleton bileşeni
-
----
-
-## FAZ 17 — Responsive ve Erişilebilirlik
-
-- [ ] **17.1** Tüm sayfaları mobile-first gözden geçir  
-  - 375px (iPhone SE), 390px (iPhone 14), 768px (tablet), 1280px (desktop) test et  
-  - Hero section mobile'da metin boyutunu kontrol et  
-  - Navbar mobile menü animasyonunu test et  
-  - Turkey map mobile'da kaydırılabilir container içinde mi? Kontrol et  
-  - Footer linkleri mobile'da tek kolon mu? Düzelt
-
-- [ ] **17.2** Erişilebilirlik temellerini ekle  
-  - `aria-label` eksik olan buton ve linklere ekle  
-  - Renk kontrastını WCAG AA standardına göre kontrol et (özellikle dark modda)  
-  - Focus ring'lerin tüm interaktif elemanlarda görünür olduğundan emin ol  
-  - `alt` etiketi eksik görselleri tamamla
+- [x] **15.2** Yeni bileşenler oluştur (sadece ihtiyaç duyulanlar)  
+  - [x] `src/components/ui/badge.tsx` — Status badge (variant: success/warning/danger/muted)  
+  - [x] `src/components/ui/card.tsx` — Temel kart bileşeni (variant: default/glass/bordered)  
+  - [x] `src/components/ui/separator.tsx` — Bölüm ayırıcı  
+  - [x] `src/components/ui/stat.tsx` — Sayı + label stat bileşeni (animasyonlu sayaç ile)
 
 ---
 
-## FAZ 18 — Performans ve Temizlik
+## FAZ 16 — Animasyon ve Etkileşim Standardizasyonu [TAMAMLANDI]
 
-- [ ] **18.1** Kullanılmayan kod ve bileşenleri temizle  
-  - Import edilip kullanılmayan bileşenleri kaldır  
-  - Yorum satırı kalmış test kodlarını temizle  
-  - `console.log` statement'larını kaldır
+- [x] **16.1** Framer Motion varyantlarını merkezi bir dosyada topla  
+  - [x] `src/lib/animations.ts` dosyası oluştur  
+  - [x] `fadeInUp`, `fadeInLeft`, `fadeInRight`, `stagger`, `scaleIn` varyantlarını tanımla  
+  - [x] Viewport threshold ve once değerlerini standart hale getir  
+  - [x] Tüm landing section'larda bu merkezi varyantları kullan
 
-- [ ] **18.2** Next.js optimizasyonları  
-  - `next/font` ile font yüklemeyi optimize et (globals.css'den Google Fonts link'ini kaldır)  
-  - `next/image` ile tüm `<img>` etiketlerini değiştir  
-  - Büyük bileşenleri `dynamic import` ile lazy load et (TurkeyMap, ComparisonSlider)
+- [x] **16.2** Sayfa geçiş animasyonu ekle  
+  - [x] Next.js route geçişlerinde fade veya slide animasyonu  
+  - [x] Loading state için skeleton bileşeni
+
+---
+
+## FAZ 17 — Responsive ve Erişilebilirlik [TAMAMLANDI]
+
+- [x] **17.1** Tüm sayfaları mobile-first gözden geçir  
+  - [x] 375px (iPhone SE), 390px (iPhone 14), 768px (tablet), 1280px (desktop) test et  
+  - [x] Hero section mobile'da metin boyutunu kontrol et  
+  - [x] Navbar mobile menü animasyonunu test et  
+  - [x] Turkey map mobile'da kaydırılabilir container içinde mi? Kontrol et  
+  - [x] Footer linkleri mobile'da tek kolon mu? Düzelt
+
+- [x] **17.2** Erişilebilirlik temellerini ekle  
+  - [x] `aria-label` eksik olan buton ve linklere ekle  
+  - [x] Renk kontrastını WCAG AA standardına göre kontrol et (özellikle dark modda)  
+  - [x] Focus ring'lerin tüm interaktif elemanlarda görünür olduğundan emin ol  
+  - [x] `alt` etiketi eksik görselleri tamamla
+
+---
+
+## FAZ 18 — Performans ve Temizlik [TAMAMLANDI]
+
+- [x] **18.1** Kullanılmayan kod ve bileşenleri temizle  
+  - [x] Import edilip kullanılmayan bileşenleri kaldır  
+  - [x] Yorum satırı kalmış test kodlarını temizle  
+  - [x] `console.log` statement'larını kaldır
+
+- [x] **18.2** Next.js optimizasyonları  
+  - [x] `next/font` ile font yüklemeyi optimize et (globals.css'den Google Fonts link'ini kaldır)  
+  - [x] `next/image` ile tüm `<img>` etiketlerini değiştir  
+  - [x] Büyük bileşenleri `dynamic import` ile lazy load et (TurkeyMap, ComparisonSlider)
 
 ---
 
@@ -315,10 +344,9 @@
   - Font ailesini değiştir ve tüm sayfada yansıdığını doğrula
 
 - [ ] **19.3** Git commit ve push  
-  - Feature branch'e commit at: `claude/redesign-website-ui-NcRQF`  
+  - Feature branch'e commit at  
   - Commit mesajı açıklayıcı olsun  
-  - `git push -u origin claude/redesign-website-ui-NcRQF`
-
+  - 
 ---
 
 ## Önemli Notlar — Agent İçin
@@ -348,4 +376,3 @@
 
 ---
 
-*Bu plan `claude/redesign-website-ui-NcRQF` branch'inde geliştirilecektir.*

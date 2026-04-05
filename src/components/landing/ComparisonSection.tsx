@@ -97,7 +97,7 @@ export function ComparisonSection() {
           </p>
         </motion.div>
 
-        <div className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+        <div className="relative mx-auto grid max-w-5xl gap-8 md:grid-cols-2 md:gap-10">
           <motion.div
             initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -193,7 +193,7 @@ export function ComparisonSection() {
             </div>
           </motion.div>
 
-          <div className="pointer-events-none absolute left-1/2 top-[48%] hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background font-black text-sm text-primary shadow-md md:flex">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background font-black text-sm text-primary shadow-md md:flex">
             VS
           </div>
 
@@ -332,7 +332,7 @@ export function ComparisonSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, ease: "easeOut", delay: 0.2 }}
-          className="mt-10 grid gap-3 sm:grid-cols-3"
+          className="mx-auto mt-10 grid max-w-5xl gap-3 sm:grid-cols-3"
         >
           {stats.map((stat) => {
             const Icon = stat.icon;

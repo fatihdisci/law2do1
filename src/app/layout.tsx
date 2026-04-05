@@ -1,8 +1,27 @@
 import type { Metadata } from "next";
+import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Law2Do | Avukatlar için Hukuki İş Akışı Yönetimi",
@@ -31,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="tr" className={`scroll-smooth ${inter.variable} ${jakarta.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
         <ThemeProvider>
           <Navbar />
