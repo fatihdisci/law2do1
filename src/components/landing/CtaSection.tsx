@@ -22,13 +22,13 @@ export function CtaSection() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link
             href="/dashboard"
-            className="bg-emerald-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-emerald-500 hover:-translate-y-1 transition-all shadow-xl shadow-emerald-600/20"
+            className="bg-primary text-primary-foreground px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary/90 hover:-translate-y-1 transition-all shadow-xl shadow-primary/20"
           >
             Ücretsiz Denemeyi Başlat
           </Link>
           <Link
             href="/pricing"
-            className="bg-card text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-card hover:border-slate-300 hover:shadow-sm transition-all"
+            className="bg-card text-foreground border border-border px-10 py-4 rounded-xl font-bold text-lg hover:bg-muted hover:shadow-sm transition-all"
           >
             Paketleri İncele
           </Link>

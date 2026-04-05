@@ -23,38 +23,31 @@ export function MethodologySection() {
             Hukuk pratiğinin işleyişine aykırı hiçbir gereksiz detay barındırmaz.
           </p>
 
-          {/* Workflow Verified Badge */}
-          <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 border border-emerald-200 rounded-full">
-            <Shield size={18} className="text-emerald-600" />
-            <span className="text-sm font-semibold text-emerald-700">Mevzuata Uygun İş Akışları</span>
-            <CheckCircle2 size={16} className="text-emerald-600" />
+          {/* Verified Badge */}
+          <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+            <Shield size={18} className="text-primary" />
+            <span className="text-sm font-semibold text-primary">Mevzuata Uygun İş Akışları</span>
+            <CheckCircle2 size={16} className="text-primary" />
           </div>
         </motion.div>
 
-        {/* Workflow Animation - Marquee Style */}
+        {/* Workflow Marquee */}
         <div className="mt-12 relative overflow-hidden">
           <div className="flex animate-marquee gap-4">
-            {/* Task Items - Duplicated for seamless loop */}
             {[...Array(2)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-4 shrink-0">
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  📋 Dava Dilekçesi Hazırla
-                </div>
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  📄 Delil Listesi Oluştur
-                </div>
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  ⏰ Cevap Süresi Takibi
-                </div>
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  📑 Bilirkişi Raporu İncele
-                </div>
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  🔔 Duruşma Hatırlatması
-                </div>
-                <div className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
-                  ✅ Karar Tebliği Al
-                </div>
+                {[
+                  "📋 Dava Dilekçesi Hazırla",
+                  "📄 Delil Listesi Oluştur",
+                  "⏰ Cevap Süresi Takibi",
+                  "📑 Bilirkişi Raporu İncele",
+                  "🔔 Duruşma Hatırlatması",
+                  "✅ Karar Tebliği Al",
+                ].map((item) => (
+                  <div key={item} className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm text-sm font-medium text-foreground whitespace-nowrap">
+                    {item}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
