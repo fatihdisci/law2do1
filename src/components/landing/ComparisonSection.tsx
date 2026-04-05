@@ -1,223 +1,357 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import {
-  CheckCircle2, XCircle, Layout, Clock, Shield, FileText, MoreVertical
-} from 'lucide-react';
+  AlertTriangle,
+  CheckCircle2,
+  Clock3,
+  FileText,
+  LayoutDashboard,
+  MoreVertical,
+  Scale,
+  Siren,
+  Timer,
+  TrendingUp,
+  XCircle,
+} from "lucide-react";
+
+type ExcelRow = {
+  id: number;
+  fileNo: string;
+  client: string;
+  stage: string;
+  note: string;
+};
+
+const EXCEL_ROWS: ExcelRow[] = [
+  {
+    id: 2,
+    fileNo: "2024/102",
+    client: "Mehmet K.",
+    stage: "Bilirkişi",
+    note: "Rapor bekleniyor",
+  },
+  {
+    id: 3,
+    fileNo: "2024/103",
+    client: "Ayşe D.",
+    stage: "Karar",
+    note: "İstinaf süresi: 2 gün",
+  },
+  {
+    id: 4,
+    fileNo: "2024/104",
+    client: "Fatma S.",
+    stage: "Tensip",
+    note: "Görev ataması yok",
+  },
+  {
+    id: 5,
+    fileNo: "2024/105",
+    client: "Ali V.",
+    stage: "Tanık",
+    note: "Tebligat tarihi eksik",
+  },
+  {
+    id: 6,
+    fileNo: "2024/106",
+    client: "Veli Z.",
+    stage: "Keşif",
+    note: "Takvim çakışması",
+  },
+  {
+    id: 7,
+    fileNo: "2024/107",
+    client: "Hasan B.",
+    stage: "Dilekçe",
+    note: "Son gün: bugün",
+  },
+];
+
+const stats = [
+  { label: "İş Tamamlama Hızı", value: "3x daha hızlı", icon: TrendingUp },
+  { label: "Kaçırılan Görev", value: "0 kayıp görev", icon: CheckCircle2 },
+  { label: "Zaman Kazancı", value: "Haftada +6 saat", icon: Timer },
+];
 
 export function ComparisonSection() {
   return (
-    <section className="py-24 px-4 sm:px-6 bg-muted/50 relative z-10 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+    <section className="relative z-10 overflow-hidden bg-muted/40 px-4 py-24 sm:px-6">
+      <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(hsl(var(--color-border))_1px,transparent_1px)] [background-size:30px_30px] opacity-25" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-primary/10 to-transparent" />
+
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mb-14 text-center"
         >
-          <h2 className="text-3xl md:text-5xl font-black text-foreground mb-4">
+          <h2 className="gradient-text mb-4 text-3xl font-black md:text-5xl">
             Farkı Hissedin
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Genel amaçlı yazılımlar vs. hukuk pratiği için tasarlanmış sistem
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Genel amaçlı dosya takibi ile hukuk pratiği için tasarlanmış gerçek iş
+            akışı arasındaki farkı net görün.
           </p>
         </motion.div>
 
-        {/* Comparison Cards */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-
-          {/* LEFT: Excel Mock - The Problem */}
+        <div className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-            className="relative group"
+            transition={{ duration: 0.75, ease: "easeOut", delay: 0.08 }}
+            className="group"
           >
-            <div className="bg-card rounded-3xl border border-border p-4 sm:p-8 shadow-lg overflow-hidden h-full flex flex-col">
+            <div className="flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-lg sm:p-6">
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1.5 text-xs font-bold text-red-600 dark:text-red-400">
+                <AlertTriangle size={14} /> Sorun
+              </div>
 
-              {/* Excel Interface Mock */}
-              <div className="relative flex-1 flex flex-col text-[10px] sm:text-xs font-sans select-none cursor-default border border-border rounded-lg overflow-hidden mb-6 shadow-inner">
-                {/* Excel Toolbar — intentionally uses Excel's brand green in both modes */}
-                <div className="bg-[#107c41] text-white px-3 py-2 flex items-center gap-3">
-                  <div className="font-bold">Excel</div>
-                  <div className="opacity-80 hidden sm:block">Giriş</div>
-                  <div className="opacity-80 hidden sm:block">Ekle</div>
-                  <div className="ml-auto opacity-80">Oturum Açın</div>
-                </div>
-
-                {/* Formula Bar */}
-                <div className="bg-muted border-b border-border px-2 py-1 flex items-center gap-2 text-muted-foreground">
-                  <span className="font-serif italic font-bold">fx</span>
-                  <div className="bg-card border border-border w-full h-4 rounded-sm"></div>
-                </div>
-
-                {/* Grid Container */}
-                <div className="flex-1 overflow-x-auto overflow-y-hidden relative bg-card">
-                  {/* Header Row */}
-                  <div className="flex border-b border-border bg-muted font-bold text-muted-foreground min-w-[280px]">
-                    <div className="w-6 sm:w-8 border-r border-border flex items-center justify-center bg-muted/80"></div>
-                    <div className="w-14 sm:w-20 border-r border-border px-1 py-0.5">A</div>
-                    <div className="w-16 sm:w-24 border-r border-border px-1 py-0.5">B</div>
-                    <div className="w-16 sm:w-24 border-r border-border px-1 py-0.5">C</div>
-                    <div className="flex-1 border-r border-border px-1 py-0.5">D</div>
+              <div className="relative mb-6 flex flex-1 flex-col overflow-hidden rounded-xl border border-border shadow-inner">
+                <div className="flex items-center gap-2 border-b border-[#0c6b37] bg-[#107c41] px-3 py-2 text-[11px] text-white sm:text-xs">
+                  <div className="font-bold tracking-wide">Excel</div>
+                  <div className="rounded border border-white/30 bg-white/10 px-1.5 py-0.5 text-[10px]">
+                    Otomatik Kaydet
                   </div>
+                  <div className="ml-auto hidden items-center gap-2 text-white/85 sm:flex">
+                    <span>Giriş</span>
+                    <span>Ekle</span>
+                    <span>Gözden Geçir</span>
+                  </div>
+                </div>
 
-                  {/* Data Rows */}
-                  {[
-                    { id: 1, a: "2024/101", b: "Ahmet Y.", c: "Duruşma", d: "14.10.2024" },
-                    { id: 2, a: "2024/102", b: "Mehmet K.", c: "Bilirkişi", d: "Rapor Bekleniyor" },
-                    { id: 3, a: "2024/103", b: "Ayşe D.", c: "Karar", d: "İstinaf Süresi" },
-                    { id: 4, a: "2024/104", b: "Fatma S.", c: "Tensip", d: "Gereği Yapılacak" },
-                    { id: 5, a: "2024/105", b: "Ali V.", c: "Tanık", d: "Dinlenecek" },
-                    { id: 6, a: "2024/106", b: "Veli Z.", c: "Keşif", d: "Araç Ayarlanacak" },
-                    { id: 7, a: "2024/107", b: "Hasan B.", c: "Dilekçe", d: "Cevap Verilecek" },
-                  ].map((row) => (
-                    <div key={row.id} className="flex border-b border-border/50 min-w-[280px]">
-                      <div className="w-6 sm:w-8 border-r border-border flex items-center justify-center bg-muted font-semibold text-muted-foreground">
-                        {row.id}
+                <div className="flex items-center gap-2 border-b border-border bg-muted/90 px-2 py-1 text-[11px] text-muted-foreground dark:bg-muted/40">
+                  <span className="font-serif font-bold italic">fx</span>
+                  <div className="h-5 w-full rounded-sm border border-border bg-card px-2 leading-5 text-[10px] text-muted-foreground">
+                    =EĞER(TARİH-BUGÜN()&lt;=2;&quot;ACİL&quot;;&quot;NORMAL&quot;)
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto bg-card">
+                  <div className="min-w-[390px]">
+                    <div className="grid grid-cols-[36px_105px_110px_95px_1fr] border-b border-border bg-muted text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                      <div className="border-r border-border p-1.5 text-center">#</div>
+                      <div className="border-r border-border p-1.5">Dosya</div>
+                      <div className="border-r border-border p-1.5">Müvekkil</div>
+                      <div className="border-r border-border p-1.5">Aşama</div>
+                      <div className="p-1.5">Not</div>
+                    </div>
+
+                    <div className="grid grid-cols-[36px_105px_110px_95px_1fr] border-b border-red-200/70 bg-red-50/70 text-[11px] dark:border-red-900/60 dark:bg-red-950/30">
+                      <div className="border-r border-border p-1.5 text-center font-semibold text-muted-foreground">
+                        1
                       </div>
-                      <div className="w-14 sm:w-20 border-r border-border/50 px-1 py-0.5 truncate text-foreground">{row.a}</div>
-                      <div className="w-16 sm:w-24 border-r border-border/50 px-1 py-0.5 truncate text-foreground">{row.b}</div>
-                      <div className="w-16 sm:w-24 border-r border-border/50 px-1 py-0.5 truncate text-foreground">{row.c}</div>
-                      <div className="flex-1 border-r border-border/50 px-1 py-0.5 truncate text-muted-foreground">{row.d}</div>
+                      <div className="border-r border-border p-1.5 font-medium text-foreground">
+                        2024/101
+                      </div>
+                      <div className="border-r border-border p-1.5 text-foreground">
+                        Ahmet Y.
+                      </div>
+                      <div className="border-r border-border p-1.5 text-foreground">
+                        Duruşma
+                      </div>
+                      <div className="truncate p-1.5 font-semibold text-red-600 dark:text-red-400">
+                        14:30 bugün — manuel takip
+                      </div>
                     </div>
-                  ))}
-                  {/* Empty Rows */}
-                  {[8, 9, 10, 11, 12].map(i => (
-                    <div key={i} className="flex border-b border-border/50 min-w-[280px]">
-                      <div className="w-6 sm:w-8 border-r border-border flex items-center justify-center bg-muted font-semibold text-muted-foreground">{i}</div>
-                      <div className="w-14 sm:w-20 border-r border-border/50 px-1 py-0.5"></div>
-                      <div className="w-16 sm:w-24 border-r border-border/50 px-1 py-0.5"></div>
-                      <div className="w-16 sm:w-24 border-r border-border/50 px-1 py-0.5"></div>
-                      <div className="flex-1 border-r border-border/50 px-1 py-0.5"></div>
-                    </div>
-                  ))}
+
+                    {EXCEL_ROWS.map((row) => (
+                      <div
+                        key={row.id}
+                        className="grid grid-cols-[36px_105px_110px_95px_1fr] border-b border-border/60 text-[11px]"
+                      >
+                        <div className="border-r border-border bg-muted/55 p-1.5 text-center font-semibold text-muted-foreground">
+                          {row.id}
+                        </div>
+                        <div className="border-r border-border p-1.5 text-foreground">
+                          {row.fileNo}
+                        </div>
+                        <div className="border-r border-border p-1.5 text-foreground">
+                          {row.client}
+                        </div>
+                        <div className="border-r border-border p-1.5 text-foreground">
+                          {row.stage}
+                        </div>
+                        <div className="truncate p-1.5 text-muted-foreground">
+                          {row.note}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Label */}
-              <div className="flex items-center justify-center gap-3 pt-2 mt-auto border-t border-border">
-                <XCircle size={24} className="text-red-500" />
-                <span className="text-base sm:text-xl font-black text-foreground">Dağınık • Karmaşık • Kaybolan İşler</span>
+              <div className="mt-auto flex items-center justify-center gap-3 border-t border-border pt-4">
+                <XCircle size={22} className="text-red-500" />
+                <span className="text-center text-base font-black text-foreground sm:text-lg">
+                  Dağınık • Karmaşık • Kaybolan İşler
+                </span>
               </div>
             </div>
           </motion.div>
 
-          {/* RIGHT: Law2Do - The Solution */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-            className="relative group"
-          >
-            <div className="bg-card rounded-3xl border border-border p-4 sm:p-8 shadow-2xl overflow-hidden h-full flex flex-col relative">
-              {/* Background Decor */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+          <div className="pointer-events-none absolute left-1/2 top-[48%] hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background font-black text-sm text-primary shadow-md md:flex">
+            VS
+          </div>
 
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75, ease: "easeOut", delay: 0.16 }}
+            className="group"
+          >
+            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-2xl sm:p-6">
+              <div className="pointer-events-none absolute right-0 top-0 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+
+              <div className="relative z-10 mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/12 px-3 py-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <CheckCircle2 size={14} /> Çözüm
+              </div>
+
+              <div className="relative z-10 mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/30">
-                    <Layout size={20} />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
+                    <LayoutDashboard size={19} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground text-lg">Law2Do Asistan</h3>
-                    <p className="text-xs text-muted-foreground font-medium">Günlük İş Akışı</p>
+                    <h3 className="text-lg font-bold text-foreground">Law2Do Asistan</h3>
+                    <p className="text-xs font-medium text-muted-foreground">
+                      Günlük İş Akışı
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Sistem Aktif</span>
+                <div className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                  Sistem Aktif
                 </div>
               </div>
 
-              {/* Smart Task List */}
-              <div className="space-y-3 relative z-10 flex-1">
-
-                {/* Task 1: Urgent Hearing */}
-                <div className="bg-card border border-primary/20 rounded-xl p-4 shadow-sm hover:shadow-md hover:border-primary/40 transition-all group/item cursor-pointer">
-                  <div className="flex justify-between items-start mb-2">
+              <div className="relative z-10 flex-1 space-y-3">
+                <div className="rounded-xl border border-red-300/35 bg-red-50/70 p-4 shadow-sm dark:border-red-800/50 dark:bg-red-950/30">
+                  <div className="mb-2 flex items-start justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/20">2024/101</span>
-                      <span className="bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 text-[10px] font-bold px-2 py-0.5 rounded border border-red-100 dark:border-red-900/50 flex items-center gap-1 animate-pulse">
-                        <Clock size={10} /> BUGÜN 14:30
+                      <span className="rounded border border-primary/25 bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
+                        2024/101
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded border border-red-200 bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-600 dark:border-red-900/60 dark:bg-red-950/60 dark:text-red-400">
+                        <span className="relative flex h-2.5 w-2.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-80" />
+                          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500" />
+                        </span>
+                        ACİL
                       </span>
                     </div>
-                    <div className="text-muted-foreground/40 group-hover/item:text-primary transition-colors">
-                      <MoreVertical size={16} />
-                    </div>
+                    <MoreVertical size={16} className="text-muted-foreground/60" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Shield size={18} className="text-primary" />
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-red-500/12 text-red-600 dark:text-red-400">
+                        <Siren size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-foreground">Duruşma: Ahmet Y.</h4>
+                        <p className="text-xs text-muted-foreground">
+                          14. Asliye Hukuk Mahkemesi
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-foreground text-sm">Duruşma: Ahmet Y.</h4>
-                      <p className="text-xs text-muted-foreground">14. Asliye Hukuk Mahkemesi</p>
+                    <div className="rounded-lg border border-red-200/80 bg-background px-2 py-1 text-center text-[10px] font-bold leading-tight text-red-600 dark:border-red-900/60 dark:bg-red-950/40 dark:text-red-400">
+                      01:12:47
+                      <div className="text-[9px] font-medium uppercase">kaldı</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Task 2: Waiting Report */}
-                <div className="bg-muted/50 border border-border rounded-xl p-4 opacity-75 hover:opacity-100 transition-opacity">
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="bg-muted text-muted-foreground text-[10px] font-bold px-2 py-0.5 rounded">2024/102</span>
-                      <span className="bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-100 dark:border-amber-900/50">
-                        BEKLİYOR
-                      </span>
-                    </div>
+                <div className="rounded-xl border border-border bg-muted/50 p-4">
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="rounded bg-muted px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                      2024/102
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded border border-border bg-background px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                      <Clock3 size={10} /> BEKLİYOR
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center shrink-0">
-                      <FileText size={18} className="text-muted-foreground" />
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-muted-foreground">
+                      <FileText size={16} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-sm">Bilirkişi Raporu Takibi</h4>
-                      <p className="text-xs text-muted-foreground">Rapor tanzimi bekleniyor</p>
+                      <h4 className="text-sm font-bold text-foreground">Bilirkişi Raporu Takibi</h4>
+                      <p className="text-xs text-muted-foreground">
+                        Rapor tanzimi bekleniyor
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Task 3: High Priority */}
-                <div className="bg-card border-l-4 border-l-orange-500 border-y border-r border-border rounded-r-xl p-4 shadow-sm relative overflow-hidden">
-                  <div className="flex justify-between items-start mb-2 relative z-10">
+                <div className="overflow-hidden rounded-xl border border-orange-300/40 bg-orange-50/55 p-4 dark:border-orange-900/50 dark:bg-orange-950/25">
+                  <div className="mb-2 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="bg-muted text-muted-foreground text-[10px] font-bold px-2 py-0.5 rounded">2024/107</span>
-                      <span className="text-orange-600 dark:text-orange-400 text-[10px] font-bold flex items-center gap-1">
+                      <span className="rounded bg-background px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                        2024/107
+                      </span>
+                      <span className="rounded border border-orange-200 bg-orange-100 px-2 py-0.5 text-[10px] font-bold text-orange-700 dark:border-orange-900/70 dark:bg-orange-950/45 dark:text-orange-400">
                         YÜKSEK ÖNCELİK
                       </span>
                     </div>
+                    <span className="text-[10px] font-semibold text-orange-700 dark:text-orange-400">
+                      %72 tamamlandı
+                    </span>
                   </div>
-                  <div className="flex items-center gap-3 relative z-10">
-                    <div className="h-10 w-10 rounded-full bg-orange-50 dark:bg-orange-950/40 flex items-center justify-center shrink-0">
-                      <FileText size={18} className="text-orange-600 dark:text-orange-400" />
+                  <div className="mb-2 flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-100 text-orange-700 dark:bg-orange-950/55 dark:text-orange-400">
+                      <Scale size={16} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-sm">Cevap Dilekçesi</h4>
-                      <p className="text-xs text-muted-foreground">Hazırlanması gerekiyor</p>
+                      <h4 className="text-sm font-bold text-foreground">Cevap Dilekçesi</h4>
+                      <p className="text-xs text-muted-foreground">
+                        Son kontrol ve teslim aşaması
+                      </p>
                     </div>
                   </div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-orange-200/70 dark:bg-orange-900/40">
+                    <div className="h-full w-[72%] rounded-full bg-orange-500" />
+                  </div>
                 </div>
-
               </div>
 
-              {/* Label */}
-              <div className="flex items-center justify-center gap-3 pt-6 mt-auto border-t border-border relative z-10">
-                <CheckCircle2 size={24} className="text-emerald-500" />
-                <span className="text-base sm:text-xl font-black text-foreground">Net • Düzenli • Kontrol Altında</span>
+              <div className="relative z-10 mt-5 flex items-center justify-center gap-3 border-t border-border pt-4">
+                <CheckCircle2 size={22} className="text-emerald-500" />
+                <span className="text-center text-base font-black text-foreground sm:text-lg">
+                  Net • Düzenli • Kontrol Altında
+                </span>
               </div>
             </div>
           </motion.div>
-
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, ease: "easeOut", delay: 0.2 }}
+          className="mt-10 grid gap-3 sm:grid-cols-3"
+        >
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-border bg-card/80 p-4 backdrop-blur-sm"
+              >
+                <div className="mb-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon size={16} />
+                </div>
+                <p className="text-lg font-black text-foreground">{stat.value}</p>
+                <p className="text-xs font-medium text-muted-foreground">
+                  {stat.label}
+                </p>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
