@@ -37,35 +37,35 @@
 
 > Şu anda birçok component hardcoded renk kullandığı için dark mode'da sorun yaşıyor.
 
-- [ ] **2.1** `src/components/Toast.tsx` dosyasını düzelt  
+- [x] **2.1** `src/components/Toast.tsx` dosyasını düzelt ✅  
   - `bg-white` → `bg-card` değiştir  
   - `border-slate-100` → `border-border` değiştir  
   - `text-slate-900` → `text-foreground` değiştir  
   - `text-slate-500` → `text-muted-foreground` değiştir  
   - Dark mode'da görünürlüğü test et
 
-- [ ] **2.2** `src/components/dashboard/Sidebar.tsx` dosyasını düzelt  
+- [x] **2.2** `src/components/dashboard/Sidebar.tsx` dosyasını düzelt ✅  
   - `bg-indigo-950` gibi hardcoded renkleri CSS değişkenlerine çevir  
   - `text-white` → `text-foreground` veya uygun token'a çevir  
   - Active link state'ini CSS değişkenleriyle yönet  
   - Dark/light mode'da tutarlı görünümü sağla
 
-- [ ] **2.3** `src/components/DashboardCard.tsx` dosyasını düzelt  
+- [x] **2.3** `src/components/DashboardCard.tsx` dosyasını düzelt ✅  
   - Tüm hardcoded hex renkleri kaldır  
   - CSS değişkenleri veya Tailwind tema renkleri kullan  
   - Status renklerini (urgent/waiting/high priority) token sistemine bağla
 
-- [ ] **2.4** `src/components/landing/ComparisonSection.tsx` dark mode uyumunu düzelt  
+- [x] **2.4** `src/components/landing/ComparisonSection.tsx` dark mode uyumunu düzelt ✅  
   - `text-slate-900`, `bg-slate-50`, `bg-white` gibi hardcoded değerleri temizle  
   - Excel mock-up'ın dark mode versiyonunu ekle (koyu toolbar, koyu grid)  
   - Law2Do kartının dark mode versiyonunu iyileştir
 
-- [ ] **2.5** `src/app/page.tsx` ve tüm landing section bileşenlerini tara  
+- [x] **2.5** `src/app/page.tsx` ve tüm landing section bileşenlerini tara ✅  
   - Hardcoded renk kullanan her yeri tespit et ve CSS değişkenlerine çevir  
   - Inline `style={{}}` içindeki renkleri de kontrol et  
   - `dark:` prefix'li Tailwind class'larını gözden geçir, gerekirse düzelt
 
-- [ ] **2.6** `src/components/ThemeToggle.tsx` bileşenini iyileştir  
+- [x] **2.6** `src/components/ThemeToggle.tsx` bileşenini iyileştir ✅  
   - Dropdown yerine üç butonlu (Güneş/Ay/Sistem) kompakt bir toggle yap  
   - Aktif seçenek görsel olarak belirgin olsun  
   - Animasyonlu geçiş efekti ekle
@@ -74,40 +74,41 @@
 
 ## FAZ 3 — Profesyonel Navbar Yeniden Tasarımı
 
-- [ ] **3.1** `src/components/Navbar.tsx` bileşenini yeniden tasarla  
+- [x] **3.1** `src/components/Navbar.tsx` bileşenini yeniden tasarla ✅  
   - Scroll'da glassmorphism efekti (backdrop-blur + yarı saydam arka plan)  
-  - Logo bölümünü güçlendir: ikon + wordmark kombinasyonu  
+  - Logo bölümünü güçlendir: Scale ikonu + wordmark kombinasyonu  
   - Nav linkleri için hover'da alt çizgi animasyonu ekle  
-  - CTA butonu (Ücretsiz Dene) için gradient veya ring efekti  
-  - Mobile hamburger menü animasyonunu iyileştir (X'e dönen animasyon)  
-  - Sticky navbar'ın dark/light mod geçişinde shadow değişimi
+  - CTA butonu için btn-shimmer + glow shadow efekti  
+  - Mobile hamburger: CSS animasyonlu 3 çizgi → X dönüşümü  
+  - Mobile menü: max-height CSS slide-down animasyonu
 
 ---
 
 ## FAZ 4 — Hero Section Yeniden Tasarımı
 
-- [ ] **4.1** `src/components/landing/HeroSection.tsx` bileşenini yeniden tasarla  
-  - Arkaplan: Subtle grid pattern veya noise texture (CSS ile, resim olmadan)  
-  - Gradient spotlight efekti (fareyi takip eden veya statik radial gradient)  
-  - Badge bileşeni: "Yeni: v2.0 çıktı →" şeklinde dikkat çekici animasyonlu rozet  
-  - Ana başlık için kelime kelime veya harf harf giriş animasyonu  
-  - Alt başlık için fade-in animasyonu  
-  - CTA butonları: Primary (solid gradient) + Secondary (outline/ghost)  
-  - Trusted by / Kullanıcı sayısı gibi social proof elementi ekle  
-  - Dashboard preview mockup: Gerçek bir uygulama ekranı gibi görünen tarayıcı frame'i içinde dashboard kartları  
-  - Hero'nun altına akan/kayan logo/marka marquee şeridi
+- [x] **4.1** `src/components/landing/HeroSection.tsx` bileşenini yeniden tasarla ✅  
+  - Arkaplan: CSS dot-grid pattern (`.hero-grid`) + radial spotlight  
+  - Gradient spotlight efekti: statik ellipse radial-gradient  
+  - Badge: pulsing primary dot + ArrowRight, primary/10 bg  
+  - Ana başlık: Framer Motion staggerChildren per-word animasyonu  
+  - Alt başlık: delay 0.55s fade-in  
+  - CTA birincil: bg-gradient-to-br + btn-shimmer + shadow-primary/25  
+  - CTA ikincil: Play ikonu primary/10 dairede + outline  
+  - Social proof: renkli avatar stack + 4.9/5.0 yıldız + "500+ avukat"  
+  - Dashboard mockup: 3D tilt, browser chrome, 3 task state  
+  - Marquee şerit: baro/hukuk organizasyonları, kenar fade overlay
 
 ---
 
 ## FAZ 5 — Features Section Yeniden Tasarımı
 
-- [ ] **5.1** `src/components/landing/FeaturesSection.tsx` bileşenini yeniden tasarla  
-  - 3'lü grid yerine daha dinamik bir layout: 1 büyük featured kart + 2 küçük kart  
-  - Kart tasarımı: Icon container'ı için gradient arka plan  
-  - Hover'da kart'ın hafifçe yukarı kalkması + shadow derinleşmesi  
-  - Her feature için mini illustrasyon veya ikon animasyonu  
-  - Section başlığına gradient text efekti  
-  - Scroll tetiklemeli stagger animasyonu (kartlar sırayla açılsın)
+- [x] **5.1** `src/components/landing/FeaturesSection.tsx` bileşenini yeniden tasarla ✅  
+  - Bento grid: 1 büyük kart (col-7) + 2 yığılmış küçük kart (col-5)  
+  - Section header: pill badge + gradient-text başlık + alt başlık  
+  - Her kart: gradient top accent strip + gradient icon container  
+  - Hover: `-translate-y-1.5` + `shadow-xl` + icon `scale-110`  
+  - Framer Motion staggerChildren 0.15s whileInView  
+  - Alt CTA strip: "14 gün ücretsiz" mesajı + aksiyon butonu
 
 ---
 
