@@ -114,7 +114,7 @@
 
 ## FAZ 6 — Methodology/Marquee Section İyileştirmesi
 
-- [ ] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir  
+- [x] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir ✅ (2026-04-05 00:00 UTC — çift yön marquee, numaralı+ikonlu öğeler, hover pause ve arkaplan pattern/gradient eklendi)  
   - Marquee şeridini iki yönde çalıştır (ikinci şerit ters yönde)  
   - Şerit öğelerini adım adım numaralandır ve ikon ekle  
   - Şerit öğelerinin hover'ında duraklatma efekti  
@@ -126,20 +126,20 @@
 
 > Bu bölüm korunacak, yapay zeka görseli kaldırılacak, gerçek mock-up geliştirilecek.
 
-- [ ] **7.1** `src/components/landing/ComparisonSection.tsx` sol tarafı güncelle  
+- [x] **7.1** `src/components/landing/ComparisonSection.tsx` sol tarafı güncelle ✅ (2026-04-05 00:00 UTC — Excel mock-up gerçekçi hale getirildi, problem badge güçlendirildi, AI tarzı sahte görsel yaklaşımı kaldırıldı)  
   - AI tarafından oluşturulan sahte görsel varsa kaldır  
   - Excel mock-up'ı daha detaylı ve gerçekçi yap (gerçek Excel UI'ına yakın)  
   - Dark mode'da Excel mock-up'ı uyumlu hale getir  
   - "Sorun" etiketini daha dikkat çekici yap (kırmızı badge, uyarı ikonu)
 
-- [ ] **7.2** `src/components/landing/ComparisonSection.tsx` sağ tarafı güncelle  
+- [x] **7.2** `src/components/landing/ComparisonSection.tsx` sağ tarafı güncelle ✅ (2026-04-05 00:00 UTC — urgent/waiting/high-priority kartları, pulsing nokta, countdown ve progress bar iyileştirildi)  
   - Law2Do dashboard preview kartlarını geliştir  
   - Urgent kart: Pulsing kırmızı nokta + countdown timer animasyonu ekle  
   - Waiting kart: Yumuşak gri ton + saat ikonu  
   - High Priority kart: Turuncu badge + progress bar  
   - "Çözüm" etiketini yeşil badge ile güçlendir
 
-- [ ] **7.3** ComparisonSection layout ve animasyonlarını geliştir  
+- [x] **7.3** ComparisonSection layout ve animasyonlarını geliştir ✅ (2026-04-05 00:00 UTC — VS ayırıcı, gradient başlık, aşağıdan-yukarı animasyon ve stats row eklendi)  
   - İki kart arasına "VS" seperatörü ekle  
   - Section başlığını gradient text ile güçlendir  
   - Kartların giriş animasyonunu sol-sağ yerine aşağıdan yukarıya değiştir  
