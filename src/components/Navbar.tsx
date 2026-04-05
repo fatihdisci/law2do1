@@ -2,118 +2,152 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Scale } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+
+const navLinks = [
+    { href: "/#how-it-works", label: "Nasıl Çalışır?" },
+    { href: "/#features", label: "Özellikler" },
+    { href: "/pricing", label: "Paketler" },
+];
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
+        const handleScroll = () => setIsScrolled(window.scrollY > 20);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const navLinks = [
-        { href: "/#how-it-works", label: "Nasıl Çalışır?" },
-        { href: "/#features", label: "Özellikler" },
-        { href: "/pricing", label: "Paketler" },
-    ];
+    // Close mobile menu on resize to desktop
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) setIsMobileMenuOpen(false);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-                ? "bg-card/80 backdrop-blur-md border-b border-border shadow-sm"
-                : "bg-transparent"
-                }`}
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                isScrolled
+                    ? "bg-background/80 backdrop-blur-xl border-b border-border/60 shadow-sm"
+                    : "bg-transparent"
+            }`}
         >
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-serif shadow-md">
-                        L
+            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
+
+                {/* ── Logo ── */}
+                <Link
+                    href="/"
+                    className="flex items-center gap-2.5 shrink-0 group"
+                    aria-label="Law2Do Ana Sayfa"
+                >
+                    <div className="relative w-9 h-9 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-shadow duration-300">
+                        <Scale size={18} className="text-primary-foreground" strokeWidth={2} />
                     </div>
                     <span className="text-xl font-bold tracking-tight text-foreground">
                         Law<span className="text-primary">2</span>Do
                     </span>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+                {/* ── Desktop Links ── */}
+                <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
                     {navLinks.map((link) => (
                         <Link
                             key={link.label}
                             href={link.href}
-                            className="hover:text-foreground transition-colors relative group"
+                            className="relative py-1 hover:text-foreground transition-colors duration-200 group"
                         >
                             {link.label}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                            <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary rounded-full transition-all duration-300 group-hover:w-full" />
                         </Link>
                     ))}
                 </div>
 
-                {/* CTA Buttons + Theme Toggle */}
-                <div className="hidden md:flex items-center gap-4">
+                {/* ── Desktop Actions ── */}
+                <div className="hidden md:flex items-center gap-3 shrink-0">
                     <ThemeToggle />
-                    <Link href="/login" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+                    <Link
+                        href="/login"
+                        className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors px-3 py-2"
+                    >
                         Giriş Yap
                     </Link>
                     <Link
                         href="/dashboard"
-                        className="bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-all shadow-lg active:scale-95"
+                        className="relative overflow-hidden inline-flex items-center gap-1.5 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-px active:translate-y-0 active:shadow-none btn-shimmer"
                     >
                         Ücretsiz Başla
                     </Link>
                 </div>
 
-                {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center gap-2">
+                {/* ── Mobile: Theme + Hamburger ── */}
+                <div className="md:hidden flex items-center gap-2 shrink-0">
                     <ThemeToggle />
                     <button
-                        className="p-2 text-muted-foreground hover:text-foreground"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        aria-label="Toggle menu"
+                        className="relative w-10 h-10 flex flex-col items-center justify-center gap-[5px] rounded-lg hover:bg-muted transition-colors"
+                        onClick={() => setIsMobileMenuOpen((v) => !v)}
+                        aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
+                        aria-expanded={isMobileMenuOpen}
                     >
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        {/* Animated hamburger → X */}
+                        <span
+                            className={`block h-[2px] w-5 bg-foreground rounded-full origin-center transition-all duration-300 ${
+                                isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""
+                            }`}
+                        />
+                        <span
+                            className={`block h-[2px] w-5 bg-foreground rounded-full transition-all duration-200 ${
+                                isMobileMenuOpen ? "opacity-0 scale-x-0" : ""
+                            }`}
+                        />
+                        <span
+                            className={`block h-[2px] w-5 bg-foreground rounded-full origin-center transition-all duration-300 ${
+                                isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                            }`}
+                        />
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden bg-card/95 backdrop-blur-md border-t border-border p-4 shadow-lg">
-                    <div className="flex flex-col gap-4">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.label}
-                                href={link.href}
-                                className="text-muted-foreground hover:text-foreground font-medium py-2 transition-colors"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        <hr className="border-border" />
+            {/* ── Mobile Menu — slide down ── */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                    isMobileMenuOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+                }`}
+            >
+                <div className="bg-background/95 backdrop-blur-xl border-t border-border/60 px-6 pb-6 pt-4 space-y-1">
+                    {navLinks.map((link) => (
                         <Link
-                            href="/login"
-                            className="text-muted-foreground font-medium py-2 text-left"
+                            key={link.label}
+                            href={link.href}
+                            className="flex items-center h-11 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg px-2 hover:bg-muted"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Giriş Yap
+                            {link.label}
                         </Link>
-                        <Link
-                            href="/dashboard"
-                            className="bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-semibold text-center hover:opacity-90 transition-all"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Ücretsiz Başla
-                        </Link>
-                    </div>
+                    ))}
+                    <div className="h-px bg-border my-3" />
+                    <Link
+                        href="/login"
+                        className="flex items-center h-11 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg px-2 hover:bg-muted"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        Giriş Yap
+                    </Link>
+                    <Link
+                        href="/dashboard"
+                        className="flex items-center justify-center h-11 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-primary/90 transition-all mt-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        Ücretsiz Başla
+                    </Link>
                 </div>
-            )}
+            </div>
         </nav>
     );
 }
