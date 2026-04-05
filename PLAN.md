@@ -151,14 +151,14 @@
 
 > Parıldama efekti korunacak, görsel olarak daha premium hale getirilecek.
 
-- [ ] **8.1** `src/components/TurkeyMap.tsx` görsel iyileştirmeleri  
+- [x] **8.1** `src/components/TurkeyMap.tsx` görsel iyileştirmeleri ✅ (2026-04-05 00:00 UTC — il dolguları/theme renkleri, güçlü hover/active glow, büyük pulsing dot ve harita çerçeve/overlay iyileştirmeleri tamamlandı)  
   - Province fill rengi: Dark mode'da daha derin slate tonu, light mode'da soft mavi-gri  
   - Hover state: Daha belirgin glow efekti (box-shadow değil, filter: drop-shadow)  
   - Pulsing dots: Boyutunu ve glow yoğunluğunu artır  
   - Active/clicked province: Daha güçlü highlight ve smooth scale animasyonu  
   - Harita çerçevesi: Subtle border + gradient overlay (kenarlardan soluklaşma)
 
-- [ ] **8.2** `src/components/landing/MapSection.tsx` wrapper'ı geliştir  
+- [x] **8.2** `src/components/landing/MapSection.tsx` wrapper'ı geliştir ✅ (2026-04-05 00:00 UTC — gradient başlık, animasyonlu kullanıcı sayacı ve 3'lü stats alanı eklendi; arkaplan mesh/gradient güçlendirildi)  
   - Section başlığını gradient text ile güçlendir  
   - Haritanın altına türkiye genelinde toplam kullanıcı sayısı sayacı ekle (animasyonlu)  
   - Section arka planına koyu gradient veya mesh gradient ekle  
