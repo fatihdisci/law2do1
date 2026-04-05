@@ -4,7 +4,6 @@ import {
   ComparisonSection,
   MapSection,
   FeaturesSection,
-  CtaSection,
 } from '@/components/landing';
 
 export default function LandingPage() {
@@ -22,7 +21,6 @@ export default function LandingPage() {
       <ComparisonSection />
       <MapSection />
       <FeaturesSection />
-      <CtaSection />
     </div>
   );
 }

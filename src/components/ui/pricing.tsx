@@ -74,27 +74,41 @@ export function Pricing({
 
       {/* Pill Switcher */}
       <div className="mb-14 flex justify-center" ref={pillRef}>
-        <div className="relative inline-flex items-center rounded-full bg-slate-100 p-1 dark:bg-slate-800">
+        <div className="relative inline-flex items-stretch rounded-full bg-slate-100 p-1 dark:bg-slate-800">
           <button
             onClick={() => handleToggle(true)}
             className={cn(
               "relative z-10 rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-300",
-              isMonthly ? "text-slate-900" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              isMonthly ? "text-slate-900 dark:text-white" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
             )}
           >
+            {isMonthly && (
+              <motion.div
+                layoutId="pricing-pill"
+                className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm dark:bg-slate-700"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
             Aylık
           </button>
           <button
             onClick={() => handleToggle(false)}
             className={cn(
               "relative z-10 flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-300",
-              !isMonthly ? "text-slate-900" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              !isMonthly ? "text-slate-900 dark:text-white" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
             )}
           >
+            {!isMonthly && (
+              <motion.div
+                layoutId="pricing-pill"
+                className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm dark:bg-slate-700"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              />
+            )}
             Yıllık
             <span
               className={cn(
-                "rounded-full px-2 py-0.5 text-xs font-bold transition-opacity duration-300",
+                "relative z-10 rounded-full px-2 py-0.5 text-xs font-bold transition-all duration-300",
                 !isMonthly
                   ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300"
                   : "bg-emerald-100/50 text-emerald-700/50 dark:bg-emerald-500/10 dark:text-emerald-300/50"
@@ -103,14 +117,6 @@ export function Pricing({
               %20 İndirim
             </span>
           </button>
-
-          {/* Active Background Pill */}
-          <div
-            className="absolute bottom-1 top-1 w-1/2 rounded-full bg-white shadow-sm transition-transform duration-300 ease-in-out dark:bg-slate-700"
-            style={{
-              transform: `translateX(${isMonthly ? "4px" : "calc(100% - 4px)"})`,
-            }}
-          />
         </div>
       </div>
 
