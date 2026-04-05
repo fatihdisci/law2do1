@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* ============================================
    Law2Do Design System - Tailwind v4 Theme
@@ -99,10 +101,10 @@
   --radius-full: 9999px;
   --radius: var(--radius-md);
 
-  /* Typography via next/font variables */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-plus-jakarta), var(--font-sans);
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   /* Custom Animations */
   --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
@@ -234,9 +236,9 @@
   --color-chart-4: hsl(var(--color-chart-4));
   --color-chart-5: hsl(var(--color-chart-5));
 
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
-  --font-mono: var(--font-mono);
+  --font-family-sans: var(--font-sans);
+  --font-family-display: var(--font-display);
+  --font-family-mono: var(--font-mono);
 
   --animate-fade-in-up: var(--animate-fade-in-up);
   --animate-shimmer: var(--animate-shimmer);
