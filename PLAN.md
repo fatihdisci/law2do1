@@ -168,7 +168,7 @@
 
 ## FAZ 9 — CTA Section Yeniden Tasarımı
 
-- [ ] **9.1** `src/components/landing/CtaSection.tsx` bileşenini yeniden tasarla  
+- [x] **9.1** `src/components/landing/CtaSection.tsx` bileşenini yeniden tasarla  
   - Full-width gradient arka plan (diagonal veya radial)  
   - Arka plana subtle noise/grain texture ekle  
   - Büyük, bold başlık + alt başlık  
