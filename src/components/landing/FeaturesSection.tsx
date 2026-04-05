@@ -1,298 +1,273 @@
 "use client";
 
-import {
-  Layout, CheckCircle2, AlertTriangle, Bell, FileText, Clock
-} from 'lucide-react';
+import { Layout, CheckCircle2, AlertTriangle, Bell, FileText, Clock, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+/* ── Shared variants ── */
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  show:   { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0.15 } },
+};
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
+    <section id="features" className="py-28 px-6 max-w-7xl mx-auto relative z-10">
 
-      {/* Feature 1 */}
+      {/* ── Section header ── */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="grid md:grid-cols-2 gap-16 items-center mb-32"
+        transition={{ duration: 0.65 }}
+        className="text-center max-w-3xl mx-auto mb-20"
       >
-        <div className="order-2 md:order-1">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-2xl text-primary mb-6 shadow-sm">
-            <Layout size={28} />
-          </div>
-          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-            İş Akışlarınızı <br />
-            <span className="text-primary">Hatasız Bir Düzenle Yönetin.</span>
-          </h2>
-          <div className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Dosya türünü seçtiğinizde, sistem yapılması gerekenleri adım adım önüne getirir.
-            <br /><br />
-            <div className="flex items-center gap-4 bg-card px-6 py-4 rounded-xl border-l-4 border-red-600 shadow-2xl shadow-red-200/20 dark:shadow-red-900/10 w-fit transform hover:scale-105 transition-transform duration-300">
-              <div className="bg-red-100 dark:bg-red-900/40 p-2 rounded-full animate-pulse">
-                <AlertTriangle size={24} className="text-red-600 dark:text-red-400 fill-red-600/20 dark:fill-red-400/20" />
+        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold mb-5">
+          <Layout size={13} /> Temel Özellikler
+        </span>
+        <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-5">
+          Hukuk Pratiğinize Özel{' '}
+          <span className="gradient-text">Üç Çözüm.</span>
+        </h2>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          Her özellik, avukatlık pratiğinin gerçek ihtiyaçlarından doğdu.
+          Genel amaçlı araçlar değil — sadece sizin için.
+        </p>
+      </motion.div>
+
+      {/* ── Bento grid ── */}
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+      >
+
+        {/* ── CARD 1 (large) — İş Akışı ── */}
+        <motion.div
+          variants={cardVariants}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="lg:col-span-7 group"
+        >
+          <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300">
+
+            {/* Gradient accent top strip */}
+            <div className="h-1 w-full bg-gradient-to-r from-primary via-secondary-500 to-primary/40" />
+
+            <div className="p-8 md:p-10">
+              {/* Icon */}
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/15 text-primary mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/20 transition-all duration-300">
+                <Layout size={26} strokeWidth={1.8} />
               </div>
-              <div>
-                <p className="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wider mb-0.5">KRİTİK RİSK</p>
-                <p className="font-bold text-foreground text-lg">&quot;Acaba itiraz dilekçesini göndermiş miydim?&quot;</p>
+
+              <h3 className="text-2xl font-black text-foreground mb-3">
+                İş Akışlarınızı Hatasız Bir Düzenle Yönetin
+              </h3>
+              <p className="text-muted-foreground mb-8 leading-relaxed max-w-lg">
+                Dosya türünü seçtiğinizde sistem yapılması gerekenleri adım adım önünüze getirir. Artık "acaba göndermiş miydim?" diye düşünmezsiniz.
+              </p>
+
+              {/* Mini workflow mockup */}
+              <div className="relative bg-muted/50 rounded-2xl p-5 border border-border overflow-hidden">
+                {/* Connector line */}
+                <div className="absolute left-[2.65rem] top-10 bottom-10 w-0.5 bg-gradient-to-b from-emerald-400 via-emerald-300 to-border z-0" />
+
+                <div className="space-y-3 relative z-10">
+                  {/* Case type selector */}
+                  <div className="bg-card rounded-xl px-4 py-3 border border-border flex items-center justify-between mb-5 shadow-sm">
+                    <div>
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-0.5">DOSYA TÜRÜ</p>
+                      <p className="text-sm font-bold text-foreground">Sigorta Tahkim Başvurusu</p>
+                    </div>
+                    <span className="flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-lg">
+                      <CheckCircle2 size={9} /> SEÇİLDİ
+                    </span>
+                  </div>
+
+                  {[
+                    { done: true,  label: 'Başvuru Formunu Hazırla',    sub: 'Tamamlandı' },
+                    { done: true,  label: 'Sigorta Şirketi Başvurusu',  sub: 'Tamamlandı (15 Gün Doldu)' },
+                    { done: false, label: 'Komisyona Başvuru Yap',      sub: 'Sıradaki Görev', active: true },
+                  ].map((step, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all ${
+                        step.active
+                          ? 'bg-primary text-primary-foreground border-primary/30 shadow-lg shadow-primary/20 scale-[1.02]'
+                          : 'bg-card border-border'
+                      }`}
+                    >
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm border-4 ${
+                        step.active
+                          ? 'bg-primary-foreground text-primary border-primary/20'
+                          : 'bg-emerald-500 text-white border-card'
+                      }`}>
+                        {step.done && !step.active ? <CheckCircle2 size={15} /> : i + 1}
+                      </div>
+                      <div className="min-w-0">
+                        <p className={`text-sm font-bold truncate ${step.done && !step.active ? 'line-through opacity-60' : ''}`}>{step.label}</p>
+                        <p className={`text-[10px] ${step.active ? 'text-primary-foreground/70' : 'text-emerald-600 dark:text-emerald-400'}`}>{step.sub}</p>
+                      </div>
+                      {step.active && <div className="ml-auto w-2 h-2 bg-emerald-400 rounded-full animate-pulse shrink-0" />}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA link */}
+              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary group/link cursor-pointer w-fit">
+                Daha fazla öğren
+                <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform" />
               </div>
             </div>
           </div>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3 group">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white dark:group-hover:bg-emerald-500 transition-colors">
-                <CheckCircle2 size={16} />
-              </div>
-              <span className="text-foreground"><strong>Dinamik Checklistler:</strong> Dava türüne göre değişen akıllı listeler.</span>
-            </li>
-            <li className="flex items-start gap-3 group">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white dark:group-hover:bg-emerald-500 transition-colors">
-                <CheckCircle2 size={16} />
-              </div>
-              <span className="text-foreground"><strong>Sıfır Hata:</strong> Hiçbir adımı atlamadan süreci tamamlamayı sağlar.</span>
-            </li>
-          </ul>
-        </div>
-        <div className="order-1 md:order-2">
-          <div className="relative group hover:scale-[1.02] transition-transform duration-500">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-card rounded-[2.5rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-            <div className="relative bg-card rounded-[2.5rem] p-8 border border-border shadow-xl overflow-hidden">
-              {/* Case Type Selection */}
-              <div className="bg-muted rounded-2xl p-4 border border-border mb-6 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary"></div>
-                <div className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">DOSYA TÜRÜ</div>
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-foreground">Sigorta Tahkim Komisyonu Başvurusu</span>
-                  <div className="bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold px-2 py-1 rounded flex items-center gap-1">
-                    <CheckCircle2 size={10} /> SEÇİLDİ
-                  </div>
-                </div>
-              </div>
+        </motion.div>
 
-              {/* Animated Connection */}
-              <div className="flex justify-center mb-6 -mt-2">
-                <div className="h-8 w-0.5 bg-border relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-border rounded-full"></div>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-ping"></div>
-                </div>
-              </div>
+        {/* ── Right column: 2 stacked cards ── */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
 
-              {/* Task List */}
-              <div className="space-y-3 relative">
-                <div className="absolute left-[19px] top-4 h-24 w-0.5 bg-emerald-200 dark:bg-emerald-800 z-0"></div>
-                <div className="absolute left-[19px] top-28 bottom-4 w-0.5 bg-border z-0"></div>
+          {/* ── CARD 2 — Günlük Panel ── */}
+          <motion.div
+            variants={cardVariants}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="group flex-1"
+          >
+            <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-secondary/10 hover:-translate-y-1.5 transition-all duration-300">
+              <div className="h-1 w-full bg-gradient-to-r from-secondary-500 via-primary to-secondary-500/40" />
 
-                <div className="relative flex items-center gap-4 p-3 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/30 z-10 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-                  <div className="h-10 w-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 border-4 border-card shadow-sm font-bold text-sm">
-                    <CheckCircle2 size={18} />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-muted-foreground line-through">Başvuru Formunu Hazırla</div>
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Tamamlandı</div>
-                  </div>
+              <div className="p-7">
+                {/* Icon */}
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/20 text-secondary-600 dark:text-secondary-400 mb-5 shadow-sm group-hover:scale-110 transition-all duration-300">
+                  <Layout size={22} strokeWidth={1.8} />
                 </div>
 
-                <div className="relative flex items-center gap-4 p-3 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/30 z-10 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                  <div className="h-10 w-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 border-4 border-card shadow-sm font-bold text-sm">
-                    <CheckCircle2 size={18} />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-muted-foreground line-through">Sigorta Şirketi Başvurusu</div>
-                    <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Tamamlandı (15 Gün Süre Doldu)</div>
-                  </div>
+                <h3 className="text-xl font-black text-foreground mb-2">
+                  Tek Ekrandan Tam Hakimiyet
+                </h3>
+                <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                  Bugünkü görevler, haftalık yoğunluk ve gecikmeler tek bir panelde.
+                </p>
+
+                {/* Mini stat bar */}
+                <div className="grid grid-cols-3 gap-2 mb-4">
+                  {[
+                    { n: '3',  label: 'Bugün',    cls: 'bg-primary/10 text-primary' },
+                    { n: '8',  label: 'Hafta',    cls: 'bg-primary/5 text-foreground' },
+                    { n: '2',  label: 'Gecikmiş', cls: 'bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400' },
+                  ].map(({ n, label, cls }) => (
+                    <div key={label} className={`${cls} rounded-xl p-3 text-center border border-border/50`}>
+                      <div className="text-2xl font-black">{n}</div>
+                      <div className="text-[9px] uppercase tracking-wider opacity-70 mt-0.5">{label}</div>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="relative flex items-center gap-4 p-3 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20 z-10 transform scale-105 animate-fade-in-up" style={{ animationDelay: '500ms' }}>
-                  <div className="h-10 w-10 rounded-full bg-primary-foreground text-primary flex items-center justify-center shrink-0 border-4 border-primary/30 shadow-sm font-bold text-sm">
-                    3
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold">Komisyona Başvuru Yap</div>
-                    <div className="text-[10px] text-primary-foreground/70">Sıradaki Görev</div>
-                  </div>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                  </div>
+                {/* Task rows */}
+                <div className="space-y-1.5">
+                  {[
+                    { dot: 'bg-red-400',    text: 'Cevap Dilekçesi Hazırla', badge: 'GECİKMİŞ',   bc: 'text-red-500' },
+                    { dot: 'bg-amber-400',  text: 'Duruşma Hazırlığı',       badge: 'BUGÜN',      bc: 'text-amber-500' },
+                    { dot: 'bg-emerald-400',text: 'Bilirkişi Raporu İncele', badge: 'Yarın',      bc: 'text-muted-foreground' },
+                  ].map(({ dot, text, badge, bc }) => (
+                    <div key={text} className="flex items-center gap-2.5 bg-muted/50 px-3 py-2.5 rounded-lg border border-border/50">
+                      <div className={`w-2 h-2 rounded-full shrink-0 ${dot}`} />
+                      <span className="text-xs text-foreground/80 flex-1 truncate">{text}</span>
+                      <span className={`text-[9px] font-bold ${bc} shrink-0`}>{badge}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          {/* ── CARD 3 — Akıllı Hatırlatıcı ── */}
+          <motion.div
+            variants={cardVariants}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="group flex-1"
+          >
+            <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1.5 transition-all duration-300">
+              <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-orange-400 to-red-400" />
+
+              <div className="p-7">
+                {/* Icon */}
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400/20 to-amber-400/5 border border-amber-400/20 text-amber-600 dark:text-amber-400 mb-5 shadow-sm group-hover:scale-110 transition-all duration-300">
+                  <Bell size={22} strokeWidth={1.8} />
+                </div>
+
+                <h3 className="text-xl font-black text-foreground mb-2">
+                  Kritik Süreleri Asla Kaçırmayın
+                </h3>
+                <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                  Son tarih yaklaştığında 3—7—14 gün öncesinden otomatik e-posta ve uygulama içi uyarılar.
+                </p>
+
+                {/* Notification stack */}
+                <div className="space-y-2">
+                  {[
+                    {
+                      icon: AlertTriangle, iconCls: 'text-red-400', bg: 'bg-red-50 dark:bg-red-950/30 border-red-100 dark:border-red-900/40',
+                      label: 'ACİL',   labelCls: 'text-red-500',
+                      text:  'Temyiz dilekçesi son tarihi yarın!', time: '2s önce',
+                    },
+                    {
+                      icon: FileText, iconCls: 'text-primary', bg: 'bg-primary/5 border-primary/10',
+                      label: 'E-POSTA', labelCls: 'text-primary',
+                      text:  'Cevap dilekçesi için 3 gün kaldı.', time: 'Dün',
+                    },
+                    {
+                      icon: Clock, iconCls: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/40',
+                      label: 'PLANLI', labelCls: 'text-emerald-600 dark:text-emerald-400',
+                      text:  'İstinaf başvurusu süresi dolacak.', time: '7g sonra',
+                    },
+                  ].map(({ icon: Icon, iconCls, bg, label, labelCls, text, time }, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-start gap-3 px-3 py-2.5 rounded-xl border ${bg} group-hover:translate-x-1 transition-transform`}
+                      style={{ transitionDelay: `${i * 60}ms` }}
+                    >
+                      <Icon size={14} className={`${iconCls} shrink-0 mt-0.5`} />
+                      <div className="flex-1 min-w-0">
+                        <span className={`text-[9px] font-black uppercase tracking-wider ${labelCls}`}>{label}</span>
+                        <p className="text-xs text-foreground/80 truncate">{text}</p>
+                      </div>
+                      <span className="text-[9px] text-muted-foreground shrink-0 mt-0.5">{time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </motion.div>
 
-      {/* Feature 2 - Dashboard */}
+      {/* ── Bottom CTA strip ── */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="grid md:grid-cols-2 gap-16 items-center mb-32"
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-6 bg-muted/50 rounded-2xl border border-border"
       >
-        {/* Dark panel — intentional design, works in both modes */}
-        <div className="relative bg-primary rounded-[2.5rem] p-8 md:p-10 text-primary-foreground overflow-hidden shadow-2xl shadow-primary/30 group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[120px] opacity-40 group-hover:opacity-60 transition-opacity duration-700 -mr-20 -mt-20"></div>
-
-          <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl">
-                <Layout size={28} className="text-primary-foreground/80" />
-              </div>
-              <h3 className="text-xl font-bold">Günlük İş Paneli</h3>
-            </div>
-
-            <div className="grid grid-cols-3 gap-3 mb-6">
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 text-center">
-                <div className="text-3xl font-bold">3</div>
-                <div className="text-[10px] text-primary-foreground/60 uppercase tracking-wider">Bugün</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 text-center">
-                <div className="text-3xl font-bold">8</div>
-                <div className="text-[10px] text-primary-foreground/60 uppercase tracking-wider">Bu Hafta</div>
-              </div>
-              <div className="bg-red-500/20 backdrop-blur-md rounded-xl p-4 border border-red-500/30 text-center">
-                <div className="text-3xl font-bold text-red-300">2</div>
-                <div className="text-[10px] text-red-300/80 uppercase tracking-wider">Gecikmiş</div>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                <div className="w-2 h-2 rounded-full bg-red-400 animate-pulse"></div>
-                <span className="text-sm text-primary-foreground/80 flex-1">Cevap Dilekçesi Hazırla</span>
-                <span className="text-[10px] text-red-300 font-bold">GECİKMİŞ</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-                <span className="text-sm text-primary-foreground/80 flex-1">Duruşma Hazırlığı</span>
-                <span className="text-[10px] text-amber-300 font-bold">BUGÜN</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-                <span className="text-sm text-primary-foreground/80 flex-1">Bilirkişi Raporu İncele</span>
-                <span className="text-[10px] text-primary-foreground/50">Yarın</span>
-              </div>
-            </div>
-          </div>
-        </div>
         <div>
-          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-            Tüm İşlerinizi <br />
-            <span className="text-primary">Tek Bir Ekrandan Yönetin.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Bugünün görevleri, önümüzdeki haftanın yoğunluğu ve gecikmiş işler tek bir panelde. Hiçbir şey gözünüzden kaçmaz.
-          </p>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400"><CheckCircle2 size={16} /></div>
-              <span className="text-foreground"><strong>Günlük Özet:</strong> O güne ait tüm görevlerinizi anında görün.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400"><CheckCircle2 size={16} /></div>
-              <span className="text-foreground"><strong>Haftalık Planlama:</strong> Önümüzdeki haftanın iş yükünü önceden bilin.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400"><AlertTriangle size={16} /></div>
-              <span className="text-foreground"><strong>Gecikme Uyarısı:</strong> Süresi geçen işler anında dikkatinizi çeker.</span>
-            </li>
-          </ul>
+          <p className="font-bold text-foreground text-lg">Tüm özellikleri ücretsiz deneyin.</p>
+          <p className="text-sm text-muted-foreground mt-0.5">14 gün, kredi kartı gerekmez, iptal tek tıkla.</p>
         </div>
+        <a
+          href="/dashboard"
+          className="btn-shimmer relative overflow-hidden inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200 shrink-0 group"
+        >
+          Hemen Başla
+          <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+        </a>
       </motion.div>
 
-      {/* Feature 3 - Reminders */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="grid md:grid-cols-2 gap-16 items-center"
-      >
-        <div className="order-2 md:order-1">
-          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-            Kritik Süreleri <br />
-            <span className="text-primary">Asla Kaçırmayın.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Son tarihi yaklaşan işler için otomatik bildirim ve e-posta hatırlatmaları alın. Süre kaçırma riskini sıfıra indirin.
-          </p>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400"><CheckCircle2 size={16} /></div>
-              <span className="text-foreground"><strong>Anlık Bildirimler:</strong> Kritik tarihlerden önce uygulama içi uyarı.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400"><CheckCircle2 size={16} /></div>
-              <span className="text-foreground"><strong>E-posta Hatırlatma:</strong> Son tarihten 3-7-14 gün önce otomatik mail.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="mt-1 p-0.5 rounded-full bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400"><AlertTriangle size={16} /></div>
-              <span className="text-foreground"><strong>Acil Uyarı:</strong> Son gün geldiğinde tüm kanallarda acil bildirim.</span>
-            </li>
-          </ul>
-        </div>
-        <div className="order-1 md:order-2">
-          <div className="relative bg-primary rounded-[2.5rem] p-8 md:p-10 text-primary-foreground overflow-hidden shadow-2xl shadow-primary/30 group">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[120px] opacity-40 group-hover:opacity-60 transition-opacity duration-700 -mr-20 -mt-20"></div>
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl">
-                  <Bell size={28} className="text-primary-foreground/80" />
-                </div>
-                <h3 className="text-xl font-bold">Akıllı Hatırlatıcı</h3>
-              </div>
-
-              <div className="space-y-3">
-                <div className="bg-red-500/20 backdrop-blur-md rounded-xl p-4 border border-red-500/30 transform group-hover:translate-x-1 transition-transform duration-300">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 bg-red-500/30 rounded-lg shrink-0">
-                      <AlertTriangle size={18} className="text-red-300" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-bold text-red-300 uppercase tracking-wider">ACİL HATIRLATMA</span>
-                        <span className="text-[10px] text-red-300">2 saat önce</span>
-                      </div>
-                      <p className="text-sm text-primary-foreground font-medium">Temyiz dilekçesi son tarihi yarın!</p>
-                      <p className="text-[10px] text-red-200 mt-1">Ahmet Yılmaz v. Lojistik A.Ş.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 transform group-hover:translate-x-2 transition-transform duration-500 delay-100">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 bg-white/20 rounded-lg shrink-0">
-                      <FileText size={18} className="text-primary-foreground/70" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-bold text-primary-foreground/60 uppercase tracking-wider">E-POSTA GÖNDERİLDİ</span>
-                        <span className="text-[10px] text-primary-foreground/50">Dün</span>
-                      </div>
-                      <p className="text-sm text-primary-foreground font-medium">Cevap dilekçesi için 3 gün kaldı.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 transform group-hover:translate-x-3 transition-transform duration-700 delay-200">
-                  <div className="flex items-start gap-3">
-                    <div className="p-2 bg-emerald-500/30 rounded-lg shrink-0">
-                      <Clock size={18} className="text-emerald-300" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">PLANLI HATIRLATMA</span>
-                        <span className="text-[10px] text-primary-foreground/50">7 gün sonra</span>
-                      </div>
-                      <p className="text-sm text-primary-foreground font-medium">İstinaf başvurusu süresi dolacak.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }
