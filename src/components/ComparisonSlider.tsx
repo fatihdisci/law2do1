@@ -61,7 +61,7 @@ export function ComparisonSlider() {
             {/* LEFT SIDE: Excel View (Manual) */}
             <div className="absolute inset-0 bg-white text-[11px] md:text-xs font-sans text-slate-700">
                 {/* Excel Toolbar Mock */}
-                <div className="bg-[#107c41] text-white px-4 py-2 flex items-center gap-4 text-xs">
+                <div className="bg-emerald-700 text-white px-4 py-2 flex items-center gap-4 text-xs">
                     <span className="font-bold">Excel</span>
                     <span className="opacity-80">Giriş</span>
                     <span className="opacity-80">Ekle</span>

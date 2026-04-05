@@ -111,7 +111,7 @@ export function ComparisonSection() {
               </div>
 
               <div className="relative mb-6 flex flex-1 flex-col overflow-hidden rounded-xl border border-border shadow-inner">
-                <div className="flex items-center gap-2 border-b border-[#0c6b37] bg-[#107c41] px-3 py-2 text-[11px] text-white sm:text-xs">
+                <div className="flex items-center gap-2 border-b border-emerald-800 bg-emerald-700 px-3 py-2 text-[11px] text-white sm:text-xs">
                   <div className="font-bold tracking-wide">Excel</div>
                   <div className="rounded border border-white/30 bg-white/10 px-1.5 py-0.5 text-[10px]">
                     Otomatik Kaydet
