@@ -114,7 +114,7 @@
 
 ## FAZ 6 — Methodology/Marquee Section İyileştirmesi
 
-- [ ] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir  
+- [x] **6.1** `src/components/landing/MethodologySection.tsx` bileşenini geliştir ✅ (2026-04-05 00:00 UTC — çift yön marquee, numaralı+ikonlu öğeler, hover pause ve arkaplan pattern/gradient eklendi)  
   - Marquee şeridini iki yönde çalıştır (ikinci şerit ters yönde)  
   - Şerit öğelerini adım adım numaralandır ve ikon ekle  
   - Şerit öğelerinin hover'ında duraklatma efekti  
