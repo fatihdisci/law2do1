@@ -1,0 +1,131 @@
+=== src/app/globals.css (Color Sections) ===
+:root {
+  /* Brand Palette (HSL components) */
+  --color-primary-50: 210 100% 97%;
+  --color-primary-100: 210 95% 93%;
+  --color-primary-200: 212 90% 85%;
+  --color-primary-300: 214 87% 73%;
+  --color-primary-400: 216 85% 62%;
+  --color-primary-500: 221 83% 53%;
+  --color-primary-600: 224 76% 48%;
+  --color-primary-700: 226 71% 40%;
+  --color-primary-800: 228 67% 33%;
+  --color-primary-900: 230 63% 26%;
+
+  --color-secondary-50: 262 95% 97%;
+  --color-secondary-100: 263 90% 94%;
+  --color-secondary-200: 264 88% 88%;
+  --color-secondary-300: 265 86% 80%;
+  --color-secondary-400: 266 84% 70%;
+  --color-secondary-500: 267 81% 60%;
+  --color-secondary-600: 268 75% 53%;
+  --color-secondary-700: 269 68% 46%;
+  --color-secondary-800: 270 62% 39%;
+  --color-secondary-900: 271 56% 30%;
+
+  --color-accent-50: 34 100% 97%;
+  --color-accent-100: 35 100% 92%;
+  --color-accent-200: 36 98% 84%;
+  --color-accent-300: 36 96% 74%;
+  --color-accent-400: 36 93% 63%;
+  --color-accent-500: 36 90% 54%;
+  --color-accent-600: 32 92% 45%;
+  --color-accent-700: 28 89% 38%;
+  --color-accent-800: 24 84% 31%;
+  --color-accent-900: 21 78% 24%;
+
+  --color-neutral-0: 0 0% 100%;
+  --color-neutral-50: 220 20% 98%;
+  --color-neutral-100: 220 18% 96%;
+  --color-neutral-200: 220 16% 91%;
+  --color-neutral-300: 220 14% 83%;
+  --color-neutral-400: 220 12% 65%;
+  --color-neutral-500: 220 10% 46%;
+  --color-neutral-600: 220 14% 34%;
+  --color-neutral-700: 220 18% 24%;
+  --color-neutral-800: 220 22% 16%;
+  --color-neutral-900: 220 26% 10%;
+  --color-neutral-1000: 220 32% 7%;
+
+  /* Semantic tokens */
+  --color-bg: var(--color-neutral-50);
+  --color-fg: var(--color-neutral-800);
+  --color-card: var(--color-neutral-0);
+  --color-card-fg: var(--color-neutral-800);
+  --color-popover: var(--color-neutral-0);
+  --color-popover-fg: var(--color-neutral-800);
+  --color-primary: var(--color-primary-500);
+  --color-primary-fg: var(--color-neutral-0);
+  --color-secondary: var(--color-secondary-100);
+  --color-secondary-fg: var(--color-neutral-700);
+  --color-muted: var(--color-neutral-100);
+  --color-muted-fg: var(--color-neutral-500);
+  --color-border: var(--color-neutral-200);
+  --color-input: var(--color-neutral-200);
+  --color-ring: var(--color-primary-500);
+  --color-destructive: 0 84% 60%;
+  --color-destructive-fg: var(--color-neutral-0);
+}
+
+.dark {
+  --color-primary-50: 216 70% 26%;
+  --color-primary-100: 216 72% 31%;
+  --color-primary-200: 217 74% 36%;
+  --color-primary-300: 218 76% 41%;
+  --color-primary-400: 219 79% 47%;
+  --color-primary-500: 221 83% 53%;
+  --color-primary-600: 216 86% 62%;
+  --color-primary-700: 212 90% 70%;
+  --color-primary-800: 210 95% 79%;
+  --color-primary-900: 208 98% 87%;
+
+  --color-neutral-0: 220 32% 7%;
+  --color-neutral-50: 220 30% 9%;
+  --color-neutral-100: 220 28% 12%;
+  --color-neutral-200: 220 24% 16%;
+  --color-neutral-300: 220 20% 22%;
+  --color-neutral-400: 220 15% 36%;
+  --color-neutral-500: 220 13% 54%;
+  --color-neutral-600: 220 14% 68%;
+  --color-neutral-700: 220 16% 79%;
+  --color-neutral-800: 220 18% 88%;
+  --color-neutral-900: 220 20% 94%;
+  --color-neutral-1000: 0 0% 100%;
+
+  --color-bg: var(--color-neutral-50);
+  --color-fg: var(--color-neutral-800);
+  --color-card: var(--color-neutral-100);
+  --color-card-fg: var(--color-neutral-800);
+  --color-popover: var(--color-neutral-100);
+  --color-popover-fg: var(--color-neutral-900);
+  --color-primary: var(--color-primary-600);
+  --color-primary-fg: var(--color-neutral-0);
+  --color-secondary: var(--color-secondary-100);
+  --color-secondary-fg: var(--color-neutral-800);
+  --color-muted: var(--color-neutral-200);
+  --color-muted-fg: var(--color-neutral-600);
+  --color-border: var(--color-neutral-300);
+  --color-input: var(--color-neutral-300);
+  --color-ring: var(--color-primary-600);
+}
+
+
+=== CURRENT VERSION (BLUE) - BACKUP 2026-04-07 ===
+=== src/app/globals.css ===
+:root {
+  --color-neutral-50: 210 40% 98%;
+  --color-neutral-100: 214 32% 91%;
+  --color-neutral-200: 214 32% 91%;
+  --color-neutral-300: 215 16% 47%;
+  --color-neutral-600: 222 47% 11%;
+  ...
+}
+.dark {
+  --color-neutral-0: 223 39% 7%;
+  --color-neutral-50: 223 39% 7%;
+  --color-neutral-100: 222 35% 13%;
+  --color-neutral-300: 215 25% 27%;
+  --color-neutral-500: 215 20% 65%;
+  --color-neutral-700: 210 40% 98%;
+}
+

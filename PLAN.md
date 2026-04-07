@@ -139,8 +139,8 @@
   - High Priority kart: Turuncu badge + progress bar  
   - "Çözüm" etiketini yeşil badge ile güçlendir
 
-- [x] **7.3** ComparisonSection layout ve animasyonlarını geliştir ✅ (2026-04-05 00:00 UTC — VS ayırıcı, gradient başlık, aşağıdan-yukarı animasyon ve stats row eklendi)  
-  - İki kart arasına "VS" seperatörü ekle  
+- [x] **7.3** ComparisonSection layout ve animasyonlarını geliştir ✅ (2026-04-05 00:00 UTC — gradient başlık, aşağıdan-yukarı animasyon ve stats row eklendi)  
+  - (Kaldırıldı) İki kart arasına "VS" seperatörü ekle  
   - Section başlığını gradient text ile güçlendir  
   - Kartların giriş animasyonunu sol-sağ yerine aşağıdan yukarıya değiştir  
   - Alt kısma stats row ekle: "3x daha hızlı", "0 kayıp görev" gibi

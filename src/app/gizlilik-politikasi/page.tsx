@@ -106,7 +106,7 @@ export default function GizlilikPolitikasiPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/" className="text-sm text-indigo-600 font-medium hover:text-indigo-700 transition-colors">
+          <Link href="/" className="text-sm text-primary font-medium hover:opacity-80 transition-colors">
             ← Ana Sayfaya Dön
           </Link>
         </div>

@@ -89,42 +89,42 @@ export default function SSSPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background Ambience */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-200/30 rounded-full blur-[120px] dark:bg-indigo-900/20"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-100/30 rounded-full blur-[120px] dark:bg-emerald-900/10"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl text-white mb-6 shadow-lg shadow-indigo-500/25">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-2xl text-primary-foreground mb-6 shadow-lg shadow-primary/25">
             <HelpCircle size={32} />
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4 tracking-tight">
             Sıkça Sorulan Sorular
           </h1>
-          <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Law2Do hakkında merak ettiğiniz her şeyi aşağıda bulabilirsiniz.
           </p>
         </div>
 
         {/* Search & Filters Layout */}
-        <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-3xl p-6 sm:p-8 shadow-xl mb-12">
+        <div className="bg-card/70 backdrop-blur-xl border border-border/50 rounded-3xl p-6 sm:p-8 shadow-xl mb-12">
             <div className="flex flex-col gap-6">
                 {/* Search Input */}
                 <div className="relative group">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-indigo-500 transition-colors" size={20} />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors" size={20} />
                     <input 
                         type="text" 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Merak ettiğiniz bir konuyu arayın (örn: KVKK, Fiyat)" 
-                        className="w-full bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-indigo-500 py-4 pl-12 pr-10 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all text-slate-900 dark:text-white shadow-sm"
+                        className="w-full bg-background border border-border focus:border-primary py-4 pl-12 pr-10 rounded-2xl outline-none focus:ring-4 focus:ring-primary/10 transition-all text-foreground shadow-sm"
                     />
                     {searchQuery && (
-                        <button onClick={() => setSearchQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                        <button onClick={() => setSearchQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                             <X size={18} />
                         </button>
                     )}
@@ -132,7 +132,7 @@ export default function SSSPage() {
 
                 {/* Category Pills */}
                 <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider">Kategoriler</h3>
+                    <h3 className="text-sm font-bold text-foreground mb-3 uppercase tracking-wider">Kategoriler</h3>
                     <div className="flex flex-wrap gap-2">
                         {faqCategories.map(cat => (
                             <button
@@ -141,8 +141,8 @@ export default function SSSPage() {
                                 className={cn(
                                     "px-4 py-2 rounded-full text-sm font-semibold transition-all border shadow-sm",
                                     selectedCategory === cat 
-                                        ? "bg-indigo-600 border-indigo-600 text-white shadow-indigo-600/25" 
-                                        : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400"
+                                        ? "bg-primary border-primary text-primary-foreground shadow-primary/25" 
+                                        : "bg-card border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
                                 )}
                             >
                                 {cat}
@@ -156,8 +156,8 @@ export default function SSSPage() {
         {/* FAQ Accordion List */}
         <div className="space-y-4">
             {filteredItems.length === 0 ? (
-                <div className="text-center py-12 bg-white/50 dark:bg-slate-900/50 rounded-3xl border border-slate-200/50 dark:border-slate-800/50">
-                    <p className="text-slate-500 dark:text-slate-400 text-lg">Aramanızla eşleşen sonuç bulunamadı.</p>
+                <div className="text-center py-12 bg-card/50 rounded-3xl border border-border/50">
+                    <p className="text-muted-foreground text-lg">Aramanızla eşleşen sonuç bulunamadı.</p>
                 </div>
             ) : (
                 filteredItems.map((item) => {
@@ -166,10 +166,10 @@ export default function SSSPage() {
                         <div 
                             key={item.id} 
                             className={cn(
-                                "group bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border rounded-2xl transition-all duration-300 overflow-hidden",
+                                "group bg-card/80 backdrop-blur-sm border rounded-2xl transition-all duration-300 overflow-hidden",
                                 isOpen 
-                                    ? "border-indigo-500/50 shadow-md shadow-indigo-500/10" 
-                                    : "border-slate-200/50 dark:border-slate-800/50 hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-sm"
+                                    ? "border-primary/50 shadow-md shadow-primary/10" 
+                                    : "border-border/50 hover:border-primary/30 hover:shadow-sm"
                             )}
                         >
                             <button 
@@ -180,14 +180,14 @@ export default function SSSPage() {
                                     <div className={cn(
                                         "hidden sm:flex text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded border",
                                         isOpen
-                                            ? "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800"
-                                            : "bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700"
+                                            ? "bg-primary/10 text-primary border-primary/20"
+                                            : "bg-muted text-muted-foreground border-border"
                                     )}>
                                         {item.category}
                                     </div>
                                     <span className={cn(
                                         "text-base sm:text-lg font-bold transition-colors",
-                                        isOpen ? "text-indigo-600 dark:text-indigo-400" : "text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
+                                        isOpen ? "text-primary" : "text-foreground group-hover:text-primary"
                                     )}>
                                         {item.question}
                                     </span>
@@ -195,8 +195,8 @@ export default function SSSPage() {
                                 <div className={cn(
                                     "w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300",
                                     isOpen 
-                                        ? "bg-indigo-600 text-white rotate-180" 
-                                        : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-indigo-100 group-hover:text-indigo-600 dark:group-hover:bg-indigo-900/50 dark:group-hover:text-indigo-400"
+                                        ? "bg-primary text-primary-foreground rotate-180" 
+                                        : "bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
                                 )}>
                                     <ChevronDown size={18} />
                                 </div>
@@ -208,7 +208,7 @@ export default function SSSPage() {
                                 )}
                             >
                                 <div className="overflow-hidden">
-                                    <div className="p-6 pt-0 text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/50">
+                                    <div className="p-6 pt-0 text-muted-foreground leading-relaxed border-t border-border/50">
                                         {item.answer}
                                     </div>
                                 </div>
@@ -220,22 +220,22 @@ export default function SSSPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-gradient-to-br from-indigo-900 to-indigo-950 dark:from-slate-900 dark:to-slate-950 rounded-3xl p-10 sm:p-12 shadow-xl border border-indigo-800/50 relative overflow-hidden">
+        <div className="mt-16 text-center bg-card rounded-3xl p-10 sm:p-12 shadow-xl border border-border relative overflow-hidden">
             {/* CTA Decorative BG */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-[80px] -ml-32 -mb-32"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -ml-32 -mb-32"></div>
             
             <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl text-emerald-400 mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 border border-primary/20 rounded-2xl text-primary mb-6">
                     <Mail size={32} />
                 </div>
-                <h3 className="text-3xl font-black text-white mb-3 tracking-tight">Cevabı bulamadın mı?</h3>
-                <p className="text-indigo-200 text-lg mb-8 max-w-lg mx-auto">
+                <h3 className="text-3xl font-black text-foreground mb-3 tracking-tight">Cevabı bulamadın mı?</h3>
+                <p className="text-muted-foreground text-lg mb-8 max-w-lg mx-auto">
                     Destek ekibimiz tüm sorularınızı yanıtlamak ve size yardımcı olmak için hazır.
                 </p>
                 <Link
                     href="/iletisim"
-                    className="inline-flex items-center gap-2 bg-white text-indigo-900 px-8 py-4 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg group"
+                    className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-opacity shadow-lg shadow-primary/25 group"
                 >
                     Bize Yazın
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

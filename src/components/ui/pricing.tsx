@@ -74,18 +74,18 @@ export function Pricing({
 
       {/* Pill Switcher */}
       <div className="mb-14 flex justify-center" ref={pillRef}>
-        <div className="relative inline-flex items-stretch rounded-full bg-slate-100 p-1 dark:bg-slate-800">
+        <div className="relative inline-flex items-stretch rounded-full bg-muted p-1">
           <button
             onClick={() => handleToggle(true)}
             className={cn(
               "relative z-10 rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-300",
-              isMonthly ? "text-slate-900 dark:text-white" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              isMonthly ? "text-foreground" : "text-muted-foreground hover:text-foreground"
             )}
           >
             {isMonthly && (
               <motion.div
                 layoutId="pricing-pill"
-                className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm dark:bg-slate-700"
+                className="absolute inset-0 -z-10 rounded-full bg-card shadow-sm"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
@@ -95,13 +95,13 @@ export function Pricing({
             onClick={() => handleToggle(false)}
             className={cn(
               "relative z-10 flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-colors duration-300",
-              !isMonthly ? "text-slate-900 dark:text-white" : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+              !isMonthly ? "text-foreground" : "text-muted-foreground hover:text-foreground"
             )}
           >
             {!isMonthly && (
               <motion.div
                 layoutId="pricing-pill"
-                className="absolute inset-0 -z-10 rounded-full bg-white shadow-sm dark:bg-slate-700"
+                className="absolute inset-0 -z-10 rounded-full bg-card shadow-sm"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
@@ -110,8 +110,8 @@ export function Pricing({
               className={cn(
                 "relative z-10 rounded-full px-2 py-0.5 text-xs font-bold transition-all duration-300",
                 !isMonthly
-                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300"
-                  : "bg-emerald-100/50 text-emerald-700/50 dark:bg-emerald-500/10 dark:text-emerald-300/50"
+                  ? "bg-primary/20 text-primary"
+                  : "bg-primary/10 text-primary/60"
               )}
             >
               %20 İndirim
@@ -147,14 +147,14 @@ export function Pricing({
             className={cn(
               "relative flex flex-col items-center justify-center rounded-3xl border p-8 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl md:mt-0",
               plan.isPopular
-                ? "z-10 border-indigo-500 bg-white shadow-indigo-900/20 dark:border-indigo-500/50 dark:bg-slate-900/90"
-                : "z-0 mt-5 border-slate-200 bg-white/60 shadow-lg dark:border-slate-800 dark:bg-slate-900/60"
+                ? "z-10 border-primary bg-card shadow-primary/20"
+                : "z-0 mt-5 border-border bg-card/60 shadow-lg"
             )}
           >
             {/* Popular Badge */}
             {plan.isPopular && (
               <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <div className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 px-4 py-1.5 text-xs font-bold text-white shadow-lg shadow-indigo-500/30">
+                <div className="flex items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-xs font-bold text-primary-foreground shadow-lg shadow-primary/30">
                   <Star className="h-3.5 w-3.5 fill-current" />
                   <span>EN POPÜLER</span>
                 </div>
@@ -162,13 +162,13 @@ export function Pricing({
             )}
 
             <div className="flex w-full flex-1 flex-col">
-              <p className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+              <p className="text-sm font-bold uppercase tracking-widest text-primary">
                 {plan.name}
               </p>
 
               <div className="mt-6 flex flex-col items-center justify-center">
                 <div className="flex items-start justify-center gap-x-1.5">
-                  <span className="text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+                  <span className="text-5xl font-black tracking-tight text-foreground">
                     <NumberFlow
                       value={isMonthly ? Number(plan.price) : Number(plan.yearlyPrice)}
                       format={{
@@ -184,31 +184,31 @@ export function Pricing({
                       className="font-variant-numeric: tabular-nums"
                     />
                   </span>
-                  <span className="mt-1 text-2xl font-bold text-slate-400 dark:text-slate-500">₺</span>
+                  <span className="mt-1 text-2xl font-bold text-muted-foreground">₺</span>
                 </div>
                 {plan.price !== "0" && (
-                  <span className="mt-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+                  <span className="mt-2 text-sm font-medium text-muted-foreground">
                     / {plan.period}
                   </span>
                 )}
               </div>
 
-              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              <p className="mt-2 text-xs text-muted-foreground">
                 {isMonthly ? "aylık faturalandırılır" : "yıllık faturalandırılır"}
               </p>
 
               <ul className="mt-8 space-y-4 text-left">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" strokeWidth={3} />
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" strokeWidth={3} />
                     </div>
-                    <span className="text-sm text-slate-700 dark:text-slate-300">{feature}</span>
+                    <span className="text-sm text-foreground/80">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <hr className="my-8 w-full border-slate-100 dark:border-slate-800" />
+              <hr className="my-8 w-full border-border" />
 
               <div className="mt-auto">
                 <Link
@@ -217,13 +217,13 @@ export function Pricing({
                     buttonVariants({ variant: "outline" }),
                     "group relative w-full overflow-hidden py-6 text-base font-bold tracking-tight transition-all duration-300",
                     plan.isPopular
-                      ? "border-transparent bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-600/25"
-                      : "border-slate-200 bg-transparent text-slate-900 hover:border-indigo-600 hover:bg-indigo-50 hover:text-indigo-600 dark:border-slate-700 dark:text-white dark:hover:bg-slate-800 dark:hover:text-white"
+                      ? "border-transparent bg-primary text-primary-foreground hover:opacity-90 hover:shadow-lg hover:shadow-primary/25"
+                      : "border-border bg-transparent text-foreground hover:border-primary hover:text-primary"
                   )}
                 >
                   {plan.buttonText}
                 </Link>
-                <p className="mt-4 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                   {plan.description}
                 </p>
               </div>

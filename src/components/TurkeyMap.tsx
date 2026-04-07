@@ -551,11 +551,9 @@ export function TurkeyMap() {
     <div className="relative w-full max-w-6xl mx-auto">
       {/* Map Area */}
       <div className="relative z-10 w-full px-4 sm:px-8 py-12 sm:py-20">
-        <div className="relative w-full overflow-hidden rounded-3xl border border-border/80 bg-gradient-to-b from-background/80 to-muted/35 p-2 shadow-[0_20px_55px_-30px_hsl(var(--color-neutral-1000)/0.45)] sm:p-3" style={{ aspectRatio: "792.6 / 334.6" }}>
-          <div className="pointer-events-none absolute inset-0 rounded-3xl [background:radial-gradient(120%_80%_at_50%_0%,hsl(var(--color-primary)/0.14),transparent_58%)]" />
-          <div className="pointer-events-none absolute inset-0 rounded-3xl [mask-image:linear-gradient(to_bottom,transparent_65%,black)] bg-gradient-to-b from-transparent to-primary/12" />
-
-          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-border/70 bg-background/55">
+        <div className="relative w-full p-2 sm:p-3" style={{ aspectRatio: "792.6 / 334.6" }}>
+          
+          <div className="relative h-full w-full">
 
           {/* SVG Map */}
           <svg viewBox="0 0 792.5976 334.55841" className="w-full h-full" style={{ filter: "drop-shadow(0 18px 28px rgba(0,0,0,0.28))" }}>
@@ -567,7 +565,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-01"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-01" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Adana")}
@@ -582,7 +580,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-02"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-02" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Adıyaman")}
@@ -597,7 +595,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-03"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-03" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Afyonkarahisar")}
@@ -612,7 +610,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-04"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-04" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Ağri")}
@@ -627,7 +625,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-68"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-68" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Aksaray")}
@@ -642,7 +640,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-05"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-05" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Amasya")}
@@ -657,7 +655,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-06"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-06" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Ankara")}
@@ -672,7 +670,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-07"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-07" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Antalya")}
@@ -687,7 +685,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-75"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-75" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Ardahan")}
@@ -702,7 +700,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-08"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-08" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Artvin")}
@@ -717,7 +715,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-09"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-09" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Aydın")}
@@ -732,7 +730,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-10"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-10" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Balıkesir")}
@@ -747,7 +745,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-74"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-74" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bartın")}
@@ -762,7 +760,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-72"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-72" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Batman")}
@@ -777,7 +775,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-69"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-69" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bayburt")}
@@ -792,7 +790,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-11"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-11" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bilecik")}
@@ -807,7 +805,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-12"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-12" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bingöl")}
@@ -822,7 +820,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-13"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-13" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bitlis")}
@@ -837,7 +835,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-14"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-14" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bolu")}
@@ -852,7 +850,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-15"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-15" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Burdur")}
@@ -867,7 +865,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-16"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-16" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Bursa")}
@@ -882,7 +880,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-17"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-17" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Çanakkale")}
@@ -897,7 +895,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-18"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-18" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Çankırı")}
@@ -912,7 +910,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-19"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-19" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Çorum")}
@@ -927,7 +925,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-20"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-20" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Denizli")}
@@ -942,7 +940,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-21"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-21" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Diyarbakır")}
@@ -957,7 +955,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-81"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-81" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Düzce")}
@@ -972,7 +970,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-22"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-22" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Edirne")}
@@ -987,7 +985,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-23"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-23" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Elazığ")}
@@ -1002,7 +1000,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-24"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-24" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Erzincan")}
@@ -1017,7 +1015,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-25"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-25" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Erzurum")}
@@ -1032,7 +1030,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-26"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-26" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Eskişehir")}
@@ -1047,7 +1045,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-27"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-27" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Gaziantep")}
@@ -1062,7 +1060,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-28"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-28" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Giresun")}
@@ -1077,7 +1075,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-29"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-29" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Gümüşhane")}
@@ -1092,7 +1090,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-30"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-30" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Hakkari")}
@@ -1107,7 +1105,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-31"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-31" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Hatay")}
@@ -1122,7 +1120,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-33"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-33" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Mersin")}
@@ -1137,7 +1135,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-76"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-76" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Iğdir")}
@@ -1152,7 +1150,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-32"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-32" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Isparta")}
@@ -1167,7 +1165,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-34"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-34" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("İstanbul")}
@@ -1182,7 +1180,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-35"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-35" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("İzmir")}
@@ -1197,7 +1195,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-46"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-46" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kahramanmaraş")}
@@ -1212,7 +1210,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-78"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-78" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Karabük")}
@@ -1227,7 +1225,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-70"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-70" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Karaman")}
@@ -1242,7 +1240,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-36"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-36" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kars")}
@@ -1257,7 +1255,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-37"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-37" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kastamonu")}
@@ -1272,7 +1270,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-38"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-38" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kayseri")}
@@ -1287,7 +1285,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-79"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-79" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kilis")}
@@ -1302,7 +1300,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-71"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-71" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kırıkkale")}
@@ -1317,7 +1315,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-39"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-39" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kırklareli")}
@@ -1332,7 +1330,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-40"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-40" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kırşehir")}
@@ -1347,7 +1345,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-41"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-41" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kocaeli")}
@@ -1362,7 +1360,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-42"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-42" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Konya")}
@@ -1377,7 +1375,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-43"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-43" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Kütahya")}
@@ -1392,7 +1390,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-44"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-44" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Malatya")}
@@ -1407,7 +1405,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-45"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-45" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Manisa")}
@@ -1422,7 +1420,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-47"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-47" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Mardin")}
@@ -1437,7 +1435,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-48"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-48" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Muğla")}
@@ -1452,7 +1450,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-49"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-49" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Muş")}
@@ -1467,7 +1465,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-50"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-50" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Nevşehir")}
@@ -1482,7 +1480,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-51"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-51" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Niğde")}
@@ -1497,7 +1495,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-52"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-52" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Ordu")}
@@ -1512,7 +1510,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-80"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-80" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Osmaniye")}
@@ -1527,7 +1525,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-53"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-53" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Rize")}
@@ -1542,7 +1540,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-54"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-54" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Sakarya")}
@@ -1557,7 +1555,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-55"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-55" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Samsun")}
@@ -1572,7 +1570,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-63"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-63" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Şanlıurfa")}
@@ -1587,7 +1585,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-56"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-56" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Siirt")}
@@ -1602,7 +1600,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-57"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-57" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Sinop")}
@@ -1617,7 +1615,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-73"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-73" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Şırnak")}
@@ -1632,7 +1630,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-58"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-58" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Sivas")}
@@ -1647,7 +1645,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-59"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-59" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Tekirdağ")}
@@ -1662,7 +1660,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-60"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-60" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Tokat")}
@@ -1677,7 +1675,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-61"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-61" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Trabzon")}
@@ -1692,7 +1690,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-62"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-62" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Tunceli")}
@@ -1707,7 +1705,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-64"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-64" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Uşak")}
@@ -1722,7 +1720,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-65"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-65" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Van")}
@@ -1737,7 +1735,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-77"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-77" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Yalova")}
@@ -1752,7 +1750,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-66"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-66" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Yozgat")}
@@ -1767,7 +1765,7 @@ export function TurkeyMap() {
                   "origin-center [transform-box:fill-box] transition-all duration-500 ease-out cursor-pointer",
                   activeId === "TR-67"
                     ? "fill-primary/35 stroke-primary stroke-[1.8] scale-[1.018]"
-                    : "fill-[hsl(214_24%_82%)] stroke-[hsl(214_18%_66%)] stroke-[0.5] hover:fill-[hsl(214_30%_74%)] hover:stroke-[hsl(214_35%_58%)] dark:fill-[hsl(220_22%_20%)] dark:stroke-[hsl(220_18%_31%)] dark:hover:fill-[hsl(220_24%_26%)] dark:hover:stroke-[hsl(220_16%_45%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
+                    : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-67" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
                 onMouseEnter={() => setHovered("Zonguldak")}
@@ -1832,8 +1830,8 @@ export function TurkeyMap() {
         </div>
       </div>
 
-      {/* Glow Effect */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[220px] w-[640px] -translate-x-1/2 rounded-full bg-primary/10 blur-[110px]" />
+      {/* Glow Effect - Disabled to match transparent background request */}
+      {/* <div className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[220px] w-[640px] -translate-x-1/2 rounded-full bg-primary/10 blur-[110px]" /> */}
     </div>
   );
 }

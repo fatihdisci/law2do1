@@ -193,9 +193,7 @@ export function ComparisonSection() {
             </div>
           </motion.div>
 
-          <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background font-black text-sm text-primary shadow-md md:flex">
-            VS
-          </div>
+
 
           <motion.div
             initial={{ opacity: 0, y: 36 }}

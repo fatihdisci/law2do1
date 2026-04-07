@@ -22,18 +22,6 @@ const stagger = {
 const line1 = ['Dava', 'Takibinde'];
 const line2 = ['Kusursuz', 'Bir', 'İş', 'Disiplini.'];
 
-/* ── Marquee items (social proof logos as text) ── */
-const marqueeItems = [
-  { label: 'Baro Üyesi Avukatlar', icon: Award },
-  { label: 'İstanbul Barosu', icon: Shield },
-  { label: 'Ankara Barosu', icon: Shield },
-  { label: 'Hukuk Büroları', icon: Users },
-  { label: 'Sigorta Hukuku Uzmanları', icon: Award },
-  { label: 'İzmir Barosu', icon: Shield },
-  { label: 'Ticaret Hukuku Firmaları', icon: Users },
-  { label: 'Aile Hukuku Avukatları', icon: Award },
-];
-
 export function HeroSection() {
   return (
     <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden">
@@ -92,7 +80,7 @@ export function HeroSection() {
                     key={w}
                     variants={fadeUp}
                     transition={{ duration: 0.55, ease: 'easeOut' }}
-                    className={i === 0 ? 'gradient-text' : 'gradient-text'}
+                    className="gradient-text"
                   >
                     {w}
                   </motion.span>
@@ -241,34 +229,6 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* ── Social proof marquee strip ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.1 }}
-        className="relative z-10 mt-20 py-6 border-y border-border/50 bg-muted/30 overflow-hidden"
-      >
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-        <div className="flex animate-marquee gap-8">
-          {[...Array(2)].map((_, si) => (
-            <div key={si} className="flex gap-8 shrink-0 items-center">
-              {marqueeItems.map(({ label, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-2 text-muted-foreground/60 hover:text-muted-foreground transition-colors whitespace-nowrap"
-                >
-                  <Icon size={14} strokeWidth={1.5} />
-                  <span className="text-sm font-medium">{label}</span>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </motion.div>
 
     </section>
   );

@@ -14,18 +14,17 @@ import {
 } from "lucide-react";
 
 type WorkflowItem = {
-  step: string;
   title: string;
   icon: LucideIcon;
 };
 
 const WORKFLOW_ITEMS: WorkflowItem[] = [
-  { step: "01", title: "Dava Dilekçesi Hazırla", icon: FileText },
-  { step: "02", title: "Delil Listesi Oluştur", icon: Scale },
-  { step: "03", title: "Cevap Süresi Takibi", icon: Clock3 },
-  { step: "04", title: "Bilirkişi Raporu İncele", icon: SearchCheck },
-  { step: "05", title: "Duruşma Hatırlatması", icon: BellRing },
-  { step: "06", title: "Karar Tebliği Al", icon: Gavel },
+  { title: "Dava Dilekçesi Hazırla", icon: FileText },
+  { title: "Delil Listesi Oluştur", icon: Scale },
+  { title: "Cevap Süresi Takibi", icon: Clock3 },
+  { title: "Bilirkişi Raporu İncele", icon: SearchCheck },
+  { title: "Duruşma Hatırlatması", icon: BellRing },
+  { title: "Karar Tebliği Al", icon: Gavel },
 ];
 
 function WorkflowPill({ item }: { item: WorkflowItem }) {
@@ -33,9 +32,6 @@ function WorkflowPill({ item }: { item: WorkflowItem }) {
 
   return (
     <div className="group flex items-center gap-3 whitespace-nowrap rounded-xl border border-border/80 bg-card/85 px-4 py-2.5 text-sm text-foreground shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:shadow-md">
-      <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 px-1.5 text-[11px] font-bold tracking-wide text-primary">
-        {item.step}
-      </span>
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-secondary/60 text-secondary-foreground transition-colors duration-300 group-hover:bg-primary/15 group-hover:text-primary">
         <Icon size={15} />
       </span>
@@ -91,7 +87,7 @@ export function MethodologySection() {
               {[...Array(2)].map((_, setIndex) => (
                 <div key={setIndex} className="flex shrink-0 gap-4 py-1">
                   {WORKFLOW_ITEMS.map((item) => (
-                    <WorkflowPill key={`${setIndex}-${item.step}`} item={item} />
+                    <WorkflowPill key={`${setIndex}-${item.title}`} item={item} />
                   ))}
                 </div>
               ))}
