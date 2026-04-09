@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
+  if (posts.length === 0) return [{ slug: '_' }];
   return posts.map((p) => ({ slug: p.slug }));
 }
 
