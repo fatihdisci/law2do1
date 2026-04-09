@@ -42,7 +42,7 @@ export function getAllPosts(): BlogPost[] {
         date: data.date ?? '',
         author: data.author ?? '',
         tags: Array.isArray(data.tags) ? data.tags : [],
-        coverImage: `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
+        coverImage: data.coverImage?.startsWith('http') ? data.coverImage : `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
         published: data.published ?? false,
       } as BlogPost;
     })
@@ -67,7 +67,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     date: data.date ?? '',
     author: data.author ?? '',
     tags: Array.isArray(data.tags) ? data.tags : [],
-    coverImage: `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
+    coverImage: data.coverImage?.startsWith('http') ? data.coverImage : `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
     published: data.published ?? false,
     content,
   };
