@@ -11,6 +11,7 @@ export type BlogPost = {
   date: string;
   author: string;
   tags: string[];
+  coverImage: string;
   published: boolean;
 };
 
@@ -21,31 +22,38 @@ export type BlogPostWithContent = BlogPost & {
 export function getAllPosts(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
 
-  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.mdx'));
+  const entries = fs.readdirSync(BLOG_DIR, { withFileTypes: true });
+  const dirs = entries.filter((e) => e.isDirectory());
 
-  const posts = files.map((file) => {
-    const slug = file.replace(/\.mdx$/, '');
-    const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf-8');
-    const { data } = matter(raw);
+  const posts = dirs
+    .map((dir) => {
+      const slug = dir.name;
+      const filePath = path.join(BLOG_DIR, slug, 'index.mdx');
+      if (!fs.existsSync(filePath)) return null;
 
-    return {
-      slug,
-      title: data.title ?? '',
-      description: data.description ?? '',
-      date: data.date ?? '',
-      author: data.author ?? '',
-      tags: Array.isArray(data.tags) ? data.tags : [],
-      published: data.published ?? false,
-    } as BlogPost;
-  });
+      const raw = fs.readFileSync(filePath, 'utf-8');
+      const { data } = matter(raw);
 
-  return posts
-    .filter((p) => p.published)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      return {
+        slug,
+        title: data.title ?? '',
+        description: data.description ?? '',
+        date: data.date ?? '',
+        author: data.author ?? '',
+        tags: Array.isArray(data.tags) ? data.tags : [],
+        coverImage: data.coverImage ?? `/blog/${slug}/kapak.jpg`,
+        published: data.published ?? false,
+      } as BlogPost;
+    })
+    .filter((p): p is BlogPost => p !== null && p.published);
+
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export function getPostBySlug(slug: string): BlogPostWithContent | null {
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+  const filePath = path.join(BLOG_DIR, slug, 'index.mdx');
   if (!fs.existsSync(filePath)) return null;
 
   const raw = fs.readFileSync(filePath, 'utf-8');
@@ -58,6 +66,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     date: data.date ?? '',
     author: data.author ?? '',
     tags: Array.isArray(data.tags) ? data.tags : [],
+    coverImage: data.coverImage ?? `/blog/${slug}/kapak.jpg`,
     published: data.published ?? false,
     content,
   };

@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
+import { mdxComponents } from '@/lib/mdx-components';
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
@@ -18,7 +20,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return { title: `${post.title} | Law2Do Blog`, description: post.description };
+  return {
+    title: `${post.title} | Law2Do Blog`,
+    description: post.description,
+  };
 }
 
 function formatDate(dateStr: string) {
@@ -53,7 +58,10 @@ export default async function BlogPostPage({
           href="/blog"
           className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors mb-10 group"
         >
-          <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
+          <ArrowLeft
+            size={16}
+            className="group-hover:-translate-x-0.5 transition-transform"
+          />
           Tüm Yazılar
         </Link>
 
@@ -83,7 +91,7 @@ export default async function BlogPostPage({
           </p>
 
           {/* Meta */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-8 border-b border-border">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pb-6 border-b border-border">
             <span className="flex items-center gap-1.5">
               <User size={14} />
               {post.author}
@@ -96,9 +104,21 @@ export default async function BlogPostPage({
           </div>
         </header>
 
+        {/* Cover Image */}
+        <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-border mb-10">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+        </div>
+
         {/* MDX Content */}
         <div className="prose-content">
-          <MDXRemote source={post.content} />
+          <MDXRemote source={post.content} components={mdxComponents} />
         </div>
 
         {/* Bottom back link */}
@@ -107,7 +127,10 @@ export default async function BlogPostPage({
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors group"
           >
-            <ArrowLeft size={16} className="group-hover:-translate-x-0.5 transition-transform" />
+            <ArrowLeft
+              size={16}
+              className="group-hover:-translate-x-0.5 transition-transform"
+            />
             Tüm Yazılar
           </Link>
         </div>
