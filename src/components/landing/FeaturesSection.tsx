@@ -260,7 +260,7 @@ export function FeaturesSection() {
           <p className="text-sm text-muted-foreground mt-0.5">14 gün, kredi kartı gerekmez, iptal tek tıkla.</p>
         </div>
         <a
-          href="/dashboard"
+          href="https://app.law2do.com"
           className="btn-shimmer relative overflow-hidden inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200 shrink-0 group"
         >
           Hemen Başla

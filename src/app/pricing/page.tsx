@@ -18,7 +18,7 @@ const plans = [
         ],
         description: "Serbest çalışan avukatlar için ideal başlangıç",
         buttonText: "Ücretsiz Dene",
-        href: "/dashboard",
+        href: "https://app.law2do.com",
         isPopular: false,
     },
     {
@@ -38,7 +38,7 @@ const plans = [
         ],
         description: "Büyüyen hukuk büroları için en çok tercih edilen",
         buttonText: "Hemen Başla",
-        href: "/dashboard",
+        href: "https://app.law2do.com",
         isPopular: true,
     },
     {
@@ -58,7 +58,7 @@ const plans = [
         ],
         description: "Büyük hukuk büroları için özel çözümler",
         buttonText: "İletişime Geç",
-        href: "/contact",
+        href: "/iletisim",
         isPopular: false,
     },
 ];

@@ -77,12 +77,12 @@ export default function Navbar() {
                     >
                         Giriş Yap
                     </Link>
-                    <Link
-                        href="/dashboard"
+                    <a
+                        href="https://app.law2do.com"
                         className="relative overflow-hidden inline-flex items-center gap-1.5 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-px active:translate-y-0 active:shadow-none btn-shimmer"
                     >
                         Ücretsiz Başla
-                    </Link>
+                    </a>
                 </div>
 
                 {/* ── Mobile: Theme + Hamburger ── */}
@@ -139,13 +139,13 @@ export default function Navbar() {
                     >
                         Giriş Yap
                     </Link>
-                    <Link
-                        href="/dashboard"
+                    <a
+                        href="https://app.law2do.com"
                         className="flex items-center justify-center h-11 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-primary/90 transition-all mt-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         Ücretsiz Başla
-                    </Link>
+                    </a>
                 </div>
             </div>
         </nav>

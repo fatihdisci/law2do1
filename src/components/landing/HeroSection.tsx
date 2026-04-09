@@ -106,13 +106,13 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link
-                href="/dashboard"
+              <a
+                href="https://app.law2do.com"
                 className="btn-shimmer relative overflow-hidden inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
               >
                 Hemen Başla — Ücretsiz
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-200" />
-              </Link>
+              </a>
               <Link
                 href="/#how-it-works"
                 className="inline-flex items-center justify-center gap-2.5 bg-card text-foreground border border-border px-8 py-4 rounded-xl font-bold text-lg hover:bg-muted hover:border-border/80 transition-all duration-200"

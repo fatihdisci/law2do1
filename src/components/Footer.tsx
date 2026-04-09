@@ -8,7 +8,6 @@ import {
   Mail,
   Scale,
   ArrowRight,
-  Heart,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
@@ -230,9 +229,7 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span>İzmir&apos;de</span>
-              <Heart size={11} className="fill-red-400 text-red-400" />
-              <span>ile geliştirildi.</span>
+              <span>İzmir&apos;de ❤️ ile geliştirildi.</span>
             </div>
 
             <div className="flex items-center gap-4">

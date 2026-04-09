@@ -105,13 +105,13 @@ export function CtaSection() {
               transition={{ duration: 0.65, ease: "easeOut", delay: 0.3 }}
               className="mt-10 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start"
             >
-              <Link
-                href="/dashboard"
+              <a
+                href="https://app.law2do.com"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-8 py-4 text-base font-bold text-primary-foreground shadow-[0_18px_40px_-18px_hsl(var(--color-primary)/0.9)] transition-all duration-300 hover:-translate-y-1 hover:bg-primary/90 hover:shadow-[0_24px_48px_-18px_hsl(var(--color-primary)/0.95)]"
               >
                 Hemen Başla
                 <ArrowRight className="h-5 w-5" />
-              </Link>
+              </a>
               <Link
                 href="/pricing"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border/80 bg-background/70 px-8 py-4 text-base font-bold text-foreground shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-background"
