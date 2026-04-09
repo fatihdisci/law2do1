@@ -523,7 +523,6 @@ interface ActiveEvent {
 
 export function TurkeyMap() {
   const [activeEvent, setActiveEvent] = useState<ActiveEvent | null>(null);
-  const [hovered, setHovered] = useState<string | null>(null);
   const [showTooltip, setShowTooltip] = useState(false);
 
   const activeId = activeEvent?.provinceId ?? null;
@@ -568,10 +567,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-01" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Adana")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Adana</title>
               </path>
               <path
                 id="TR-02"
@@ -583,10 +579,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-02" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Adıyaman")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Adıyaman</title>
               </path>
               <path
                 id="TR-03"
@@ -598,10 +591,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-03" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Afyonkarahisar")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Afyonkarahisar</title>
               </path>
               <path
                 id="TR-04"
@@ -613,10 +603,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-04" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Ağri")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Ağri</title>
               </path>
               <path
                 id="TR-68"
@@ -628,10 +615,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-68" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Aksaray")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Aksaray</title>
               </path>
               <path
                 id="TR-05"
@@ -643,10 +627,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-05" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Amasya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Amasya</title>
               </path>
               <path
                 id="TR-06"
@@ -658,10 +639,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-06" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Ankara")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Ankara</title>
               </path>
               <path
                 id="TR-07"
@@ -673,10 +651,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-07" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Antalya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Antalya</title>
               </path>
               <path
                 id="TR-75"
@@ -688,10 +663,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-75" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Ardahan")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Ardahan</title>
               </path>
               <path
                 id="TR-08"
@@ -703,10 +675,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-08" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Artvin")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Artvin</title>
               </path>
               <path
                 id="TR-09"
@@ -718,10 +687,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-09" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Aydın")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Aydın</title>
               </path>
               <path
                 id="TR-10"
@@ -733,10 +699,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-10" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Balıkesir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Balıkesir</title>
               </path>
               <path
                 id="TR-74"
@@ -748,10 +711,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-74" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bartın")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bartın</title>
               </path>
               <path
                 id="TR-72"
@@ -763,10 +723,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-72" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Batman")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Batman</title>
               </path>
               <path
                 id="TR-69"
@@ -778,10 +735,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-69" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bayburt")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bayburt</title>
               </path>
               <path
                 id="TR-11"
@@ -793,10 +747,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-11" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bilecik")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bilecik</title>
               </path>
               <path
                 id="TR-12"
@@ -808,10 +759,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-12" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bingöl")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bingöl</title>
               </path>
               <path
                 id="TR-13"
@@ -823,10 +771,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-13" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bitlis")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bitlis</title>
               </path>
               <path
                 id="TR-14"
@@ -838,10 +783,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-14" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bolu")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bolu</title>
               </path>
               <path
                 id="TR-15"
@@ -853,10 +795,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-15" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Burdur")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Burdur</title>
               </path>
               <path
                 id="TR-16"
@@ -868,10 +807,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-16" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Bursa")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Bursa</title>
               </path>
               <path
                 id="TR-17"
@@ -883,10 +819,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-17" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Çanakkale")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Çanakkale</title>
               </path>
               <path
                 id="TR-18"
@@ -898,10 +831,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-18" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Çankırı")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Çankırı</title>
               </path>
               <path
                 id="TR-19"
@@ -913,10 +843,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-19" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Çorum")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Çorum</title>
               </path>
               <path
                 id="TR-20"
@@ -928,10 +855,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-20" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Denizli")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Denizli</title>
               </path>
               <path
                 id="TR-21"
@@ -943,10 +867,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-21" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Diyarbakır")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Diyarbakır</title>
               </path>
               <path
                 id="TR-81"
@@ -958,10 +879,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-81" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Düzce")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Düzce</title>
               </path>
               <path
                 id="TR-22"
@@ -973,10 +891,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-22" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Edirne")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Edirne</title>
               </path>
               <path
                 id="TR-23"
@@ -988,10 +903,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-23" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Elazığ")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Elazığ</title>
               </path>
               <path
                 id="TR-24"
@@ -1003,10 +915,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-24" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Erzincan")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Erzincan</title>
               </path>
               <path
                 id="TR-25"
@@ -1018,10 +927,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-25" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Erzurum")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Erzurum</title>
               </path>
               <path
                 id="TR-26"
@@ -1033,10 +939,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-26" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Eskişehir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Eskişehir</title>
               </path>
               <path
                 id="TR-27"
@@ -1048,10 +951,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-27" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Gaziantep")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Gaziantep</title>
               </path>
               <path
                 id="TR-28"
@@ -1063,10 +963,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-28" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Giresun")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Giresun</title>
               </path>
               <path
                 id="TR-29"
@@ -1078,10 +975,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-29" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Gümüşhane")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Gümüşhane</title>
               </path>
               <path
                 id="TR-30"
@@ -1093,10 +987,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-30" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Hakkari")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Hakkari</title>
               </path>
               <path
                 id="TR-31"
@@ -1108,10 +999,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-31" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Hatay")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Hatay</title>
               </path>
               <path
                 id="TR-33"
@@ -1123,10 +1011,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-33" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Mersin")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Mersin</title>
               </path>
               <path
                 id="TR-76"
@@ -1138,10 +1023,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-76" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Iğdir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Iğdir</title>
               </path>
               <path
                 id="TR-32"
@@ -1153,10 +1035,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-32" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Isparta")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Isparta</title>
               </path>
               <path
                 id="TR-34"
@@ -1168,10 +1047,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-34" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("İstanbul")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>İstanbul</title>
               </path>
               <path
                 id="TR-35"
@@ -1183,10 +1059,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-35" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("İzmir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>İzmir</title>
               </path>
               <path
                 id="TR-46"
@@ -1198,10 +1071,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-46" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kahramanmaraş")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kahramanmaraş</title>
               </path>
               <path
                 id="TR-78"
@@ -1213,10 +1083,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-78" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Karabük")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Karabük</title>
               </path>
               <path
                 id="TR-70"
@@ -1228,10 +1095,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-70" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Karaman")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Karaman</title>
               </path>
               <path
                 id="TR-36"
@@ -1243,10 +1107,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-36" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kars")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kars</title>
               </path>
               <path
                 id="TR-37"
@@ -1258,10 +1119,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-37" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kastamonu")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kastamonu</title>
               </path>
               <path
                 id="TR-38"
@@ -1273,10 +1131,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-38" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kayseri")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kayseri</title>
               </path>
               <path
                 id="TR-79"
@@ -1288,10 +1143,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-79" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kilis")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kilis</title>
               </path>
               <path
                 id="TR-71"
@@ -1303,10 +1155,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-71" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kırıkkale")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kırıkkale</title>
               </path>
               <path
                 id="TR-39"
@@ -1318,10 +1167,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-39" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kırklareli")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kırklareli</title>
               </path>
               <path
                 id="TR-40"
@@ -1333,10 +1179,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-40" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kırşehir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kırşehir</title>
               </path>
               <path
                 id="TR-41"
@@ -1348,10 +1191,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-41" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kocaeli")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kocaeli</title>
               </path>
               <path
                 id="TR-42"
@@ -1363,10 +1203,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-42" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Konya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Konya</title>
               </path>
               <path
                 id="TR-43"
@@ -1378,10 +1215,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-43" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Kütahya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Kütahya</title>
               </path>
               <path
                 id="TR-44"
@@ -1393,10 +1227,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-44" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Malatya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Malatya</title>
               </path>
               <path
                 id="TR-45"
@@ -1408,10 +1239,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-45" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Manisa")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Manisa</title>
               </path>
               <path
                 id="TR-47"
@@ -1423,10 +1251,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-47" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Mardin")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Mardin</title>
               </path>
               <path
                 id="TR-48"
@@ -1438,10 +1263,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-48" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Muğla")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Muğla</title>
               </path>
               <path
                 id="TR-49"
@@ -1453,10 +1275,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-49" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Muş")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Muş</title>
               </path>
               <path
                 id="TR-50"
@@ -1468,10 +1287,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-50" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Nevşehir")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Nevşehir</title>
               </path>
               <path
                 id="TR-51"
@@ -1483,10 +1299,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-51" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Niğde")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Niğde</title>
               </path>
               <path
                 id="TR-52"
@@ -1498,10 +1311,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-52" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Ordu")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Ordu</title>
               </path>
               <path
                 id="TR-80"
@@ -1513,10 +1323,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-80" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Osmaniye")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Osmaniye</title>
               </path>
               <path
                 id="TR-53"
@@ -1528,10 +1335,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-53" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Rize")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Rize</title>
               </path>
               <path
                 id="TR-54"
@@ -1543,10 +1347,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-54" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Sakarya")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Sakarya</title>
               </path>
               <path
                 id="TR-55"
@@ -1558,10 +1359,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-55" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Samsun")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Samsun</title>
               </path>
               <path
                 id="TR-63"
@@ -1573,10 +1371,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-63" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Şanlıurfa")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Şanlıurfa</title>
               </path>
               <path
                 id="TR-56"
@@ -1588,10 +1383,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-56" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Siirt")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Siirt</title>
               </path>
               <path
                 id="TR-57"
@@ -1603,10 +1395,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-57" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Sinop")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Sinop</title>
               </path>
               <path
                 id="TR-73"
@@ -1618,10 +1407,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-73" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Şırnak")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Şırnak</title>
               </path>
               <path
                 id="TR-58"
@@ -1633,10 +1419,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-58" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Sivas")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Sivas</title>
               </path>
               <path
                 id="TR-59"
@@ -1648,10 +1431,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-59" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Tekirdağ")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Tekirdağ</title>
               </path>
               <path
                 id="TR-60"
@@ -1663,10 +1443,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-60" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Tokat")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Tokat</title>
               </path>
               <path
                 id="TR-61"
@@ -1678,10 +1455,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-61" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Trabzon")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Trabzon</title>
               </path>
               <path
                 id="TR-62"
@@ -1693,10 +1467,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-62" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Tunceli")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Tunceli</title>
               </path>
               <path
                 id="TR-64"
@@ -1708,10 +1479,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-64" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Uşak")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Uşak</title>
               </path>
               <path
                 id="TR-65"
@@ -1723,10 +1491,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-65" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Van")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Van</title>
               </path>
               <path
                 id="TR-77"
@@ -1738,10 +1503,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-77" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Yalova")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Yalova</title>
               </path>
               <path
                 id="TR-66"
@@ -1753,10 +1515,7 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-66" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Yozgat")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Yozgat</title>
               </path>
               <path
                 id="TR-67"
@@ -1768,18 +1527,10 @@ export function TurkeyMap() {
                     : "fill-[hsl(30_10%_90%)] stroke-[hsl(30_10%_80%)] stroke-[0.5] hover:fill-[hsl(30_20%_85%)] hover:stroke-[hsl(30_20%_70%)] dark:fill-[hsl(30_10%_8%)] dark:stroke-[hsl(30_10%_15%)] dark:hover:fill-[hsl(30_10%_12%)] dark:hover:stroke-[hsl(30_10%_25%)] hover:[filter:drop-shadow(0_0_7px_hsl(var(--color-primary)/0.45))]"
                 )}
                 style={activeId === "TR-67" ? { filter: "drop-shadow(0 0 14px hsl(var(--color-primary) / 0.75)) drop-shadow(0 0 26px hsl(var(--color-primary) / 0.42))" } : undefined}
-                onMouseEnter={() => setHovered("Zonguldak")}
-                onMouseLeave={() => setHovered(null)}
               >
-                <title>Zonguldak</title>
               </path>
           </svg>
 
-          {hovered && (
-            <div className="pointer-events-none absolute left-4 top-4 z-20 rounded-full border border-border/80 bg-background/90 px-3 py-1 text-xs font-semibold text-foreground shadow-sm backdrop-blur-sm">
-              {hovered}
-            </div>
-          )}
 
           {/* Pulse Dot */}
           {activeEvent && (

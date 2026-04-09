@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={`scroll-smooth ${inter.variable} ${jakarta.variable} ${jetbrains.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider>
           <Navbar />
           <main>{children}</main>

@@ -283,7 +283,7 @@ export default function LoginPage() {
             {/* Primary Tall Character (Was Purple) -> Converted to primary theme  */}
             <div 
               ref={purpleRef}
-              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-primary dark:bg-primary/95"
+              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-primary dark:bg-primary/95 shadow-xl border border-primary/20"
               style={{
                 left: '70px',
                 width: '180px',
@@ -323,7 +323,7 @@ export default function LoginPage() {
             {/* Foreground Character (Was Black) -> Explicitly dark color so it stands out in both modes */}
             <div 
               ref={blackRef}
-              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#2C2825] dark:bg-[#4A433D]"
+              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#2C2825] dark:bg-[#4A433D] border border-black/10 shadow-md"
               style={{
                 left: '240px',
                 width: '120px',
@@ -365,7 +365,7 @@ export default function LoginPage() {
             {/* Left Arc Character (Was Orange) -> Explicitly visible earth tones */}
             <div 
               ref={orangeRef}
-              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#D9CDBF] dark:bg-[#7D6B5A]"
+              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#D9CDBF] dark:bg-[#7D6B5A] border border-black/5 shadow-sm"
               style={{
                 left: '15px',
                 width: '240px',
@@ -391,7 +391,7 @@ export default function LoginPage() {
             {/* Right Short Character (Was Yellow) -> Visible contrast */}
             <div 
               ref={yellowRef}
-              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#EAE0D5] dark:bg-[#9C856C]"
+              className="absolute bottom-0 transition-all duration-700 ease-in-out bg-[#EAE0D5] dark:bg-[#9C856C] border border-black/5 shadow-lg"
               style={{
                 left: '310px',
                 width: '140px',

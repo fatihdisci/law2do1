@@ -5,13 +5,13 @@ export default function KullanimKosullariPage() {
   return (
     <div className="min-h-screen bg-background relative">
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-200/20 rounded-full blur-[120px]"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* Header */}
         <div className="mb-12">
-          <div className="inline-flex items-center justify-center w-14 h-14 bg-indigo-50 rounded-2xl text-indigo-600 mb-6 shadow-sm border border-indigo-100">
+          <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-2xl text-primary mb-6 shadow-sm border border-primary/20">
             <FileText size={28} />
           </div>
           <h1 className="text-4xl font-black text-foreground mb-4 tracking-tight">Kullanım Koşulları</h1>

@@ -319,6 +319,11 @@
 }
 
 /* Global Styles */
+html {
+  background: hsl(var(--color-bg));
+  overscroll-behavior: none;
+}
+
 body {
   background: hsl(var(--color-bg));
   color: hsl(var(--color-fg));

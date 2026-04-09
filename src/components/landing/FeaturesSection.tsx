@@ -54,12 +54,12 @@ export function FeaturesSection() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="lg:col-span-7 group"
         >
-          <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300">
+          <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
 
             {/* Gradient accent top strip */}
             <div className="h-1 w-full bg-gradient-to-r from-primary via-secondary-500 to-primary/40" />
 
-            <div className="p-8 md:p-10">
+            <div className="p-8 md:p-10 flex flex-col h-full">
               {/* Icon */}
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/15 text-primary mb-6 shadow-sm group-hover:scale-110 group-hover:shadow-md group-hover:shadow-primary/20 transition-all duration-300">
                 <Layout size={26} strokeWidth={1.8} />
@@ -73,7 +73,7 @@ export function FeaturesSection() {
               </p>
 
               {/* Mini workflow mockup */}
-              <div className="relative bg-muted/50 rounded-2xl p-5 border border-border overflow-hidden">
+              <div className="relative bg-muted/50 rounded-2xl p-5 border border-border overflow-hidden flex-1">
                 {/* Connector line */}
                 <div className="absolute left-[2.65rem] top-10 bottom-10 w-0.5 bg-gradient-to-b from-emerald-400 via-emerald-300 to-border z-0" />
 
@@ -90,9 +90,12 @@ export function FeaturesSection() {
                   </div>
 
                   {[
-                    { done: true,  label: 'Başvuru Formunu Hazırla',    sub: 'Tamamlandı' },
-                    { done: true,  label: 'Sigorta Şirketi Başvurusu',  sub: 'Tamamlandı (15 Gün Doldu)' },
-                    { done: false, label: 'Komisyona Başvuru Yap',      sub: 'Sıradaki Görev', active: true },
+                    { done: true,  label: 'Başvuru Formunu Hazırla',      sub: 'Tamamlandı' },
+                    { done: true,  label: 'Sigorta Şirketi Başvurusu',    sub: 'Tamamlandı (15 Gün Doldu)' },
+                    { done: false, label: 'Komisyona Başvuru Yap',        sub: 'Sıradaki Görev', active: true },
+                    { done: false, label: 'Bilirkişi Sürecini Takip Et',  sub: 'Beklemede' },
+                    { done: false, label: 'Karar Tebligatını Al',         sub: 'Beklemede' },
+                    { done: false, label: 'İtiraz Değerlendirmesi',       sub: 'Beklemede' },
                   ].map((step, i) => (
                     <div
                       key={i}
@@ -120,7 +123,7 @@ export function FeaturesSection() {
               </div>
 
               {/* CTA link */}
-              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary group/link cursor-pointer w-fit">
+              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary group/link cursor-pointer w-fit shrink-0">
                 Daha fazla öğren
                 <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform" />
               </div>
