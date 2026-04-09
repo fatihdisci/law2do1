@@ -482,3 +482,90 @@ body {
 .animate-marquee-reverse {
   animation: marquee-reverse 25s linear infinite;
 }
+
+/* ── Blog MDX Prose Styles ── */
+.prose-content {
+  color: hsl(var(--color-fg));
+  line-height: 1.75;
+}
+
+.prose-content h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: hsl(var(--color-fg));
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: hsl(var(--color-fg));
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-content p {
+  color: hsl(var(--color-muted-fg));
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.prose-content ul,
+.prose-content ol {
+  color: hsl(var(--color-muted-fg));
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-content ul {
+  list-style-type: disc;
+}
+
+.prose-content ol {
+  list-style-type: decimal;
+}
+
+.prose-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+
+.prose-content strong {
+  font-weight: 700;
+  color: hsl(var(--color-fg));
+}
+
+.prose-content a {
+  color: hsl(var(--color-primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-content a:hover {
+  opacity: 0.8;
+}
+
+.prose-content blockquote {
+  border-left: 3px solid hsl(var(--color-primary));
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+  color: hsl(var(--color-muted-fg));
+  font-style: italic;
+}
+
+.prose-content code {
+  background: hsl(var(--color-muted));
+  color: hsl(var(--color-fg));
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+.prose-content hr {
+  border: none;
+  border-top: 1px solid hsl(var(--color-border));
+  margin: 2rem 0;
+}

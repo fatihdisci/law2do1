@@ -15,6 +15,7 @@ const footerLinks = {
   urun: [
     { href: "/#features", label: "Özellikler" },
     { href: "/pricing", label: "Paketler" },
+    { href: "/blog", label: "Blog" },
     { href: "/#how-it-works", label: "Nasıl Çalışır?" },
     { href: "/login", label: "Giriş Yap" },
   ],
