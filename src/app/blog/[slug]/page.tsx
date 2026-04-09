@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
@@ -105,14 +104,12 @@ export default async function BlogPostPage({
         </header>
 
         {/* Cover Image */}
-        <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-border mb-10">
-          <Image
+        <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-border mb-10 bg-muted">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={post.coverImage}
             alt={post.title}
-            fill
-            className="object-cover"
-            priority
-            unoptimized
+            className="w-full h-full object-cover"
           />
         </div>
 

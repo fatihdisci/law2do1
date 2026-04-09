@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, Calendar, User, Tag, ImageOff } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { BlogPost } from '@/lib/blog';
@@ -17,21 +16,20 @@ function formatDate(dateStr: string) {
 
 function CoverImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative w-full h-48 bg-muted overflow-hidden">
-      <Image
+    <div className="relative w-full h-48 bg-muted overflow-hidden flex items-center justify-center">
+      {/* Fallback icon shown underneath */}
+      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30">
+        <ImageOff size={40} />
+      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt={alt}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        className="relative w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = 'none';
         }}
-        unoptimized
       />
-      {/* Fallback shown underneath via CSS */}
-      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/30 -z-0">
-        <ImageOff size={40} />
-      </div>
     </div>
   );
 }

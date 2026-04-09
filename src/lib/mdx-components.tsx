@@ -1,19 +1,19 @@
-import Image from 'next/image';
 import type { MDXComponents } from 'mdx/types';
 
+const BASE_PATH = '/law2do1';
+
 export const mdxComponents: MDXComponents = {
-  img: (props) => {
-    const { src, alt, ...rest } = props as { src: string; alt?: string; [key: string]: unknown };
+  // eslint-disable-next-line @next/next/no-img-element
+  img: ({ src, alt }) => {
     if (!src) return null;
+    const imgSrc = (src as string).startsWith('/') ? `${BASE_PATH}${src}` : src;
     return (
-      <span className="block my-8 relative w-full h-64 md:h-96 rounded-xl overflow-hidden border border-border">
-        <Image
-          src={src}
+      <span className="block my-8 rounded-xl overflow-hidden border border-border">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imgSrc as string}
           alt={alt ?? ''}
-          fill
-          className="object-cover"
-          unoptimized
-          {...(rest as object)}
+          className="w-full h-auto object-cover"
         />
       </span>
     );

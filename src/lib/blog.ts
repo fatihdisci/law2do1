@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const BLOG_DIR = path.join(process.cwd(), 'src/content/blog');
+const BASE_PATH = '/law2do1';
 
 export type BlogPost = {
   slug: string;
@@ -41,7 +42,7 @@ export function getAllPosts(): BlogPost[] {
         date: data.date ?? '',
         author: data.author ?? '',
         tags: Array.isArray(data.tags) ? data.tags : [],
-        coverImage: data.coverImage ?? `/blog/${slug}/kapak.jpg`,
+        coverImage: `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
         published: data.published ?? false,
       } as BlogPost;
     })
@@ -66,7 +67,7 @@ export function getPostBySlug(slug: string): BlogPostWithContent | null {
     date: data.date ?? '',
     author: data.author ?? '',
     tags: Array.isArray(data.tags) ? data.tags : [],
-    coverImage: data.coverImage ?? `/blog/${slug}/kapak.jpg`,
+    coverImage: `${BASE_PATH}${data.coverImage ?? `/blog/${slug}/kapak.jpg`}`,
     published: data.published ?? false,
     content,
   };
