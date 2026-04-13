@@ -4,6 +4,7 @@ import {
   ComparisonSection,
   MapSection,
   FeaturesSection,
+  ToolsTeaser,
 } from '@/components/landing';
 
 export default function LandingPage() {
@@ -21,6 +22,7 @@ export default function LandingPage() {
       <ComparisonSection />
       <MapSection />
       <FeaturesSection />
+      <ToolsTeaser />
     </div>
   );
 }
