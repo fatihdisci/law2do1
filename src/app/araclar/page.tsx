@@ -177,9 +177,9 @@ export default function AraclarPage() {
         </motion.div>
       </section>
 
-      {/* Araçlar grid — 1 sütun mobilde, 2 sütun lg+ */}
-      <section className="py-12 px-6 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Araçlar grid — Alt alta tek sütun */}
+      <section className="py-12 px-6 max-w-5xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 gap-12">
 
           {/* ── Kart A: AI Prompt Kütüphanesi ── */}
           <motion.div
