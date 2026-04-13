@@ -1,6 +1,5 @@
 export { HeroSection } from './HeroSection';
 export { HeroSection2 } from './HeroSection2';
-export { HeroSection3 } from './HeroSection3';
 export { MethodologySection } from './MethodologySection';
 export { ComparisonSection } from './ComparisonSection';
 export { MapSection } from './MapSection';
