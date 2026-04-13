@@ -31,7 +31,7 @@ export function FeaturesSection() {
         </span>
         <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-5">
           Hukuk Pratiğinize Özel{' '}
-          <span className="gradient-text">Üç Çözüm.</span>
+          <span className="gradient-text">Çözümler</span>
         </h2>
         <p className="text-lg text-muted-foreground leading-relaxed">
           Her özellik, avukatlık pratiğinin gerçek ihtiyaçlarından doğdu.
