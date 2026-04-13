@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  basePath: "/law2do1",
-  assetPrefix: "/law2do1/",
+  output: "standalone",
   images: {
     unoptimized: true,
   },
