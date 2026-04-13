@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { BookOpen, Calculator, CheckCircle2, Mail, User, Download } from "lucide-react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 // Kıdem Tavanı Geçmişi
 const CEILING_HISTORY = [
