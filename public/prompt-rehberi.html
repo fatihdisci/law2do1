@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avukatlar İçin Yapay Zeka Komut (Prompt) Kütüphanesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: hsl(30, 40%, 45%);
+    --primary-light: hsl(30, 40%, 93%);
+    --primary-dark: hsl(30, 40%, 25%);
+    --bg: hsl(30, 20%, 98%);
+    --fg: hsl(30, 10%, 10%);
+    --card: #ffffff;
+    --border: hsl(30, 10%, 88%);
+    --muted: hsl(30, 5%, 45%);
+    --prompt-bg: hsl(30, 18%, 95%);
+    --cat1: hsl(30, 40%, 45%);
+    --cat2: hsl(160, 40%, 38%);
+    --cat3: hsl(220, 45%, 48%);
+    --cat4: hsl(280, 35%, 48%);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    font-size: 10.5pt;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { margin: 1.4cm 1.8cm; size: A4; }
+    .page-break { page-break-after: always; }
+    .card { break-inside: avoid; }
+    .no-print { display: none !important; }
+  }
+
+  /* ── Cover Page ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, hsla(30, 40%, 45%, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    right: -15%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, hsla(160, 40%, 38%, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    background: var(--primary-light);
+    border: 1px solid hsla(30, 40%, 45%, 0.15);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-badge svg { width: 14px; height: 14px; }
+
+  .cover-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--fg);
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-title span {
+    background: linear-gradient(135deg, var(--fg) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cover-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-author span {
+    color: var(--primary);
+  }
+
+  .cover-warning {
+    max-width: 540px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-warning strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  .cover-footer {
+    margin-top: 3rem;
+    font-size: 0.75rem;
+    color: var(--border);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    padding: 3rem 2.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .toc-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--fg);
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .toc-category {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid hsla(30, 10%, 88%, 0.5);
+    text-decoration: none;
+    color: var(--fg);
+    transition: color 0.2s;
+  }
+
+  .toc-category:hover { color: var(--primary); }
+
+  .toc-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .toc-category-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .toc-range {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── Section ── */
+  .section {
+    padding: 2rem 1.5rem 1rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .section-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .section-icon svg { width: 20px; height: 20px; }
+
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--fg);
+  }
+
+  .section-range {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    break-inside: avoid;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .card-num {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 0.1rem;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .prompt-box {
+    background: var(--prompt-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary);
+    border-radius: 10px;
+    padding: 1rem 1.15rem;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: var(--fg);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .prompt-box .placeholder {
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  /* ── Back Page ── */
+  .back-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .back-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--fg);
+    margin-bottom: 0.75rem;
+  }
+
+  .back-text {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 440px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .back-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+
+  .back-footer {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  /* ── Color helpers ── */
+  .bg-cat1 { background: var(--cat1); }
+  .bg-cat2 { background: var(--cat2); }
+  .bg-cat3 { background: var(--cat3); }
+  .bg-cat4 { background: var(--cat4); }
+  .border-cat1 { border-left-color: var(--cat1); }
+  .border-cat2 { border-left-color: var(--cat2); }
+  .border-cat3 { border-left-color: var(--cat3); }
+  .border-cat4 { border-left-color: var(--cat4); }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     KAPAK SAYFASI
+     ════════════════════════════════════════════════ -->
+<div class="cover page-break">
+  <div class="cover-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+    Kopyala &amp; Yapıştır Komut Rehberi
+  </div>
+
+  <h1 class="cover-title">
+    Avukatlar İçin Yapay Zeka<br>
+    <span>Komut (Prompt) Kütüphanesi</span>
+  </h1>
+
+  <p class="cover-subtitle">40 Hazır Şablon &middot; 4 Kategori</p>
+
+  <p class="cover-author">Hazırlayan: <span>Law2Do Ekibi</span></p>
+
+  <div class="cover-warning">
+    <strong>Yapay Zeka ve Halüsinasyon Riski Hakkında:</strong><br>
+    Yapay zeka araçlarını (ChatGPT, Claude, Gemini) kullanırken en büyük risk, sistemin gerçek olmayan Yargıtay kararları veya kanun maddeleri üretmesidir. Bu kütüphanedeki komutlar, yapay zekayı <strong>"bilgi üreten"</strong> değil, <strong>"verilen bilgiyi işleyen ve hukuki formata sokan"</strong> bir asistan olarak kullanmanız için özel olarak kısıtlandırılmıştır.
+  </div>
+
+  <p class="cover-footer">law2do.com</p>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     İÇİNDEKİLER
+     ════════════════════════════════════════════════ -->
+<div class="toc page-break">
+  <h2 class="toc-title">İçindekiler</h2>
+
+  <a class="toc-category" href="#cat1">
+    <span class="toc-num bg-cat1">1</span>
+    <span class="toc-category-name">Dilekçe ve İhtarname Taslakları</span>
+    <span class="toc-range">Prompt 1 – 10</span>
+  </a>
+  <a class="toc-category" href="#cat2">
+    <span class="toc-num bg-cat2">2</span>
+    <span class="toc-category-name">Sözleşme İnceleme, Revizyon ve Risk Analizi</span>
+    <span class="toc-range">Prompt 11 – 20</span>
+  </a>
+  <a class="toc-category" href="#cat3">
+    <span class="toc-num bg-cat3">3</span>
+    <span class="toc-category-name">Hukuki Araştırma, Argümantasyon ve Analiz</span>
+    <span class="toc-range">Prompt 21 – 30</span>
+  </a>
+  <a class="toc-category" href="#cat4">
+    <span class="toc-num bg-cat4">4</span>
+    <span class="toc-category-name">Müvekkil İletişimi, Raporlama ve Beklenti Yönetimi</span>
+    <span class="toc-range">Prompt 31 – 40</span>
+  </a>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     KATEGORİ 1: DİLEKÇE VE İHTARNAME TASLAKLARI
+     ════════════════════════════════════════════════ -->
+<div id="cat1" class="section">
+  <div class="section-header">
+    <div class="section-icon bg-cat1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    </div>
+    <div>
+      <h2 class="section-title">Dilekçe ve İhtarname Taslakları</h2>
+      <p class="section-range">Prompt 1 – 10</p>
+    </div>
+  </div>
+
+  <!-- Prompt 1 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">01</span>
+      <span class="card-title">Husumet İtirazı İçeren Cevap Dilekçesi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Pasif veya aktif husumet yokluğu temelinde bir cevap dilekçesi iskeleti kurar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Köşeli parantezli alanları olayınıza göre doldurun.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Sen kıdemli bir Türk avukatsın. Aşağıda özetini verdiğim <span class="placeholder">[Dava Türü]</span> davası için, öncelikle "pasif husumet yokluğu" (sıfat yokluğu) ilk itirazını öne süren, usul ve esasa ilişkin itirazları içeren bir cevap dilekçesi taslağı hazırla. Kesinlikle hayali Yargıtay kararı veya kanun maddesi uydurma. Sadece mantıksal argümanların hukuki dayanak noktalarını belirt. Olay özeti: <span class="placeholder">[Özetiniz]</span></div>
+  </div>
+
+  <!-- Prompt 2 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">02</span>
+      <span class="card-title">İstinaf Başvuru Dilekçesi Şablonu</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Gerekçeli karardaki hukuka aykırılıkları yapılandırarak istinaf dilekçesi yazar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Gerekçeli kararın aleyhinize olan kısımlarını kopyalayıp ekleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Aşağıda ilk derece mahkemesinin gerekçeli kararının aleyhimize olan kısımlarını ve olayın özetini paylaşıyorum. Bu metinleri inceleyerek; eksik inceleme, delillerin hatalı takdiri ve hukuka aykırılık başlıkları altında profesyonel bir İstinaf Başvuru Dilekçesi taslağı oluştur. Duygusal ifadelerden kaçın, tamamen objektif ve hukuki bir dil kullan. Karar ve Olay: <span class="placeholder">[Metinler]</span></div>
+  </div>
+
+  <!-- Prompt 3 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">03</span>
+      <span class="card-title">İşçi Alacağı İhtarname Taslağı</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Arabuluculuk veya dava öncesi işverene çekilecek ihtarnamenin sınırlarını çizer.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">İşçinin çalışma sürelerini ve alacak kalemlerini belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Müvekkilim <span class="placeholder">[Tarih]</span> - <span class="placeholder">[Tarih]</span> arasında <span class="placeholder">[Görev]</span> olarak çalışmış ve haksız fesih ile işten çıkarılmıştır. Ödenmeyen kıdem, ihbar, fazla mesai ve UBGT alacaklarının ödenmesi için işverene çekilmek üzere resmi, net ve yasal süre (örn: 3 gün) içeren bir noter ihtarnamesi taslağı hazırla. Hesaplama yapma, sadece talepleri yapılandır.</div>
+  </div>
+
+  <!-- Prompt 4 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">04</span>
+      <span class="card-title">Tanık Beyanlarına Karşı Beyan Dilekçesi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karşı taraf tanıklarının çelişkili ifadelerini çürütmek için kullanılır.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Çelişkili tanık beyanlarını prompta yapıştırın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Aşağıda karşı taraf tanıklarının duruşma tutanağına geçen beyanları yer almaktadır. Bu beyanların kendi içindeki çelişkilerini, hayatın olağan akışına aykırı yönlerini ve müvekkilimin <span class="placeholder">[Senin İddian]</span> iddiasını nasıl dolaylı yoldan doğruladığını madde madde analiz eden bir "Tanık Beyanlarına Karşı Beyan Dilekçesi" hazırla. Beyanlar: <span class="placeholder">[Metin]</span></div>
+  </div>
+
+  <!-- Prompt 5 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">05</span>
+      <span class="card-title">Delil Listesi ve Açıklamaları (HMK m. 119)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Hangi delilin hangi vakıayı ispat ettiğini HMK standartlarında listeler.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Elinizdeki delilleri karışık olarak yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Elimizdeki deliller şunlardır: <span class="placeholder">[Delil 1, Delil 2, Delil 3...]</span>. Bu delilleri, her bir delilin hangi hukuki vakıayı (iddia edilen olayı) ispatlamaya yaradığını kısa ve net bir şekilde açıklayarak HMK formatında numaralandırılmış bir "Delil Listesi" haline getir.</div>
+  </div>
+
+  <!-- Prompt 6 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">06</span>
+      <span class="card-title">Savcılık Suç Duyurusu (Bilişim Suçları)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Özellikle teknik suçlarda savcılığın işini kolaylaştıracak yapısal bir şikayet dilekçesi yazar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Gerçekleşen siber olayı detaylandırın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Müvekkilimin <span class="placeholder">[Sosyal Medya/Banka]</span> hesabı ele geçirilmiştir. TCK m. 243 ve devamı (Bilişim Sistemine Girme) kapsamında Cumhuriyet Başsavcılığına sunulmak üzere; maddi vakıaları kronolojik sıraya koyan, delilleri (IP kayıtları, ekran görüntüleri) listeleyen ve şüphelilerin tespiti için gerekli müzekkerelerin yazılmasını talep eden bir suç duyurusu taslağı oluştur.</div>
+  </div>
+
+  <!-- Prompt 7 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">07</span>
+      <span class="card-title">İhtiyati Haciz Talep Dilekçesi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Yaklaşık ispat koşullarının sağlandığını vurgulayan dilekçe iskeleti.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Alacağın dayanağını (çek, senet, fatura) belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Elimizde vadesi geçmiş, protesto edilmiş <span class="placeholder">[Belge Türü ve Tutarı]</span> bulunmaktadır. Borçlunun mal kaçırma şüphesi yüksektir. İİK m. 257 ve devamı uyarınca, "yaklaşık ispat" kuralının gerçekleştiğini vurgulayan, teminatsız veya uygun bir teminatla ihtiyati haciz kararı verilmesini talep eden etkili bir mahkeme dilekçesi yaz.</div>
+  </div>
+
+  <!-- Prompt 8 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">08</span>
+      <span class="card-title">Ceza Davası Esasa İlişkin Savunma (Mütalaaya Karşı)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Savcının mütalaasındaki eksiklikleri hedef alan savunma taslağı.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Savcının mütalaasını ve sizin lehinize olan delilleri ekleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Savcılık makamının esas hakkındaki mütalaası şu şekildedir: <span class="placeholder">[Mütalaa Özeti]</span>. Bizim lehimize olan ve mütalaada göz ardı edilen deliller şunlardır: <span class="placeholder">[Deliller]</span>. 'Şüpheden sanık yararlanır' ilkesini ve 'masumiyet karinesini' temel alarak, bu eksiklikleri vurgulayan ve beraat talep eden bir savunma dilekçesi iskeleti oluştur.</div>
+  </div>
+
+  <!-- Prompt 9 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">09</span>
+      <span class="card-title">İtirazın İptali Davası İskeleti</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">İlamsız icra takibine haksız itiraz edilmesi durumunda yazılacak dilekçe.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Takip konusu alacağın faturaya/sözleşmeye dayandığını belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Müvekkil şirketin <span class="placeholder">[Fatura/Sözleşme]</span> dayalı <span class="placeholder">[Tutar]</span> alacağı için başlatılan ilamsız icra takibine borçlu tarafından haksız ve kötü niyetli olarak itiraz edilmiştir. İtirazın iptali, takibin devamı ve %20'den aşağı olmamak üzere icra inkar tazminatı taleplerini içeren, hukuki nedensellik bağını kuran bir dava dilekçesi taslağı hazırla.</div>
+  </div>
+
+  <!-- Prompt 10 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat1">10</span>
+      <span class="card-title">Delil Tespiti Talep Dilekçesi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Kaybolma riski olan delillerin acil tespiti için kullanılır.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Tespit edilecek durumu ve aciliyetini yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat1">Müvekkilin <span class="placeholder">[Evinde/İşyerinde/İnşaatında]</span> meydana gelen <span class="placeholder">[Hasar/Durum]</span> nedeniyle, ileride açılacak davaya esas olmak üzere hasar tespitinin yapılması gerekmektedir. HMK m. 400 şartlarının (hukuki yarar ve aciliyet) oluştuğunu gerekçelendiren bir Değişik İş Delil Tespiti talep dilekçesi oluştur.</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ════════════════════════════════════════════════
+     KATEGORİ 2: SÖZLEŞME İNCELEME, REVİZYON VE RİSK ANALİZİ
+     ════════════════════════════════════════════════ -->
+<div id="cat2" class="section">
+  <div class="section-header">
+    <div class="section-icon bg-cat2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div>
+      <h2 class="section-title">Sözleşme İnceleme, Revizyon ve Risk Analizi</h2>
+      <p class="section-range">Prompt 11 – 20</p>
+    </div>
+  </div>
+
+  <!-- Prompt 11 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">11</span>
+      <span class="card-title">Sözleşme Risk Analizi (Red-Flagging)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Uzun bir sözleşmedeki tek taraflı ve tehlikeli maddeleri tespit eder.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Sözleşme metnini (veya ilgili kısmı) prompta yapıştırın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Aşağıdaki sözleşme metnini <span class="placeholder">[Alıcı/Kiracı/İşçi]</span> perspektifinden incele. Sadece bu tarafın aleyhine olan, orantısız cezai şart içeren, tek taraflı fesih yetkisi veren veya gizli risk barındıran maddeleri tespit et. Bulduğun maddeleri listele ve yanlarına neden riskli olduklarını 2 cümleyle açıkla. Metin: <span class="placeholder">[Sözleşme Metni]</span></div>
+  </div>
+
+  <!-- Prompt 12 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">12</span>
+      <span class="card-title">Lehe Madde Ekletme ve Revizyon</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karşı tarafın gönderdiği taslağı müvekkil lehine yumuşatır.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Değiştirilecek acımasız maddeyi belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Karşı tarafın sözleşme taslağında şu madde yer alıyor: "<span class="placeholder">[Madde Metni]</span>". Bu madde bizim müvekkilimiz (<span class="placeholder">[Taraf İsmi]</span>) için çok ağır. Bu maddeyi hukuki dilde revize ederek, her iki taraf için daha dengeli (karşılıklılık ilkesine uygun) hale getiren 3 farklı alternatif metin yaz.</div>
+  </div>
+
+  <!-- Prompt 13 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">13</span>
+      <span class="card-title">Gizlilik (NDA) Sözleşmesi İskeleti</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Standart bir NDA için gerekli başlıkları ve maddeleri oluşturur.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Sektörü ve tarafları belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Bir <span class="placeholder">[Yazılım/Üretim]</span> projesi için Taraflar arasında imzalanacak karşılıklı bir Gizlilik Sözleşmesi (NDA) taslağı oluştur. İçerisinde mutlaka 'Gizli Bilginin Tanımı', 'İstisnalar', 'İhlal Halinde Cezai Şart' ve 'Bilgilerin İadesi/İmhası' başlıkları bulunsun. Türk Borçlar Kanunu sistematiğine uygun profesyonel bir dil kullan.</div>
+  </div>
+
+  <!-- Prompt 14 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">14</span>
+      <span class="card-title">Karmaşık Sözleşmeyi Özetleme (Müvekkil İçin)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Hukuki jargonu, müvekkilin anlayacağı basit bir yönetici özetine çevirir.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Sözleşmeyi ekleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Aşağıdaki <span class="placeholder">[Sözleşme Türü]</span> sözleşmesinin en kritik yükümlülüklerini, ödeme takvimini ve fesih şartlarını müvekkilimin anlayabileceği şekilde, hukuki jargondan uzak, maddeler halinde ve sade bir Türkçe ile özetle (Yönetici Özeti formatında). Metin: <span class="placeholder">[Sözleşme]</span></div>
+  </div>
+
+  <!-- Prompt 15 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">15</span>
+      <span class="card-title">Kira Sözleşmesi Özel Şartlar Üretici</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Matbu kırtasiye sözleşmelerini güncel risklere karşı güçlendirir.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Kiralanan yerin niteliğini (işyeri/konut) belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Bir <span class="placeholder">[Konut/Çatılı İşyeri]</span> kira sözleşmesinin 'Özel Şartlar' bölümüne eklenmek üzere; alt kiralama yasağı, aidat ve ortak giderlerin kiracıya ait olduğu, enflasyon oranında artış yapılacağı ve tahliye taahhütnamesinin sözleşmeden bağımsız olarak verileceğine dair 5 adet sağlam hukuki madde taslağı yaz.</div>
+  </div>
+
+  <!-- Prompt 16 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">16</span>
+      <span class="card-title">KVKK Aydınlatma Metni Taslağı</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Bir şirket için temel Aydınlatma Metni iskeleti oluşturur.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Hangi verilerin neden işlendiğini yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Müvekkil şirket <span class="placeholder">[Sektör]</span> alanında faaliyet göstermektedir. Web sitelerindeki iletişim formu aracılığıyla ziyaretçilerin Ad, Soyad ve E-posta verilerini toplamaktadır. 6698 sayılı KVKK madde 10 uyarınca veri sorumlusunun aydınlatma yükümlülüğünü yerine getiren, hukuki sebepleri ve amaçları açıkça belirten bir 'Aydınlatma Metni' taslağı yaz.</div>
+  </div>
+
+  <!-- Prompt 17 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">17</span>
+      <span class="card-title">İşe İadeyi Engelleyici Geçerli Neden Fesih Bildirimi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">İşverenin iş sözleşmesini geçerli nedenle (performans/davranış) feshini yazar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Fesih gerekçesini yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">İş Kanunu m. 18 ve 19 kapsamında, bir işçinin sözleşmesinin işverence <span class="placeholder">[Performans Düşüklüğü/İşletmesel Karar]</span> sebebiyle feshedildiğini bildiren bir fesih bildirimi taslağı hazırla. Savunmasının daha önce alındığını ve kıdem/ihbar tazminatlarının ödeneceğini metinde mutlaka vurgula.</div>
+  </div>
+
+  <!-- Prompt 18 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">18</span>
+      <span class="card-title">Sulh İbraname ve Feragat Protokolü</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Uyuşmazlığın mahkeme dışı çözümünde tarafların birbirini ibra ettiği belge.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Tarafları ve anlaşılan tutarı belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2"><span class="placeholder">[Taraf A]</span> ile <span class="placeholder">[Taraf B]</span> arasındaki <span class="placeholder">[Uyuşmazlık Konusu]</span> ile ilgili anlaşmazlık çözülmüştür. <span class="placeholder">[Taraf A]</span>, <span class="placeholder">[Tutar]</span> TL ödeme yapacak ve bunun karşılığında <span class="placeholder">[Taraf B]</span> açmış olduğu davadan feragat edecek ve karşı tarafı gayrikabili rücu ibra edecektir. Bu şartları içeren bağlayıcı bir Sulh ve İbraname Protokolü hazırla.</div>
+  </div>
+
+  <!-- Prompt 19 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">19</span>
+      <span class="card-title">Belirsiz Süreli İş Sözleşmesi Özelleştirme</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Matbu iş sözleşmesine rekabet yasağı gibi özel maddeler ekler.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">İşçinin pozisyonunu belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Bir <span class="placeholder">[Pozisyon Örn: Yazılım Geliştirici]</span> için hazırlanacak belirsiz süreli iş sözleşmesine eklenmek üzere; fikri mülkiyet haklarının devri, işten ayrıldıktan sonra 1 yıl süreyle rekabet yasağı ve müşteri ayartma yasağı (non-solicitation) içeren ağırlaştırılmış maddeler yaz.</div>
+  </div>
+
+  <!-- Prompt 20 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat2">20</span>
+      <span class="card-title">Sözleşme Çevirisi ve Yerelleştirme (Eng-Tr)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">İngilizce metni sadece çevirmez, Türk hukuku terminolojisine uyarlar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">İngilizce sözleşme maddesini ekleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat2">Aşağıdaki İngilizce sözleşme maddesini Türkçe'ye çevir. Ancak kelimesi kelimesine çeviri yapma; "Indemnification", "Force Majeure", "Severability" gibi kavramları doğrudan Türk Hukuku'ndaki (TBK, TTK) karşılıkları olan mesleki terminolojiyle (örn: Tazmin Yükümlülüğü, Mücbir Sebep, Bölünebilirlik) ifade et. Madde: <span class="placeholder">[İngilizce Metin]</span></div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ════════════════════════════════════════════════
+     KATEGORİ 3: HUKUKİ ARAŞTIRMA, ARGÜMANTASYON VE ANALİZ
+     ════════════════════════════════════════════════ -->
+<div id="cat3" class="section">
+  <div class="section-header">
+    <div class="section-icon bg-cat3">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+    <div>
+      <h2 class="section-title">Hukuki Araştırma, Argümantasyon ve Analiz</h2>
+      <p class="section-range">Prompt 21 – 30</p>
+    </div>
+  </div>
+
+  <!-- Prompt 21 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">21</span>
+      <span class="card-title">Karşı Tarafın Argümanlarını Çürütme (Karşıt Görüş)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karşı tarafın dilekçesini verip, zayıf noktalarını buldurur.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Karşı dilekçedeki ana iddiayı yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Karşı taraf dilekçesinde şu iddiada bulunmuştur: "<span class="placeholder">[İddia]</span>". Bir avukat olarak (Şeytanın Avukatı rolünü üstlen), bu iddianın mantıksal boşluklarını, ispat zorluklarını ve olası zayıf noktalarını analiz et. Bu iddiayı çürütmek için hangi karşı argümanları kurmam gerektiğini madde madde listele.</div>
+  </div>
+
+  <!-- Prompt 22 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">22</span>
+      <span class="card-title">Kanun Maddesi Açıklayıcı ve Alternatif Yorum</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karmaşık bir fıkranın lehe nasıl yorumlanabileceğini gösterir.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">İlgili kanun maddesini yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3"><span class="placeholder">[Kanun Adı ve Madde Numarası, örn: TBK m. 138]</span> hükmünü oku ve analiz et. Bu maddeyi müvekkilim olan <span class="placeholder">[Davacı/Davalı - Kiracı/Kiraya veren]</span> lehine nasıl geniş veya dar yorumlayabileceğime dair 3 farklı hukuki argümantasyon stratejisi geliştir.</div>
+  </div>
+
+  <!-- Prompt 23 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">23</span>
+      <span class="card-title">Yargıtay Araması İçin Anahtar Kelime Tespiti</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Lexpera, Kazancı veya Sinerji'de doğru emsali bulmak için arama terimleri üretir.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Olayı çok kısaca özetleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Olayımız şu: <span class="placeholder">[Özet]</span>. Bu olayla ilgili hukuk veri tabanlarında (Lexpera, Kazancı vb.) emsal Yargıtay kararı arayacağım. Arama motorunda nokta atışı sonuç bulmamı sağlayacak, birbirleriyle eşleştirilebilecek 10 adet spesifik "hukuki terim ve anahtar kelime" kombinasyonu listele. (Örn: "işe iade" AND "feshin son çare olması" gibi).</div>
+  </div>
+
+  <!-- Prompt 24 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">24</span>
+      <span class="card-title">Hukuki Nitelendirme (Vakıayı Hukuka Uyarlama)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karışık bir müvekkil hikayesini hukuki sebeplere oturtur.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Müvekkilin anlattığı olayı yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Müvekkilimin anlattığı olay şu şekildedir: <span class="placeholder">[Olayın sade anlatımı]</span>. Hakimlerin davayı nitelendirme yükümlülüğü vardır ancak ben dilekçemde bu olayı en doğru hukuki zemine oturtmak istiyorum. Bu olayı Türk Hukuku kapsamında hangi hukuki kurumlar (örn: vekaletsiz iş görme, haksız fiil, sözleşmeye aykırılık vb.) altında nitelendirebilirim? En güçlüden en zayıfa doğru sırala ve nedenini açıkla.</div>
+  </div>
+
+  <!-- Prompt 25 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">25</span>
+      <span class="card-title">Olası Zamanaşımı ve Hak Düşürücü Süre Kontrolü</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Davayı açmadan önce usulden reddedilme riskini kontrol eder.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Dava türünü ve olayın gerçekleşme tarihini belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3"><span class="placeholder">[Tarih]</span> tarihinde gerçekleşen <span class="placeholder">[Olay Türü]</span> nedeniyle <span class="placeholder">[Dava Türü]</span> davası açmaya hazırlanıyorum. Bu dava türü için Türk Hukukunda öngörülen genel veya özel zamanaşımı ile hak düşürücü süreleri belirt. Sürenin başlangıç anının istisnaları (örn: zararın öğrenilmesi) varsa bunları da açıkla.</div>
+  </div>
+
+  <!-- Prompt 26 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">26</span>
+      <span class="card-title">Çapraz Sorgu (Duruşma) Soru Listesi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Duruşmada karşı taraf tanığını köşeye sıkıştıracak sorular hazırlar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Tanığın daha önce verdiği ifadeyi ve olayı yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Duruşmada karşı tarafın tanığına sorular soracağım. Tanığın iddia ettiği ana konu şu: <span class="placeholder">[İddia]</span>. Ancak gerçekte olay şu şekilde oldu: <span class="placeholder">[Gerçek]</span>. Bu tanığın yalan söylediğini veya eksik bildiğini hakime hissettirmek için, doğrudan suçlamadan, evet/hayır cevaplarına zorlayan ve çelişki yaratacak 10 adet stratejik çapraz sorgu sorusu hazırla.</div>
+  </div>
+
+  <!-- Prompt 27 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">27</span>
+      <span class="card-title">Ceza Hukuku: İlliyet Bağı Analizi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Sanığın eylemi ile netice arasındaki bağın kopup kopmadığını inceler.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Olaydaki araya giren sebepleri yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Müvekkilim <span class="placeholder">[Fiil]</span> eylemini gerçekleştirmiştir ancak sonrasında <span class="placeholder">[Araya giren 3. kişi fiili veya olay]</span> yaşanmış ve nihayetinde <span class="placeholder">[Netice]</span> meydana gelmiştir. Türk Ceza Hukuku'ndaki "objektif isnadiyet" ve "illiyet bağının kesilmesi" teorileri ışığında, müvekkilimin neticeden sorumlu tutulamayacağına dair argümanlar geliştir.</div>
+  </div>
+
+  <!-- Prompt 28 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">28</span>
+      <span class="card-title">Görevli ve Yetkili Mahkeme Analizi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Davayı yanlış mahkemede açma riskini sıfırlar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Tarafların tacir olup olmadığını ve uyuşmazlığın konusunu yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Uyuşmazlık <span class="placeholder">[Taraf A - Tacir/Tüketici vs]</span> ile <span class="placeholder">[Taraf B]</span> arasında, <span class="placeholder">[Uyuşmazlık Konusu ve Tutarı]</span> ile ilgilidir. HMK ve özel kanunlar uyarınca, bu uyuşmazlıkta mutlak görevli ve kesin yetkili mahkeme neresidir? Tüketici, Asliye Ticaret veya Asliye Hukuk ayrımını neye göre yapmam gerektiğini açıkla.</div>
+  </div>
+
+  <!-- Prompt 29 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">29</span>
+      <span class="card-title">Harç ve Masraf Hesabı Mantığı (Müvekkile İzah)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Dava açarken müvekkile istenecek harç masrafının mantığını yazar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Dava değerini belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3">Müvekkilim <span class="placeholder">[Tutar]</span> TL değerinde nispi harca tabi bir <span class="placeholder">[Dava Türü]</span> açmak istiyor. Müvekkile göndermek üzere, dava açılışında peşin harcın (binde 68,31'in dörtte biri), başvuru harcının, gider avansının ve bilirkişi ücretlerinin ne anlama geldiğini ve tahmini maliyet mantığını açıklayan kısa ve anlaşılır bir e-posta metni yaz. Hesaplamayı yuvarlak yap.</div>
+  </div>
+
+  <!-- Prompt 30 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat3">30</span>
+      <span class="card-title">Arabuluculuk İlk Oturum Stratejisi</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Dava şartı arabuluculuk masasında elinizi güçlendirecek taktikler.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Başvuran veya karşı taraf olduğunuzu belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat3"><span class="placeholder">[Uyuşmazlık Türü]</span> davası için zorunlu arabuluculuk toplantısına katılacağım. Biz <span class="placeholder">[Başvurucu/Karşı Taraf]</span> tarafıyız. İlk toplantıda psikolojik üstünlüğü kurmak, kendi alt limitimizi belli etmeden karşı tarafın niyetini ölçmek için masada kullanabileceğim 5 müzakere stratejisi ve açılış cümlesi öner.</div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ════════════════════════════════════════════════
+     KATEGORİ 4: MÜVEKKİL İLETİŞİMİ, RAPORLAMA VE BEKLENTİ YÖNETİMİ
+     ════════════════════════════════════════════════ -->
+<div id="cat4" class="section">
+  <div class="section-header">
+    <div class="section-icon bg-cat4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div>
+      <h2 class="section-title">Müvekkil İletişimi, Raporlama ve Beklenti Yönetimi</h2>
+      <p class="section-range">Prompt 31 – 40</p>
+    </div>
+  </div>
+
+  <!-- Prompt 31 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">31</span>
+      <span class="card-title">İlk Müvekkil Görüşmesi Ön Bilgi Formu</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Görüşme öncesi müvekkilden temel bilgileri toplamak için şablon.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Doğrudan Word belgesi olarak kaydedin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Müvekkillerle ilk yüz yüze görüşmeden önce asistanımın onlara WhatsApp üzerinden veya ofiste kağıt olarak doldurtabileceği bir "Ön Bilgi Alım Formu" tasarla. İçinde kimlik bilgileri, karşı tarafın bilgileri, uyuşmazlığın çok kısa özeti, ellerindeki deliller ve daha önce başka avukatla görüşüp görüşmediklerini soran profesyonel sorular olsun.</div>
+  </div>
+
+  <!-- Prompt 32 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">32</span>
+      <span class="card-title">"Davanız Açıldı" Bilgilendirme E-postası</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">UYAP üzerinden dava açıldıktan sonra müvekkili rahatlatan standart mail.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Mahkeme adını ve dosya numarasını ekleyin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Müvekkile davasının bugün itibariyle UYAP üzerinden <span class="placeholder">[Mahkeme Adı]</span> ve <span class="placeholder">[Dosya No]</span> ile açıldığını bildiren kurumsal bir e-posta yaz. Bu mailde, tensip zaptının gelmesinin zaman alabileceğini, ilk duruşma gününün hemen belli olmayacağını ve gereksiz yere her gün e-devlet kontrolü yapmalarına gerek olmadığını, bir gelişme oldukça bizim ona haber vereceğimizi nazikçe izah et.</div>
+  </div>
+
+  <!-- Prompt 33 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">33</span>
+      <span class="card-title">Duruşma Sonrası Kısa Rapor (WhatsApp Uyumlu)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Adliye koridorundan çıkarken müvekkile atılacak hızlı ve profesyonel özet.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Duruşmada olan biteni kısaca yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Duruşmadan yeni çıktım. Gelişmeler şunlar: <span class="placeholder">[Kısa Notlar]</span>. Bu notları kullanarak müvekkile WhatsApp'tan atmak üzere; profesyonel, güven veren, bir sonraki aşamayı ve duruşma tarihini bildiren kısa bir bilgilendirme mesajı hazırla.</div>
+  </div>
+
+  <!-- Prompt 34 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">34</span>
+      <span class="card-title">Hukuki Risk Uyarısı (Sorumluluktan Kurtulma)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Müvekkil avukatın tavsiyesine uymadığında yazılı delil bırakmak için atılan mail.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Müvekkilin yapmak istediği riskli işlemi yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Müvekkilim, hukuki tavsiyeme aykırı olarak <span class="placeholder">[Riskli İşlem, örn: sözleşmeyi feshetmeden işi bırakmak]</span> istiyor. İleride doğacak zararlardan avukat olarak sorumlu tutulmamak (özen yükümlülüğümü yerine getirdiğimi ispatlamak) adına, müvekkile bu işlemin hukuki risklerini anlatan ve "tüm sorumluluğun kendisinde olduğunu" resmi ama saygılı bir dille belirten bir ihtar/bilgilendirme e-postası taslağı yaz.</div>
+  </div>
+
+  <!-- Prompt 35 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">35</span>
+      <span class="card-title">Ödeme ve Masraf Talep Mesajı</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Geciken vekalet ücreti veya yargılama gideri avansını isteme metni.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Talep edilen tutarı ve son tarihi belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Müvekkilden dosya için yatırılması gereken <span class="placeholder">[Tutar]</span> TL bilirkişi ücreti / harç avansı talep etmem gerekiyor. Mahkemenin verdiği kesin sürenin <span class="placeholder">[Tarih]</span> tarihinde dolacağını, bu ücret yatmazsa davanın veya delilin reddedileceğini vurgulayan, ciddiyeti hissettiren ama kaba olmayan bir e-posta/mesaj metni hazırla.</div>
+  </div>
+
+  <!-- Prompt 36 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">36</span>
+      <span class="card-title">Karşı Yan Vekalet Ücretinin Kime Ait Olduğunu İzah</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Müvekkillerin en çok itiraz ettiği "Avukatlık Kanunu m.164" konusunu açıklar.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Doğrudan kullanabilirsiniz.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Birçok müvekkil davanın kazanılması durumunda karşı taraftan tahsil edilen 'Karşı Yan Vekalet Ücreti'nin kendilerine ait olduğunu sanmaktadır. Avukatlık Kanunu m. 164'ü referans göstererek, aramızdaki vekalet ücretine ek olarak bu yasal vekalet ücretinin kanunen avukata ait olduğunu müvekkile en kibar ve ikna edici şekilde anlatan bir bilgilendirme metni yaz.</div>
+  </div>
+
+  <!-- Prompt 37 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">37</span>
+      <span class="card-title">İstinaf/Temyiz Aşaması Uzunluğu İzahı</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">"Karar çıktı, paramı ne zaman alırım?" diyen müvekkili frenleme metni.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">İlgili Bölge Adliye Mahkemesini/Yargıtay dairesini belirtebilirsiniz.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Davayı yerel mahkemede kazandık ancak karşı taraf istinaf/temyiz yoluna başvurdu. Müvekkile, dosyanın üst mahkemeye gideceğini, bu sürecin Türkiye şartlarında ortalama <span class="placeholder">[1-2 yıl]</span> sürebileceğini ve bu aşamada beklemekten başka hukuken yapılabilecek bir işlem olmadığını anlatan, endişesini giderici kurumsal bir e-posta yaz.</div>
+  </div>
+
+  <!-- Prompt 38 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">38</span>
+      <span class="card-title">Yeni Mevzuat Değişikliği Duyurusu (Bülten)</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Kurumsal müvekkillere (şirketlere) atılacak "Sizi önemsiyoruz" maili.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Yeni çıkan kanun/yönetmelik adını yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Resmi Gazete'de bugün <span class="placeholder">[Yeni Kanun/Yönetmelik Adı]</span> yayımlandı. Danışmanlığını yaptığım ticari müvekkillerime göndermek üzere, bu değişikliğin onların iş süreçlerini (İK, Sözleşmeler vb.) nasıl etkileyeceğini çok kısa özetleyen ve "detaylı analiz için ofisimizle iletişime geçebilirsiniz" eyleme çağrısıyla (call-to-action) biten bir Hukuk Bülteni e-postası taslağı yaz.</div>
+  </div>
+
+  <!-- Prompt 39 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">39</span>
+      <span class="card-title">Uzlaşma/Anlaşma Teklifini Müvekkile Sunma</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Karşı tarafın teklifini, kendi yorumunuzla müvekkile iletir.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Karşı tarafın teklifini ve davanın risklerini yazın.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Karşı taraf avukatı <span class="placeholder">[Teklif Tutarı/Şartı]</span> karşılığında sulh olmayı teklif etti. Bu teklifi müvekkilime ileten bir e-posta yaz. E-postada davanın sonuna kadar gitmesi durumunda kazanma ihtimalimizi, yargılama süresini ve harcamaları hatırlatarak, son kararın kendisine ait olduğunu ancak avukatı olarak bu teklifi <span class="placeholder">[Değerlendirmesi / Reddetmesi]</span> yönünde hukuki görüş bildirdiğimi belirt.</div>
+  </div>
+
+  <!-- Prompt 40 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-num bg-cat4">40</span>
+      <span class="card-title">İş Alamama / Red Mektubu</span>
+    </div>
+    <div class="card-meta">
+      <div>
+        <p class="card-label">Açıklama</p>
+        <p class="card-desc">Hukuken başarı şansı olmayan davayı nazikçe reddetme.</p>
+      </div>
+      <div>
+        <p class="card-label">Kullanım</p>
+        <p class="card-desc">Reddetme sebebini (zamanaşımı, delil yokluğu) kısaca belirtin.</p>
+      </div>
+    </div>
+    <div class="prompt-box border-cat4">Müvekkil adayı ofisime gelerek <span class="placeholder">[Olay]</span> konusunda dava açmamı istedi. Ancak hukuki incelemem sonucunda bu davanın <span class="placeholder">[Zamanaşımı/Delil Yetersizliği]</span> nedeniyle kaybedileceğini öngörüyorum. Hem kendi itibarımı korumak hem de ona boş umut vermemek için, davasını neden alamayacağımı saygılı bir dille açıklayan resmi bir ret e-postası hazırla.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     ARKA KAPAK
+     ════════════════════════════════════════════════ -->
+<div class="page-break"></div>
+<div class="back-page">
+  <p class="cover-badge" style="margin-bottom: 2rem;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+    law2do.com
+  </p>
+
+  <h2 class="back-title">Bu Rehber Faydalı Olduysa</h2>
+  <p class="back-text">
+    Law2Do, avukatların süre yönetimi, dosya takibi ve iş akışlarını dijitalleştiren bir pratik yönetim aracıdır. Yapay zeka promptlarıyla hızlandırdığınız işlerinizi, Law2Do ile organize edin.
+  </p>
+
+  <a href="https://law2do.com" class="back-cta" style="text-decoration:none;">
+    law2do.com'u Keşfedin
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+
+  <p class="back-footer">
+    &copy; 2026 Law2Do Ekibi<br>
+    Bu doküman yalnızca bilgilendirme amaçlıdır, hukuki danışmanlık yerine geçmez.
+  </p>
+</div>
+
+</body>
+</html>

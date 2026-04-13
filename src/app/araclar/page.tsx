@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Calculator, Lock, CheckCircle2, Mail, User } from "lucide-react";
+import { BookOpen, Calculator, Lock, CheckCircle2, Mail, User, Download } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -10,6 +10,7 @@ export default function AraclarPage() {
   const [pdfName, setPdfName] = useState("");
   const [pdfEmail, setPdfEmail] = useState("");
   const [pdfSubmitted, setPdfSubmitted] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(false);
 
   // Hesaplayıcı girdiler
   const [startDate, setStartDate] = useState("");
@@ -43,11 +44,21 @@ export default function AraclarPage() {
     });
   }
 
-  function handlePdfSubmit(e: React.FormEvent) {
+  async function handlePdfSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (pdfName.trim() && pdfEmail.includes("@")) {
-      setPdfSubmitted(true);
+    if (!pdfName.trim() || !pdfEmail.includes("@")) return;
+    setPdfLoading(true);
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: pdfName, email: pdfEmail, source: 'prompt-rehberi' }),
+      });
+    } catch {
+      // Lead kaydı başarısız olsa bile PDF indirmeye izin ver
     }
+    setPdfLoading(false);
+    setPdfSubmitted(true);
   }
 
   return (
@@ -106,7 +117,7 @@ export default function AraclarPage() {
                   AI Prompt Kütüphanesi
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Avukatlık pratiğinize özel 50+ yapay zeka komut şablonu.
+                  Avukatlık pratiğinize özel 40+ yapay zeka komut şablonu.
                   Dilekçe hazırlama, müvekkil yazışması ve hukuki araştırma
                   için hazır kullanıma uygun komutlar.
                 </p>
@@ -150,8 +161,9 @@ export default function AraclarPage() {
                       variant="default"
                       size="lg"
                       className="w-full rounded-xl font-semibold"
+                      disabled={pdfLoading}
                     >
-                      PDF Rehberini İndir
+                      {pdfLoading ? 'Gönderiliyor...' : 'PDF Rehberini İndir'}
                     </Button>
                   </form>
                 ) : (
@@ -165,16 +177,18 @@ export default function AraclarPage() {
                       <CheckCircle2 size={24} />
                     </div>
                     <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300 mb-1">
-                      Talebiniz alındı!
+                      Rehberiniz hazır!
                     </p>
-                    <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80">
-                      PDF rehberi kısa süre içinde e-posta adresinize gönderilecek.
+                    <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 mb-4">
+                      Aşağıdaki bağlantıdan hemen indirebilirsiniz.
                     </p>
                     <a
-                      href="#"
-                      className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-primary hover:underline"
+                      href="/prompt-rehberi.pdf"
+                      download
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:bg-primary/90 transition-colors"
                     >
-                      Hemen İndir (PDF)
+                      <Download size={16} />
+                      PDF İndir (40 Prompt)
                     </a>
                   </motion.div>
                 )}
