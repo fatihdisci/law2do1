@@ -81,22 +81,37 @@ export default function AraclarPage() {
     stampTax: number;
     netSeverance: number;
   }>(null);
+  const [calcError, setCalcError] = useState("");
 
   // Detay kilit açma
   const [unlockEmail, setUnlockEmail] = useState("");
   const [isUnlocked, setIsUnlocked] = useState(false);
 
   function handleCalculate() {
-    if (!startDate || !endDate || !grossSalary) return;
+    setCalcError("");
+    setCalcResult(null);
+    if (!startDate || !endDate || !grossSalary) {
+      setCalcError("Lütfen eksik alanları doldurunuz.");
+      return;
+    }
     const start = new Date(startDate);
     const end = new Date(endDate);
     const salary = parseFloat(grossSalary) || 0;
-    if (end <= start) return;
-    if (salary <= 0) return;
+    if (end <= start) {
+      setCalcError("İşten çıkış tarihi, işe giriş tarihinden sonra olmalı.");
+      return;
+    }
+    if (salary <= 0) {
+      setCalcError("Geçerli bir brüt ücret giriniz.");
+      return;
+    }
 
     const ceilingInfo = getCeiling(endDate);
     const tenure = calculateTenure(startDate, endDate);
-    if (tenure.totalYears < 1) return; // 1 yıldan az ise kıdem doğmaz
+    if (tenure.totalYears < 1) {
+      setCalcError("Kıdem tazminatı için 1 yılı doldurmuş olmak gereklidir.");
+      return;
+    }
 
     const baseSalary = Math.min(salary, ceilingInfo.amount);
     const isCeilingApplied = salary > ceilingInfo.amount;
@@ -333,6 +348,12 @@ export default function AraclarPage() {
                       className="w-full px-4 py-3.5 bg-background border border-border rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500/50 outline-none transition-all text-sm text-foreground placeholder:text-muted-foreground"
                     />
                   </div>
+
+                  {calcError && (
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-red-500 text-sm">
+                      {calcError}
+                    </div>
+                  )}
 
                   <Button
                     type="button"
