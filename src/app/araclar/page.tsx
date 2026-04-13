@@ -5,6 +5,59 @@ import { BookOpen, Calculator, Lock, CheckCircle2, Mail, User, Download } from "
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+// Kıdem Tavanı Geçmişi
+const CEILING_HISTORY = [
+    { start: '2026-01-01', end: '2026-06-30', amount: 64948.77 },
+    { start: '2025-07-01', end: '2025-12-31', amount: 53919.68 },
+    { start: '2025-01-01', end: '2025-06-30', amount: 46655.43 },
+    { start: '2024-07-01', end: '2024-12-31', amount: 41828.42 },
+    { start: '2024-01-01', end: '2024-06-30', amount: 35058.58 },
+    { start: '2023-07-01', end: '2023-12-31', amount: 23489.83 },
+    { start: '2023-01-01', end: '2023-06-30', amount: 19982.83 },
+    { start: '2022-07-01', end: '2022-12-31', amount: 15371.40 },
+    { start: '2022-01-01', end: '2022-06-30', amount: 10848.59 },
+    { start: '2021-07-01', end: '2021-12-31', amount: 8284.51 },
+    { start: '2021-01-01', end: '2021-06-30', amount: 7638.96 },
+    { start: '2020-07-01', end: '2020-12-31', amount: 7117.17 }
+];
+
+function getCeiling(exitDateStr: string) {
+    const exitDate = new Date(exitDateStr);
+    for (const period of CEILING_HISTORY) {
+        const start = new Date(period.start);
+        const end = new Date(period.end);
+        end.setHours(23, 59, 59, 999);
+        if (exitDate >= start && exitDate <= end) {
+            return { amount: period.amount, period: `${period.start.slice(0, 4)}/${period.start.slice(5, 7) <= '06' ? '1' : '2'}. Dönem` };
+        }
+    }
+    const latestPeriod = CEILING_HISTORY[0];
+    if (exitDate > new Date(latestPeriod.end)) {
+        return { amount: latestPeriod.amount, period: 'Güncel Dönem' };
+    }
+    const oldestPeriod = CEILING_HISTORY[CEILING_HISTORY.length - 1];
+    return { amount: oldestPeriod.amount, period: '2020/2. Dönem (En Eski)' };
+}
+
+function calculateTenure(startDate: string, endDate: string) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+    if (days < 0) {
+        months--;
+        const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+        days += prevMonth.getDate();
+    }
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    const totalYears = years + (months / 12) + (days / 365);
+    return { years, months, days, totalYears };
+}
+
 export default function AraclarPage() {
   // PDF / AI Prompt formu
   const [pdfName, setPdfName] = useState("");
@@ -19,9 +72,14 @@ export default function AraclarPage() {
 
   // Hesaplama sonucu
   const [calcResult, setCalcResult] = useState<null | {
-    workingMonths: number;
-    workingYears: number;
-    severancePay: number;
+    tenure: { years: number; months: number; days: number; totalYears: number };
+    ceiling: number;
+    ceilingPeriod: string;
+    baseSalary: number;
+    isCeilingApplied: boolean;
+    grossSeverance: number;
+    stampTax: number;
+    netSeverance: number;
   }>(null);
 
   // Detay kilit açma
@@ -29,18 +87,32 @@ export default function AraclarPage() {
   const [isUnlocked, setIsUnlocked] = useState(false);
 
   function handleCalculate() {
+    if (!startDate || !endDate || !grossSalary) return;
     const start = new Date(startDate);
     const end = new Date(endDate);
-    const diffMs = end.getTime() - start.getTime();
-    const totalMonths = diffMs / (1000 * 60 * 60 * 24 * 30.44);
-    const totalYears = totalMonths / 12;
     const salary = parseFloat(grossSalary) || 0;
-    // Kıdem tazminatı: her tam yıl için 30 günlük brüt ücret
-    const severancePay = (salary / 30) * 30 * Math.floor(totalYears);
+    if (end <= start) return;
+    if (salary <= 0) return;
+
+    const ceilingInfo = getCeiling(endDate);
+    const tenure = calculateTenure(startDate, endDate);
+    if (tenure.totalYears < 1) return; // 1 yıldan az ise kıdem doğmaz
+
+    const baseSalary = Math.min(salary, ceilingInfo.amount);
+    const isCeilingApplied = salary > ceilingInfo.amount;
+    const grossSeverance = baseSalary * tenure.totalYears;
+    const stampTax = grossSeverance * 0.00759;
+    const netSeverance = grossSeverance - stampTax;
+
     setCalcResult({
-      workingMonths: Math.floor(totalMonths),
-      workingYears: totalYears,
-      severancePay,
+      tenure,
+      ceiling: ceilingInfo.amount,
+      ceilingPeriod: ceilingInfo.period,
+      baseSalary,
+      isCeilingApplied,
+      grossSeverance,
+      stampTax,
+      netSeverance,
     });
   }
 
@@ -280,26 +352,30 @@ export default function AraclarPage() {
                     transition={{ duration: 0.4 }}
                     className="mt-6 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/40 rounded-2xl p-5"
                   >
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="flex flex-col gap-4">
                       <div>
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">
                           Çalışma Süresi
                         </p>
                         <p className="text-lg font-black text-foreground">
-                          {Math.floor(calcResult.workingYears)} yıl{" "}
-                          {calcResult.workingMonths % 12} ay
+                          {calcResult.tenure.years} Yıl {calcResult.tenure.months} Ay {calcResult.tenure.days} Gün
                         </p>
                       </div>
+                      
+                      {calcResult.isCeilingApplied && (
+                        <div className="bg-amber-100/50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800/40 rounded-xl p-3">
+                          <p className="text-xs text-amber-700 dark:text-amber-400 leading-relaxed">
+                            <strong>Bilgi:</strong> Brüt ücretiniz kıdem tavanını aştığı için, hesaplama <strong>₺{calcResult.ceiling.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> ({calcResult.ceilingPeriod} tavanı) üzerinden yapılmıştır.
+                          </p>
+                        </div>
+                      )}
+
                       <div>
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1">
-                          Kıdem Tazminatı
+                          Brüt Kıdem Tazminatı
                         </p>
-                        <p className="text-lg font-black text-emerald-600 dark:text-emerald-400">
-                          ₺
-                          {calcResult.severancePay.toLocaleString("tr-TR", {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          })}
+                        <p className="text-xl font-black text-emerald-600 dark:text-emerald-400">
+                          ₺{calcResult.grossSeverance.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </p>
                       </div>
                     </div>
@@ -322,47 +398,26 @@ export default function AraclarPage() {
                           <span className="text-xs text-muted-foreground">
                             Damga Vergisi (%0,759)
                           </span>
-                          <span className="text-sm font-bold text-foreground">
-                            ₺
-                            {(calcResult.severancePay * 0.00759).toLocaleString(
-                              "tr-TR",
-                              {
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2,
-                              }
-                            )}
+                          <span className="text-sm font-bold text-red-500 dark:text-red-400">
+                            - ₺{calcResult.stampTax.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                           </span>
                         </div>
                         <div className="h-px bg-border" />
                         <div className="flex items-center justify-between">
                           <span className="text-xs text-muted-foreground">
-                            İhbar Tazminatı (8 hafta)
+                            İhbar Tazminatı (Ort. 8 Hafta)
                           </span>
-                          <span className="text-sm font-bold text-foreground">
-                            ₺
-                            {((parseFloat(grossSalary) || 0) * 2).toLocaleString(
-                              "tr-TR",
-                              {
-                                minimumFractionDigits: 2,
-                                maximumFractionDigits: 2,
-                              }
-                            )}
+                          <span className="text-sm font-bold text-emerald-600/80">
+                            + ₺{((parseFloat(grossSalary) || 0) * 2).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                           </span>
                         </div>
                         <div className="h-px bg-border" />
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between pt-2">
                           <span className="text-xs font-bold text-foreground">
                             Net Tutar
                           </span>
-                          <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
-                            ₺
-                            {(
-                              calcResult.severancePay -
-                              calcResult.severancePay * 0.00759
-                            ).toLocaleString("tr-TR", {
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            })}
+                          <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">
+                            ₺{calcResult.netSeverance.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                           </span>
                         </div>
                       </div>
