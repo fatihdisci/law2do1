@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Calculator, Lock, CheckCircle2, Mail, User, Download } from "lucide-react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { BookOpen, Calculator, CheckCircle2, Mail, User, Download } from "lucide-react";
 
 // Kıdem Tavanı Geçmişi
 const CEILING_HISTORY = [
@@ -83,9 +81,7 @@ export default function AraclarPage() {
   }>(null);
   const [calcError, setCalcError] = useState("");
 
-  // Detay kilit açma
-  const [unlockEmail, setUnlockEmail] = useState("");
-  const [isUnlocked, setIsUnlocked] = useState(false);
+
 
   function handleCalculate() {
     setCalcError("");
@@ -304,9 +300,8 @@ export default function AraclarPage() {
                   İşçilik Tazminatı Hesaplayıcı
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  İşe giriş-çıkış tarihi ve brüt ücret bilgileriyle kıdem
-                  tazminatını anında hesaplayın. Detaylı döküm için e-posta
-                  ile kilidini açın.
+                  İşe giriş-çıkış tarihi ve brüt ücret bilgileriyle net kıdem
+                  tazminatınızı anında ve tüm detaylarıyla hesaplayın.
                 </p>
 
                 {/* Hesap formu */}
@@ -403,76 +398,35 @@ export default function AraclarPage() {
                   </motion.div>
                 )}
 
-                {/* Blur ile kilitli detay bölümü */}
+                {/* Detay bölümü */}
                 {calcResult && (
                   <div className="relative mt-4">
-                    {/* Kilitli içerik — blur uygulanır */}
-                    <div
-                      className={`transition-all duration-500 ${
-                        isUnlocked
-                          ? ""
-                          : "blur-sm pointer-events-none select-none"
-                      }`}
-                    >
-                      <div className="bg-muted/50 border border-border rounded-2xl p-5 space-y-3">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-muted-foreground">
-                            Damga Vergisi (%0,759)
-                          </span>
-                          <span className="text-sm font-bold text-red-500 dark:text-red-400">
-                            - ₺{calcResult.stampTax.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                          </span>
-                        </div>
-                        <div className="h-px bg-border" />
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-muted-foreground">
-                            İhbar Tazminatı (Ort. 8 Hafta)
-                          </span>
-                          <span className="text-sm font-bold text-emerald-600/80">
-                            + ₺{((parseFloat(grossSalary) || 0) * 2).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                          </span>
-                        </div>
-                        <div className="h-px bg-border" />
-                        <div className="flex items-center justify-between pt-2">
-                          <span className="text-xs font-bold text-foreground">
-                            Net Tutar
-                          </span>
-                          <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">
-                            ₺{calcResult.netSeverance.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                          </span>
-                        </div>
+                    <div className="bg-muted/50 border border-border rounded-2xl p-5 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">
+                          Damga Vergisi (%0,759)
+                        </span>
+                        <span className="text-sm font-bold text-red-500 dark:text-red-400">
+                          - ₺{calcResult.stampTax.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </span>
+                      </div>
+                      <div className="h-px bg-border" />
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted-foreground">
+                          İhbar Tazminatı (Ort. 8 Hafta)
+                        </span>
+                        <span className="text-sm font-bold text-emerald-600/80">
+                          + ₺{((parseFloat(grossSalary) || 0) * 2).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </span>
+                      </div>
+                      <div className="h-px bg-border" />
+                      <div className="flex flex-col gap-1 items-end mt-2 pt-2">
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">NET KIDEM TAZMİNATI</span>
+                        <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                          ₺{calcResult.netSeverance.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </span>
                       </div>
                     </div>
-
-                    {/* Kilit açma katmanı — sadece kilitli + hesaplandıysa */}
-                    {!isUnlocked && (
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-card/80 backdrop-blur-[3px] rounded-2xl border border-border p-6">
-                        <Lock
-                          size={20}
-                          className="text-muted-foreground"
-                        />
-                        <p className="text-xs text-center text-muted-foreground">
-                          Detaylı dökümü görmek için e-posta adresinizi girin
-                        </p>
-                        <input
-                          type="email"
-                          placeholder="E-posta adresiniz"
-                          value={unlockEmail}
-                          onChange={(e) => setUnlockEmail(e.target.value)}
-                          className="w-full max-w-xs px-4 py-2.5 bg-background border border-border rounded-xl focus:ring-2 focus:ring-primary/50 outline-none transition-all text-sm text-foreground placeholder:text-muted-foreground text-center"
-                        />
-                        <Button
-                          size="sm"
-                          onClick={() => {
-                            if (unlockEmail.includes("@"))
-                              setIsUnlocked(true);
-                          }}
-                          className="rounded-xl"
-                        >
-                          Detayları Göster
-                        </Button>
-                      </div>
-                    )}
                   </div>
                 )}
               </div>
