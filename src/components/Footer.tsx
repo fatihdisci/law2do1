@@ -17,7 +17,7 @@ const footerLinks = {
     { href: "/pricing", label: "Paketler" },
     { href: "/blog", label: "Blog" },
     { href: "/#how-it-works", label: "Nasıl Çalışır?" },
-    { href: "/login", label: "Giriş Yap" },
+    { href: "/araclar", label: "Araçlar" },
   ],
   sirket: [
     { href: "/iletisim", label: "İletişim" },
